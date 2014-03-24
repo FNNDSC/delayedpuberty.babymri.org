@@ -8,7 +8,7 @@
       <div class="summary wrapper2">
       <div class='col-md-12'>
       <div id="picture" style="width:110px;height:135px; margin-right:10px; float:left">
-        <img src="images/team/{{people.gsx$picture.$t}}" style="width:100%; height:100%;">
+        <img src="{{gdrive}}/{{people.gsx$picture.$t}}" style="width:100%; height:100%;">
       </div>
       <div id="info" class="aside">
         {{people.gsx$hospitaltitle.$t}}</br>
@@ -67,6 +67,7 @@ border-top-style: solid;">
   <script>
     Polymer('people-element', {
       peopleLoaded: 1,
+      gdrive: 'https://googledrive.com/host/0B8u7h0aKnydhYkRMZ2ktTnh6a3M/',
       peopleChanged: function() {
         var self = this;
         this.onload=function(){this.peopleLoaded *= -1;};
