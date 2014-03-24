@@ -1,0 +1,78 @@
+      #labbook{
+        position: relative;
+        font-size: 30px;
+        border-bottom: 1px solid #FFF;
+      }
+
+      .slider {
+        width: 100%;
+        margin: 50px auto 0;
+      }
+
+      #slicedrop{
+        font-size: 30px;
+        position: relative;
+        border-bottom: 1px solid #FFF;
+      }
+
+      .buttons{
+        display: flex;
+        flex-flow: row wrap;
+        border: 1px solid #0088cc;
+        margin-top: 30px;
+      }
+      
+      .link{
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 50%;
+        color: #fff;    
+        text-align: center;
+        padding:10px;
+      }
+      
+      .source{
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        width: 50%;
+        color: #fff;
+        border-left: 1px solid #0088cc;
+        text-align: center;
+        padding:10px;
+      }
+
+      #xtk{
+        font-size: 30px;
+        position: relative;
+        border-bottom: 1px solid #FFF;
+      }
+
+      .container ul{
+        list-style-position:inside;
+      }
+      .container li{
+        line-height: normal;
+      }
+
+      #more{
+        font-size: 30px;
+        position: relative;
+        border-bottom: 1px solid #FFF;
+      }
+
+      #owl-demo .item{
+        margin: 3px;
+      }
+
+      #owl-demo .item img{
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .technology{
+        color: grey;
+        font-style: italic;
+      }

@@ -1,0 +1,23 @@
+      #live{
+        font-size: 30px;
+        position: relative;
+        border-bottom: 2px solid #FFF;
+      }
+
+      #prev{
+
+        font-size: 30px;
+        position: relative;
+                border-bottom: 2px solid #FFF;
+      }
+
+      #liveContent, #prevContent{
+        padding: 20px 10px;
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        flex-direction: row;
+      }

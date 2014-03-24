@@ -1,0 +1,64 @@
+<polymer-element name="page-element"  attributes="scrool structure">
+  <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto" /> -->
+<link rel="stylesheet" type="text/css" href="newpage.css" />
+
+  <script>
+    Polymer('page-element', {
+      name: '',
+      targets: null,
+      curSection: 0,
+      prevSection: 0,
+      attached: function(){
+        var affix = this.shadowRoot.querySelector('#'+this.name+'-affix');
+        $(affix).affix();
+
+        this.refresh();
+      },
+      detached: function(){
+          this.targets = null;
+          this.sections = null;
+          this.sectionsID = null;
+          this.offsetHeights = null;
+          this.nbSections = null;
+      },
+      refresh: function(){
+          this.targets = this.shadowRoot.querySelectorAll('#'+this.name+'-affix ul a');
+          this.sections = $(this.shadowRoot.querySelectorAll('section'));
+          this.sectionsID = this.sections.map( function(){ return this.id;});
+          this.offsetTops = this.sections.map( function(){ return this.offsetTop;});
+          this.nbSections = this.sections.length;
+      },
+      gotoSection: function(e){
+        var id = e.target.getAttribute('data-section');
+        this.fire('gotoSection', {offsetTop: this.offsetTops[id]});
+      },
+      scroolChanged: function(){
+        var match = false;
+        for(var i = 0; i<this.nbSections - 1; i++){
+          if(this.scrool >= this.offsetTops[i] && this.scrool < this.offsetTops[i+1]){
+            this.curSection = i;
+            match = true;
+            break;
+          }
+        }
+
+        if(!match){
+          this.curSection = this.nbSections - 1;
+        }
+
+        this.updateNavigation();
+      },
+      updateNavigation: function(){
+        if(this.curSection != this.prevSection && this.targets){
+          // desactivate previous section
+          this.targets[this.prevSection].classList.remove('active');
+          // // activate current section
+          this.targets[this.curSection].classList.add('active');
+          // update variable
+          this.prevSection = this.curSection;
+        }
+      }
+    });
+
+  </script>
+</polymer-element>

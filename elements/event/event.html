@@ -1,0 +1,30 @@
+
+<polymer-element name="event-element"  attributes="event videoLoaded">
+  <template>
+<!--     <link rel="stylesheet" href="event.css"> -->
+
+    <div id="liveStream">
+    </div>
+    <div id="liveSummary">
+      <div id="liveTitle" >{{event.gsx$title.$t}}</div>
+      <div id="liveTime" >{{event.gsx$showtime.$t}}</div>
+      <div id="liveSpeaker" >{{event.gsx$speaker.$t}}</div>
+      <div id="liveAbstract" >{{event.gsx$abstract.$t}}</div>
+    </div>
+  </template>
+  
+  <script>
+    Polymer('event-element', {
+      event: null,
+      peopleLoaded: 1,
+    	eventChanged: function(){
+        var self = this;
+        this.onload=function(){this.videoLoaded *= -1;};
+
+        if(this.event){
+         	this.$.liveStream.innerHTML = this.event.gsx$url.$t;
+         }
+       }
+    });
+  </script>
+</polymer-element>

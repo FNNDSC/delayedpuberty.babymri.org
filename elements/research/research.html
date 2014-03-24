@@ -1,0 +1,92 @@
+<link rel="import" href="../../lib-elements/polymer-jsonp/polymer-jsonp.html">
+
+<link rel="import" href="../page/page.html">
+
+<polymer-element name="research-element" extends="page-element">
+  <template>
+      <div id='YALALA' class="container">
+        <div id="jumbo" class=" jumbotron fBox" >
+          <h2>
+            <span class="small">Our research addresses critical needs in the pediatric </span>
+            <span class="large {{name}}">population</span>
+          </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-2 ">
+          <div id='{{name}}-affix'  class="fBox">
+            <ul id='{{name}}-navigation' class="nav ">
+              Navigation
+              <template if="{{structure != null}}">
+                <template repeat="{{section in structure}}">
+                  <li on-tap="{{gotoSection}}">
+                    <a id='{{name}}-nav-{{section.index}}' class='{{name}}' data-section='{{section.index}}'>{{section.label}}</a>
+                  </li> 
+                </template> 
+              </template>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-10">
+        <div class="fBox">
+
+        <section id="challenges" class="element">
+          <div id="challengesTitle" class="title {{name}}"></div>
+          <div id="challengesContent" class="content"></div>
+          <div class='clear'></div>
+        </section>
+
+        <section id="mri" class="element">
+          <div id="mriTitle" class="title {{name}}"></div>
+          <div id="mriContent" class="content"></div>
+          <div class='clear'></div>
+        </section>
+
+        <section id="nirs" class="element">    
+          <div id="nirsTitle" class="title {{name}}"></div>
+          <div id="nirsContent" class="content"></div>
+          <div class='clear'></div>
+        </section>
+
+        <section id="meg" class="element">
+          <div id="megTitle" class="title {{name}}"></div>
+          <div id="megContent" class="content"></div>
+          <div class='clear'></div>
+        </section>
+
+    </div>
+    </div>
+
+    </div>
+    </div>
+
+    <polymer-jsonp auto url="https://spreadsheets.google.com/feeds/list/{{spreadsheet}}/od6/public/values?alt=json-in-script&callback=" response="{{research}}"></polymer-jsonp>
+
+  </template>
+ 
+  <script>
+    Polymer('research-element', {
+      name: 'research',
+      spreadsheet: '0Asu7h0aKnydhdEpPMXFFNFVTU1E5ZXFJSGZjbVJTOGc',
+      attached: function(){
+        this.super();
+        var self = this;
+        this.onload=function(){self.refresh();};
+      },
+      researchChanged: function() {
+        if(this.research){
+          // titles
+          this.$.challengesTitle.innerHTML = this.research.feed.entry[0].gsx$challenges.$t;
+          this.$.mriTitle.innerHTML = this.research.feed.entry[0].gsx$mri.$t;
+          this.$.nirsTitle.innerHTML = this.research.feed.entry[0].gsx$nirs.$t;
+          this.$.megTitle.innerHTML = this.research.feed.entry[0].gsx$meg.$t;
+          // contents
+          this.$.challengesContent.innerHTML = this.research.feed.entry[1].gsx$challenges.$t;
+          this.$.mriContent.innerHTML = this.research.feed.entry[1].gsx$mri.$t;
+          this.$.nirsContent.innerHTML = this.research.feed.entry[1].gsx$nirs.$t;
+          this.$.megContent.innerHTML = this.research.feed.entry[1].gsx$meg.$t;          
+        }
+      }
+    });
+
+  </script>
+</polymer-element>

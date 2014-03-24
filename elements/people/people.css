@@ -1,0 +1,116 @@
+
+     .icon{
+        font-weight: normal;
+        font-family: "FontAwesome";
+        color: #08C;
+        text-align: center;
+     }
+
+     .phone::before{
+        content:"\f095";
+     }
+     .fax::before{
+        content:"\f02f";
+     }
+     .email::before{
+        content:"\f003";
+     }
+     .location::before{
+        content:"\f0d1";
+        vertical-align:top; 
+     }
+     .biography{
+              text-align: left;
+      }
+
+      .biography::before{
+        content:"\f107";
+      }
+
+      .contact::before{
+        content:"\f08d";
+      }
+
+polymer-ui-collapsible {
+        border: 1px solid #ddd;
+      }
+      
+      .polymer-ui-collapsible-header {
+        padding: 10px;
+        border-bottom: 1px solid #bcbcbc;
+        font-weight: normal;
+        cursor: pointer;
+      }
+      
+      .content {
+        padding: 10px;
+      }
+
+      .wrapper2 {
+            -webkit-box-shadow: rgb(204, 204, 204) 1px 1px 10px 0px;
+border-radius: 5px;
+margin-top: 10px;
+      }
+
+
+    #gallery{
+  position:relative;
+  margin: 0 auto;
+  overflow:hidden;
+  width:940px;
+  height:250px;
+}
+#slider{
+  position:absolute;
+  left:0;
+  height:300px;  
+}
+#slider > div 
+{  position:relative;
+  float:left;
+  width:890px;
+  height:250px;
+  overflow-y:auto;
+}
+
+.pageNav{
+  float:left;
+  padding: 5px;
+}
+.pageNav:hover{
+  background-color: lightgrey;
+  cursor:pointer;
+}
+
+h1{
+  color: #009999;
+display: block;
+padding: 5px;
+margin: 0 !important;
+font-size: 20px;
+font-family: 'Open Sans', sans-serif;
+font-weight: normal;
+}
+
+h3{
+  font-size: 1.17em;
+  line-height:20px;
+  font-weight:normal;
+}
+#contactInfo{
+position: absolute;
+top: -1px;
+right: -1px;
+}
+
+.selected{
+  background-color: rgb(0, 136, 204);
+  color:white;
+}
+
+.contact{
+  color:rgb(0, 136, 204)!important;
+}
+span{
+  display: inline-block!important;
+}

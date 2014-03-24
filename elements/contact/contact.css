@@ -1,0 +1,32 @@
+      .icon{
+        font-weight: bold;
+        font-style: normal;
+        font-family: "FontAwesome";
+        text-align: left;
+      }
+
+      .phone::before{
+        content:"\f095";
+        color: #08C;
+      }
+      
+      .fax::before{
+        content:"\f02f";
+        color: #08C;
+      }
+
+      .info{
+        background-color: #FFF;
+        padding: 0 10px 10px 10px;
+        font-size: 18px;
+        font-style: italic;
+      }
+
+      .icon>span{
+  display: inline-block!important;
+}
+.subtitle{
+border-bottom: 1px solid;
+display: inline-block;
+
+}
