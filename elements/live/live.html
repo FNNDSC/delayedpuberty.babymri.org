@@ -32,6 +32,10 @@
         <div class="col-md-10">
         <div class="fBox">
 
+      <template if="{{live == null}}">
+        <img src="../../images/spinner.gif"> loading content...
+      </template>
+
         <section id="live" class='element'>
           <div id="liveSectionTitle" class="title {{name}}">Next talk</div>
           <template if="{{live != null}}">

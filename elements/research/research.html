@@ -28,6 +28,10 @@
         </div>
         <div class="col-md-10">
         <div class="fBox">
+          
+      <template if="{{research == null}}">
+        <img src="../../images/spinner.gif"> loading content...
+      </template>
 
         <section id="challenges" class="element">
           <div id="challengesTitle" class="title {{name}}"></div>

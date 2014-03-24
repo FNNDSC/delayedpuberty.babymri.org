@@ -31,9 +31,11 @@
         <div class="col-md-10">
         <div class="fBox">
 
+      <template if="{{posts == null}}">
+        <img src="../../images/spinner.gif"> loading content...
+      </template>
+
       <section id="welcome" class="element">
-
-
       <div id="generalContent" class="content"></div>
       <div id="researchContent" class="content"></div>
       <div id="softwareContent" class="content"></div>

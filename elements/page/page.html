@@ -31,6 +31,7 @@
       gotoSection: function(e){
         var id = e.target.getAttribute('data-section');
         this.fire('gotoSection', {offsetTop: this.offsetTops[id]});
+        console.log(this.offsetTops[id]);
       },
       scroolChanged: function(){
         var match = false;
@@ -45,7 +46,6 @@
         if(!match){
           this.curSection = this.nbSections - 1;
         }
-
         this.updateNavigation();
       },
       updateNavigation: function(){

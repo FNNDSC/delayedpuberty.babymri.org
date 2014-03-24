@@ -30,6 +30,10 @@
         <div class="col-md-10">
         <div class="fBox">
 
+      <template if="{{highlights == null}}">
+        <img src="../../images/spinner.gif"> loading content...
+      </template>
+
         <section id="highlights" class="element">
           <div class="title {{name}}">highlights</div>
           <div id="owl-demo" class="owl-carousel">
@@ -166,11 +170,14 @@
       name:'highlights',
       spreadsheet: '0Asu7h0aKnydhdHlaTndWaUVmOHRpRTMzX3VmWW9VVFE',
       attached: function(){
+                console.log('attached');
+
         this.super();
         var self = this;
         this.onload=function(){self.refresh();};
         
-        $('#owl-demo').owlCarousel({
+        console.log(this.$['owl-demo']);
+        $(this.$['owl-demo']).owlCarousel({
             slideSpeed : 300,
             paginationSpeed : 400,
             singleItem:true,

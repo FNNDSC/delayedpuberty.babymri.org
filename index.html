@@ -59,13 +59,12 @@
                 myApp.refresh();
 
                 // start listening to 'scroll' event for scrollspying
-                var jqueryBody = $('body');
                 window.onscroll = function (event) {
-                    myApp.scrollTopC = jqueryBody.scrollTop();
+                    myApp.scrollTopC = $(document).scrollTop();
                 }
                 // start listening tp 'gotoEvent' to know if we should scroll or not
                 this.addEventListener('gotoSection', function(e) {
-                    jqueryBody.scrollTop(e.detail.offsetTop);
+                    $(document).scrollTop(e.detail.offsetTop);
                 });
             });
         </script>

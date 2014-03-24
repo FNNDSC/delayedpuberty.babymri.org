@@ -31,6 +31,11 @@
         </div>
         <div class="col-md-10">
         <div class="fBox">
+
+      <template if="{{contact == null}}">
+        <img src="../../images/spinner.gif"> loading content...
+      </template>
+
         <section id="main1" class="element">
           <div class="title {{name}}">main hospital</div>
           <template if="{{contact != null}}">

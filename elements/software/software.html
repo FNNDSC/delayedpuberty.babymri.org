@@ -30,8 +30,12 @@
         <div class="col-md-10">
         <div class="fBox">
 
-      <section id="labbook" class="element">
-        <template if="{{softwares != null}}">
+      <template if="{{softwares == null}}">
+        <img src="../../images/spinner.gif"> loading content...
+      </template>
+
+      <section id="labbook" class="element"
+c>        <template if="{{softwares != null}}">
           <template repeat="{{software in softwares.feed.entry}}">
             <template if="{{software.gsx$id.$t === 'labbook'}}">
               <div id="labbookTitle" class="title {{name}}">{{software.gsx$label.$t}}</div>
@@ -113,9 +117,12 @@
       name:'software',
       spreadsheet: '0Asu7h0aKnydhdEp2SjNBaVU0ajNuZnZPQ3BaVXB3dXc',
       attached: function(){
+        window.console.log('YOYOYO');
         this.super();
         var self = this;
         this.onload=function(){self.refresh();};
+
+        window.console.log('YOYOYO');
 
         $('#owl-demo0').owlCarousel({
             autoPlay: 8000, //Set AutoPlay to 3 seconds
@@ -139,6 +146,7 @@
           });
       },
       softwaresChanged: function(){
+        window.console.log('YOYOYO');
         if(this.softwares){
             var len = this.softwares.feed.entry.length;
             while (len--) {

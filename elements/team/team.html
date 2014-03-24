@@ -33,6 +33,9 @@
         <div class="col-md-10">
         <div class="fBox">
 
+      <template if="{{team == null}}">
+        <img src="../../images/spinner.gif"> loading content...
+      </template>
 
         <section id="faculty" class="element row">
           <div class="title {{name}}">faculty members</div>
