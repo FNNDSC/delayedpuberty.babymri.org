@@ -8,6 +8,9 @@
       <div class="container">
         <div id="jumbo" class=" jumbotron fBox" >
         <h2>
+          <template if="{{highlights == null}}">
+            <img src="../../images/spinner.gif">
+          </template>
           <span class="small">Some of our center</span>
           <span class="large {{name}}">highlights</span>
         </h2>
@@ -29,11 +32,6 @@
         </div>
         <div class="col-md-10">
         <div class="fBox">
-
-      <template if="{{highlights == null}}">
-        <img src="../../images/spinner.gif"> loading content...
-      </template>
-
         <section id="highlights" class="element">
           <div class="title {{name}}">highlights</div>
           <div id="owl-demo" class="owl-carousel">
@@ -175,9 +173,8 @@
         this.super();
         var self = this;
         this.onload=function(){self.refresh();};
-        
-        console.log(this.$['owl-demo']);
-        $(this.$['owl-demo']).owlCarousel({
+
+        $('#owl-demo').owlCarousel({
             slideSpeed : 300,
             paginationSpeed : 400,
             singleItem:true,

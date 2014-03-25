@@ -8,6 +8,9 @@
       <div class="container">
         <div id="jumbo" class=" jumbotron fBox" >
           <h2>
+            <template if="{{softwares == null}}">
+              <img src="../../images/spinner.gif">
+            </template>
             <span class="small">We develop softwares using cutting-edge and open-source</span>
             <span class="large {{name}}">technologies</span>
           </h2>
@@ -29,10 +32,6 @@
         </div>
         <div class="col-md-10">
         <div class="fBox">
-
-      <template if="{{softwares == null}}">
-        <img src="../../images/spinner.gif"> loading content...
-      </template>
 
       <section id="labbook" class="element"
 c>        <template if="{{softwares != null}}">

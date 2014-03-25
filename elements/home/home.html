@@ -9,6 +9,9 @@
 <div class="container">
         <div id="jumbo" class=" jumbotron fBox" >
         <h2>
+          <template if="{{home == null}}">
+            <img src="../../images/spinner.gif">
+          </template>
           <span class="small">Welcome to the</span>
           <span class="large {{name}}">FNNDSC</span>
         </h2>
@@ -31,10 +34,6 @@
         <div class="col-md-10">
         <div class="fBox">
 
-      <template if="{{posts == null}}">
-        <img src="../../images/spinner.gif"> loading content...
-      </template>
-
       <section id="welcome" class="element">
       <div id="generalContent" class="content"></div>
       <div id="researchContent" class="content"></div>
@@ -52,7 +51,7 @@
 
     
  
-<polymer-jsonp auto url="https://spreadsheets.google.com/feeds/list/{{spreadsheet}}/od6/public/values?alt=json-in-script&callback=" response="{{posts}}"></polymer-jsonp>
+<polymer-jsonp auto url="https://spreadsheets.google.com/feeds/list/{{spreadsheet}}/od6/public/values?alt=json-in-script&callback=" response="{{home}}"></polymer-jsonp>
 
   </template>
 
@@ -60,11 +59,11 @@
     Polymer('home-element', {
       name: 'home',
       spreadsheet: '0Asu7h0aKnydhdEhuTGVQVlh5WnlQOHROSlQxRjZJbnc',
-      postsChanged: function() {
-        if(this.posts){
-          this.$.generalContent.innerHTML = this.posts.feed.entry[0].gsx$general.$t;
-          this.$.researchContent.innerHTML = this.posts.feed.entry[0].gsx$research.$t;
-          this.$.softwareContent.innerHTML = this.posts.feed.entry[0].gsx$software.$t;
+      homeChanged: function() {
+        if(this.home){
+          this.$.generalContent.innerHTML = this.home.feed.entry[0].gsx$general.$t;
+          this.$.researchContent.innerHTML = this.home.feed.entry[0].gsx$research.$t;
+          this.$.softwareContent.innerHTML = this.home.feed.entry[0].gsx$software.$t;
         }
       }
     });

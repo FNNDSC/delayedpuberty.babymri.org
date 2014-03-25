@@ -11,6 +11,9 @@
       <div class="container">
         <div id="jumbo" class=" jumbotron fBox" >
           <h2>
+            <template if="{{team == null}}">
+              <img src="../../images/spinner.gif">
+            </template>
             <span class="small">We are a multidisciplinary</span>
             <span class="large {{name}}">team</span>
           </h2>
@@ -32,10 +35,6 @@
         </div>
         <div class="col-md-10">
         <div class="fBox">
-
-      <template if="{{team == null}}">
-        <img src="../../images/spinner.gif"> loading content...
-      </template>
 
         <section id="faculty" class="element row">
           <div class="title {{name}}">faculty members</div>

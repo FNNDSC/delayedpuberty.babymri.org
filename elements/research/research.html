@@ -7,6 +7,9 @@
       <div id='YALALA' class="container">
         <div id="jumbo" class=" jumbotron fBox" >
           <h2>
+            <template if="{{research == null}}">
+              <img src="../../images/spinner.gif">
+            </template>
             <span class="small">Our research addresses critical needs in the pediatric </span>
             <span class="large {{name}}">population</span>
           </h2>
@@ -28,10 +31,6 @@
         </div>
         <div class="col-md-10">
         <div class="fBox">
-          
-      <template if="{{research == null}}">
-        <img src="../../images/spinner.gif"> loading content...
-      </template>
 
         <section id="challenges" class="element">
           <div id="challengesTitle" class="title {{name}}"></div>

@@ -15,11 +15,11 @@
     "platform": "Polymer/platform#master",
     "core-component-page": "Polymer/core-component-page#master"
   },
-  "_release": "23044b02e0",
+  "_release": "1da29fa282",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "23044b02e049d7dc28913a1666342cdbf5868ec8"
+    "commit": "1da29fa282e9448c2598f6aa8668c1e11558e573"
   },
   "_source": "git://github.com/Polymer/polymer.git",
   "_target": "master",
