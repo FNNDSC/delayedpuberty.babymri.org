@@ -70,7 +70,7 @@
 
         <script>
             document.addEventListener('polymer-ready', function() {
-                // hode home page
+                 // hode home page
                 $('#loading-home').hide();
                 // Perform some behaviour
                 var myApp = document.querySelector('container-element');
@@ -92,6 +92,12 @@
                 this.addEventListener('gotoSection', function(e) {
                     $(document).scrollTop(e.detail.offsetTop);
                 });
+
+                                //
+                $('.navbar-collapse a').click(function(){
+                  $(".navbar-collapse").collapse('hide');
+                });
+
             });
         </script>
 
