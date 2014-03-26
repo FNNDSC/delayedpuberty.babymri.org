@@ -10,7 +10,7 @@
       <div class="container">
         <div id="jumbo" class=" jumbotron fBox" >
           <h2>
-          <template if="{{contact == null}}">
+          <template if="{{contact == null && cache == null}}">
             <img src="../../images/spinner.gif">
           </template>
             <span class="small">We have offices in 3 different</span>
@@ -140,8 +140,9 @@
 
     </div>
     </div>
-  
+  <template if="{{cache == null && attached == 1 }}">
   <polymer-jsonp auto url="https://spreadsheets.google.com/feeds/list/{{spreadsheet}}/od6/public/values?alt=json-in-script&callback=" response="{{contact}}"></polymer-jsonp>
+</template>
 
   </template>
   <script>
@@ -152,6 +153,11 @@
         this.super();
         var self = this;
         this.onload=function(){self.refresh();};
+
+        if(this.cache != null){
+          this.contact = this.cache;
+        }
+        this.attached = 1;
       },
       contactChanged: function(){
         if(this.contact){
@@ -160,6 +166,8 @@
               this.$[this.contact.feed.entry[len].gsx$location.$t+'-notes'].innerHTML = this.contact.feed.entry[len].gsx$notes.$t;
               this.$[this.contact.feed.entry[len].gsx$location.$t+'-map'].innerHTML = this.contact.feed.entry[len].gsx$map.$t;
             }
+
+            this.cache = this.contact;
         }
       }
     });

@@ -1,4 +1,4 @@
-<polymer-element name="page-element"  attributes="scrool structure">
+<polymer-element name="page-element"  attributes="scrool structure cache">
   <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto" /> -->
 <link rel="stylesheet" type="text/css" href="newpage.css" />
 
@@ -8,6 +8,8 @@
       targets: null,
       curSection: 0,
       prevSection: 0,
+      cache: null,
+      attached:0,
       attached: function(){
         var affix = this.shadowRoot.querySelector('#'+this.name+'-affix');
         $(affix).affix();

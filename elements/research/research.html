@@ -4,10 +4,10 @@
 
 <polymer-element name="research-element" extends="page-element">
   <template>
-      <div id='YALALA' class="container">
+      <div class="container">
         <div id="jumbo" class=" jumbotron fBox" >
           <h2>
-            <template if="{{research == null}}">
+            <template if="{{(research == null) && (cache == null)}}">
               <img src="../../images/spinner.gif">
             </template>
             <span class="small">Our research addresses critical needs in the pediatric </span>
@@ -62,7 +62,9 @@
     </div>
     </div>
 
-    <polymer-jsonp auto url="https://spreadsheets.google.com/feeds/list/{{spreadsheet}}/od6/public/values?alt=json-in-script&callback=" response="{{research}}"></polymer-jsonp>
+    <template if="{{cache == null && attached == 1 }}">
+        <polymer-jsonp auto url="https://spreadsheets.google.com/feeds/list/{{spreadsheet}}/od6/public/values?alt=json-in-script&callback=" response="{{research}}"></polymer-jsonp>
+    </template>
 
   </template>
  
@@ -74,6 +76,10 @@
         this.super();
         var self = this;
         this.onload=function(){self.refresh();};
+        if(this.cache != null){
+          this.research = this.cache;
+        }
+        this.attached = 1;
       },
       researchChanged: function() {
         if(this.research){
@@ -86,7 +92,9 @@
           this.$.challengesContent.innerHTML = this.research.feed.entry[1].gsx$challenges.$t;
           this.$.mriContent.innerHTML = this.research.feed.entry[1].gsx$mri.$t;
           this.$.nirsContent.innerHTML = this.research.feed.entry[1].gsx$nirs.$t;
-          this.$.megContent.innerHTML = this.research.feed.entry[1].gsx$meg.$t;          
+          this.$.megContent.innerHTML = this.research.feed.entry[1].gsx$meg.$t;    
+
+          this.cache = this.research; 
         }
       }
     });

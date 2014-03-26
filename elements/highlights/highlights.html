@@ -8,7 +8,7 @@
       <div class="container">
         <div id="jumbo" class=" jumbotron fBox" >
         <h2>
-          <template if="{{highlights == null}}">
+          <template if="{{highlights == null && cache == null}}">
             <img src="../../images/spinner.gif">
           </template>
           <span class="small">Some of our center</span>
@@ -159,7 +159,9 @@
     </div>
     </div>
 
-    <polymer-jsonp auto url="https://spreadsheets.google.com/feeds/list/{{spreadsheet}}/od6/public/values?alt=json-in-script&callback=" response="{{highlights}}"></polymer-jsonp>
+    <template if="{{cache == null && attached == 1 }}">
+      <polymer-jsonp auto url="https://spreadsheets.google.com/feeds/list/{{spreadsheet}}/od6/public/values?alt=json-in-script&callback=" response="{{highlights}}"></polymer-jsonp>
+    </template>
 
   </template>
 
@@ -168,8 +170,6 @@
       name:'highlights',
       spreadsheet: '0Asu7h0aKnydhdHlaTndWaUVmOHRpRTMzX3VmWW9VVFE',
       attached: function(){
-                console.log('attached');
-
         this.super();
         var self = this;
         this.onload=function(){self.refresh();};
@@ -183,6 +183,16 @@
             mouseDrag:false,
             touchDrage:false
           });
+
+        if(this.cache != null){
+          this.highlights = this.cache;
+        }
+        this.attached = 1;
+      },
+      highlightsChanged: function() {
+        if(this.highlights){
+          this.cache = this.highlights; 
+        }
       }
     });
   </script>

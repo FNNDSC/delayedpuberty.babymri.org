@@ -11,7 +11,7 @@
       <div class="container">
         <div id="jumbo" class=" jumbotron fBox" >
           <h2>
-            <template if="{{team == null}}">
+            <template if="{{team == null && cache == null}}">
               <img src="../../images/spinner.gif">
             </template>
             <span class="small">We are a multidisciplinary</span>
@@ -95,16 +95,29 @@
     </div>
     </div>
 
-  
+  <template if="{{cache == null && attached == 1 }}">
   <polymer-jsonp auto url="https://spreadsheets.google.com/feeds/list/{{spreadsheet}}/od6/public/values?alt=json-in-script&callback=" response="{{team}}"></polymer-jsonp>
+</template>
 
   </template>
   <script>
     Polymer('team-element', {
       name: 'team',
       spreadsheet: '0Asu7h0aKnydhdHN6R2lCX1N4VlZ3dnB2ZHhLWWFZQ3c',
+      attached: function(){
+        this.super();
+        if(this.cache != null){
+          this.team = this.cache;
+        }
+        this.attached = 1;
+      },
       peopleLoadedChanged: function(){
         this.refresh();
+      },
+      teamChanged: function(){
+        if(this.team){
+          this.cache = this.team; 
+        }
       }
       // attached: function(){
       //   this.super();

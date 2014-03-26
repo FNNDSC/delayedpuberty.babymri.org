@@ -8,7 +8,7 @@
       <div class="container">
         <div id="jumbo" class=" jumbotron fBox" >
           <h2>
-            <template if="{{softwares == null}}">
+            <template if="{{softwares == null && cache == null}}">
               <img src="../../images/spinner.gif">
             </template>
             <span class="small">We develop softwares using cutting-edge and open-source</span>
@@ -106,8 +106,9 @@ c>        <template if="{{softwares != null}}">
 
     </div>
     </div>
- 
+ <template if="{{cache == null && attached == 1 }}">
 <polymer-jsonp auto url="https://spreadsheets.google.com/feeds/list/{{spreadsheet}}/od6/public/values?alt=json-in-script&callback=" response="{{softwares}}"></polymer-jsonp>
+</template>
 
   </template>
 
@@ -116,13 +117,9 @@ c>        <template if="{{softwares != null}}">
       name:'software',
       spreadsheet: '0Asu7h0aKnydhdEp2SjNBaVU0ajNuZnZPQ3BaVXB3dXc',
       attached: function(){
-        window.console.log('YOYOYO');
         this.super();
         var self = this;
         this.onload=function(){self.refresh();};
-
-        window.console.log('YOYOYO');
-
         $('#owl-demo0').owlCarousel({
             autoPlay: 8000, //Set AutoPlay to 3 seconds
             items : 4,
@@ -143,9 +140,13 @@ c>        <template if="{{softwares != null}}">
             itemsDesktop : [1199,3],
             itemsDesktopSmall : [979,3]
           });
+
+        if(this.cache != null){
+          this.softwares = this.cache;
+        }
+        this.attached = 1;
       },
       softwaresChanged: function(){
-        window.console.log('YOYOYO');
         if(this.softwares){
             var len = this.softwares.feed.entry.length;
             while (len--) {
@@ -166,6 +167,8 @@ c>        <template if="{{softwares != null}}">
       }
 
     }
+
+    this.cache = this.softwares; 
   }
 }
     });
