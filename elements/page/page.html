@@ -33,7 +33,6 @@
       gotoSection: function(e){
         var id = e.target.getAttribute('data-section');
         this.fire('gotoSection', {offsetTop: this.offsetTops[id]});
-        console.log(this.offsetTops[id]);
       },
       scroolChanged: function(){
         var match = false;
@@ -46,15 +45,16 @@
         }
 
         if(!match){
-          this.curSection = this.nbSections - 1;
+          this.curSection = 0;
         }
+
         this.updateNavigation();
       },
       updateNavigation: function(){
         if(this.curSection != this.prevSection && this.targets){
           // desactivate previous section
           this.targets[this.prevSection].classList.remove('active');
-          // // activate current section
+          // activate current section
           this.targets[this.curSection].classList.add('active');
           // update variable
           this.prevSection = this.curSection;
