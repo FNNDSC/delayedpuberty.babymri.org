@@ -17,3 +17,43 @@ a.active{
 .jumbotron{
     background-color: rgba(255, 255, 255, .5);
 }
+
+section > .title{
+    font-size: 20px;
+    line-height: normal;
+    padding: 10px;
+    border-bottom: 1px solid;
+    margin-bottom: 10px;
+    color: #353535;
+}
+
+@media (min-width: 1000px){
+.jumbotron .small{
+    display: block;
+    font-style: italic;
+    font-weight: 100;
+    font-size: 30px;
+}
+
+.jumbotron .large{
+    display: block;
+    font-size: 70px;
+    line-height: 1.05;
+    letter-spacing: -3px;
+}
+}
+
+@media (max-width: 999px){
+.jumbotron{
+    padding: 10px;
+}
+.jumbotron .small{
+    font-style: italic;
+    font-weight: 100;
+    font-size: 20px;
+}
+
+.jumbotron .large{
+    font-size: 20px;
+}
+}
