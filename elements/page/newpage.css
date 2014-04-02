@@ -5,8 +5,8 @@ a.active{
 .fBox{
     background-color: #FFF;
     padding: 20px;
-    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;   
     box-sizing: border-box; 
     -moz-box-shadow: rgb(204, 204, 204) 1px 1px 10px 0px;
     -webkit-box-shadow: rgb(204, 204, 204) 1px 1px 10px 0px;
@@ -56,4 +56,4 @@ section > .title{
 .jumbotron .large{
     font-size: 20px;
 }
-}
+}*/
