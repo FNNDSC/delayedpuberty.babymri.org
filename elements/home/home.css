@@ -1,8 +1,15 @@
-      .content{
-        font-size:25px;
-        padding: 20px 0;
-      }
+#welcome .logo-home{
+  display:none;
+}
 
-      .fBox{
-        background-color:rgba(255, 255, 255, 0.6);
-      }
+@media (min-width: 1000px){
+.content{
+    font-size:22px;
+    padding: 20px 0;
+}
+
+#welcome .logo-home{
+	float:right;
+	display:block;
+}
+}

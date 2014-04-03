@@ -18,6 +18,10 @@ a.active{
     background-color: rgba(255, 255, 255, .5);
 }
 
+.jumbotron .large{
+    color:rgb(0, 143, 255);
+}
+
 section > .title{
     font-size: 20px;
     line-height: normal;
