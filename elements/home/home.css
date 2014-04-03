@@ -3,7 +3,7 @@
 }
 
 @media (min-width: 1000px){
-.content{
+#welcome .content{
     font-size:22px;
     padding: 20px 0;
 }
