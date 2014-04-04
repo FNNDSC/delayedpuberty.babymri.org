@@ -60,6 +60,8 @@
     </div>
     </div>
 
+    <footer-element></footer-element>
+
     <template if="{{cache == null && attached == 1 }}">
         <polymer-jsonp auto url="https://spreadsheets.google.com/feeds/list/{{spreadsheet}}/od6/public/values?alt=json-in-script&callback=" response="{{research}}"></polymer-jsonp>
     </template>
