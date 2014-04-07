@@ -2,6 +2,9 @@
 
 <link rel="import" href="../page/page.html">
 
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="highlights.css" />
+
 <polymer-element name="highlights-element" extends="page-element">
   <template>
 
@@ -34,23 +37,23 @@
           <div class="title {{name}}">highlights</div>
           <div id="owl-demo" class="owl-carousel">
             <div class="item">
-              <a href="http://goo.gl/oML6sw" target="_blank" class="image">
+<!--               <a href="http://goo.gl/oML6sw" target="_blank" class="image"> -->
                 <img src="../../images/highlights/h1.png">
-                <div class="image-info">" Wow! "<br/>" Amazing! "</div>
+<!--                 <div class="image-info">" Wow! "<br/>" Amazing! "</div> -->
                 <div class="image-caption">Real-time MRI reslicing in the web browser</div>
-              </a>
+<!--               </a> -->
             </div>
             <div class="item">
-              <a href="http://goo.gl/oML6sw" target="_blank" class="image">
+<!--               <a href="http://goo.gl/oML6sw" target="_blank" class="image"> -->
                 <img src="../../images/highlights/h2.png">
                 <div class="image-caption">Highlight #2</div>
-              </a>
+<!--               </a> -->
             </div>
             <div class="item">
-                <a href="http://goo.gl/oML6sw" target="_blank" class="image">
+<!--                 <a href="http://goo.gl/oML6sw" target="_blank" class="image"> -->
                   <img src="../../images/highlights/h3.png">
                   <div class="image-caption">Highlight #3</div>
-                </a>
+<!--                 </a> -->
             </div>
           </div>
         </section>
@@ -179,7 +182,8 @@
             autoPlay: 8000,
             stopOnHover: true,
             mouseDrag:false,
-            touchDrage:false
+            touchDrage:false,
+            navigation : true
           });
 
         if(this.cache != null){
