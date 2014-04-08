@@ -38,21 +38,34 @@
           <template if="{{live != null}}">
             <template repeat="{{event in live.feed.entry}}">
               <template if="{{event.gsx$section.$t === 'next'}}">
-                <div id="liveContent">
+                <div id="liveContent" class="row">
                   <event-element event="{{event}}" videoLoaded="{{videoLoaded}}"></event-element>
                 </div>
-                  <a href="{{event.gsx$hangout.$t}}" target="_blank" style="text-align: center;display: block;">Ask questions to {{event.gsx$speaker.$t}} in the G+ Hangout!</a>
+<!--                   <a href="{{event.gsx$hangout.$t}}" target="_blank" style="text-align: center;display: block;">Ask questions to {{event.gsx$speaker.$t}} in the G+ Hangout!</a> -->
               </template>
             </template>
           </template>
         </section>
 
-        <section id="prev" class='element'>
-          <div id="prevTitle" class="title {{name}}">Past talks</div>
+        <section id="fnndsctalks" class='element'>
+          <div id="prevTitle" class="title {{name}}">Fnndsc talks</div>
           <template if="{{live != null}}">
             <template repeat="{{event in live.feed.entry}}">
-              <template if="{{event.gsx$section.$t === 'past'}}">
-                <div id="prevContent">
+              <template if="{{event.gsx$section.$t === 'fnndsctalk'}}">
+                <div id="prevContent" class="row eventrow">
+                  <event-element event="{{event}}" videoLoaded="{{videoLoaded}}"></event-element>
+                </div>
+              </template>
+            </template>
+          </template>
+        </section>
+
+        <section id="unix101" class='element'>
+          <div id="prevTitle" class="title {{name}}">Unix 101 series</div>
+          <template if="{{live != null}}">
+            <template repeat="{{event in live.feed.entry}}">
+              <template if="{{event.gsx$section.$t === 'unix101'}}">
+                <div id="prevContent" class="row eventrow">
                   <event-element event="{{event}}" videoLoaded="{{videoLoaded}}"></event-element>
                 </div>
               </template>
