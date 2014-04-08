@@ -13,7 +13,8 @@ home-element .fBox{
 }
 
 #welcome .logo-home{
-	float:right;
+	float:left;
 	display:block;
+	padding:10px;
 }
 }

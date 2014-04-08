@@ -1,18 +1,6 @@
-      #labbook{
-        position: relative;
-        font-size: 30px;
-        border-bottom: 1px solid #FFF;
-      }
-
       .slider {
         width: 100%;
         margin: 50px auto 0;
-      }
-
-      #slicedrop{
-        font-size: 30px;
-        position: relative;
-        border-bottom: 1px solid #FFF;
       }
 
       .buttons{
@@ -43,35 +31,13 @@
         padding:10px;
       }
 
-      #xtk{
-        font-size: 30px;
-        position: relative;
-        border-bottom: 1px solid #FFF;
-      }
-
       .container ul{
         list-style-position:inside;
       }
       .container li{
         line-height: normal;
       }
-
-      #more{
-        font-size: 30px;
-        position: relative;
-        border-bottom: 1px solid #FFF;
-      }
-
-      #owl-demo .item{
-        margin: 3px;
-      }
-
-      #owl-demo .item img{
-        display: block;
-        width: 100%;
-        height: auto;
-      }
-
+      
       .technology{
         color: grey;
         font-style: italic;
