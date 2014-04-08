@@ -15,7 +15,7 @@ a.active{
 }
 
 .jumbotron{
-    background-color: rgba(255, 255, 255, .5);
+    background-color: rgba(255, 255, 255, .7);
 }
 
 .jumbotron .large{
@@ -60,4 +60,8 @@ section > .title{
 .jumbotron .large{
     font-size: 20px;
 }
-}*/
+}
+
+.spinner{
+    float:right;
+}
