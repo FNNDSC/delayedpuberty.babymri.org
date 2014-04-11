@@ -13,11 +13,11 @@
 <polymer-element name="container-element"  attributes="route scrollTopC">
   <template>
     <style>
-      @host { :scope {display: block;} }
+      :host { :scope {display: block;} };
     </style>
 <div>
 
-<flatiron-director route="{{route}}" autoHash></flatiron-director>
+<flatiron-director route="{{route}}" autoHash="false"></flatiron-director>
 
 <template if="{{route != null}}">
   <template if="{{route == 'home-element' || route == ''}}">

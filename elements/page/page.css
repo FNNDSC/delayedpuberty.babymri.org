@@ -1,107 +1,67 @@
-      .content{
-        font-size: 16px;
-      }
-
-      h2{
-        margin: 0;
-        padding: 0;
-      }
-
-      div{
-        display: block;
-      }
-
-      span{
-        display: block;
-        z-index: 1;
-        font-family: sans-serif;
-      }
-
-      .selected{
-        border-left: 2px solid;
-      }
-
-      a:hover{
-        cursor:pointer;
-      }
-
-      .nav > li > a {
-        position: relative;
-        display: block;
-        padding: 8px 10px;
-      }
-
-      .fBox{
-background-color: #FFF;
-        padding: 20px;
-        -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-        -moz-box-sizing: border-box;    /* Firefox, other Gecko */
-        box-sizing: border-box; 
-        -moz-box-shadow: rgb(204, 204, 204) 1px 1px 10px 0px;
-        -webkit-box-shadow: rgb(204, 204, 204) 1px 1px 10px 0px;
-        box-shadow: rgb(204, 204, 204) 1px 1px 10px 0px;
-        border-radius: 5px;
+a.active{
+	border-left: 2px solid black;
 }
 
-      .wrapper{
-        padding: 30px 0 0;
-/*        background-image: url(../../images/background/baby_happy2.jpg);
-        background-attachment: fixed;
-        -webkit-background-size: cover;
-        background-size: cover;
-        position: relative;
-        background-position: 50% 0px;*/
-      }
-
-      .title{
-        font-size: 25px;
-        line-height: normal;
-        padding: 10px;
-        border-bottom: 1px solid;
-        margin-bottom: 10px;
-      }
-
+.fBox{
+    background-color: #FFF;
+    padding: 20px;
+    -webkit-box-sizing: border-box; 
+    -moz-box-sizing: border-box;   
+    box-sizing: border-box; 
+    -moz-box-shadow: rgb(204, 204, 204) 1px 1px 10px 0px;
+    -webkit-box-shadow: rgb(204, 204, 204) 1px 1px 10px 0px;
+    box-shadow: rgb(204, 204, 204) 1px 1px 10px 0px;
+    border-radius: 5px;
+}
 
 .jumbotron{
-  background-color: rgba(255, 255, 255, .5);
-}
-      span.small{
-/*        font-family: Roboto;*/
-        font-style: italic;
-        font-weight: 100;
-        font-size: 12px;
-        font-size: 31px;
-      }
-
-      span.large{
-/*        font-family: Roboto;*/
-        /*font-weight: 700;*/
-       /* text-transform: uppercase;*/
-        font-size: 32px;
-        font-size: 102px;
-        line-height: 1.05;
-        letter-spacing: -3px;
-      }
-
-      @media (max-width: 991px){
-.jumbotron > div >  {
-  padding-bottom:0px!important;
+    background-color: rgba(255, 255, 255, .7);
 }
 
-.jumbotron > div  {
-  padding-bottom:0px!important;
+.jumbotron .large{
+    color:rgb(0, 143, 255);
 }
 
-.jumbotron > div > h2 > .large {
-  font-size: 60px;!important;
+section > .title{
+    font-size: 20px;
+    line-height: normal;
+    padding: 10px;
+    border-bottom: 1px solid;
+    margin-bottom: 10px;
+    color: #353535;
 }
 
+@media (min-width: 1000px){
+.jumbotron .small{
+    display: block;
+    font-style: italic;
+    font-weight: 100;
+    font-size: 30px;
 }
 
-/*@media (min-width: 992px){
-polymer-ui-icon-button{
-  display:none!important;
+.jumbotron .large{
+    display: block;
+    font-size: 70px;
+    line-height: 1.05;
+    letter-spacing: -3px;
+}
 }
 
+@media (max-width: 999px){
+.jumbotron{
+    padding: 10px;
+}
+.jumbotron .small{
+    font-style: italic;
+    font-weight: 100;
+    font-size: 20px;
+}
 
-}*/
+.jumbotron .large{
+    font-size: 20px;
+}
+}
+
+.spinner{
+    float:right;
+}

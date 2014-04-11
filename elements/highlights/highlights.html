@@ -2,12 +2,17 @@
 
 <link rel="import" href="../page/page.html">
 
-<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="highlights.css" />
-
 <polymer-element name="highlights-element" extends="page-element">
   <template>
 
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" type="text/css" href="../page/page.css" />
+    <link rel="stylesheet" type="text/css" href="highlights.css" />
+    <!-- Important Owl stylesheet -->
+    <link rel="stylesheet" href="../../styles/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="../../styles/owl-carousel/owl.theme.css">
+    
       <div class="container">
         <div id="jumbo" class=" jumbotron fBox" >
           <template if="{{highlights == null && cache == null}}">

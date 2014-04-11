@@ -2,10 +2,12 @@
 
 <link rel="import" href="../page/page.html">
 
-<link rel="stylesheet" href="contact.css">
 <polymer-element name="contact-element" extends="page-element">
   <template>
-
+      <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+      <link rel="stylesheet" href="../../styles/main.css">
+      <link rel="stylesheet" type="text/css" href="../page/page.css" />
+      <link rel="stylesheet" href="contact.css">
       <div class="container">
         <div id="jumbo" class=" jumbotron fBox" >
           <template if="{{contact == null && cache == null}}">
