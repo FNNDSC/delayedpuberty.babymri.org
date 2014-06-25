@@ -1,0 +1,31 @@
+<!--
+Copyright 2013 The Polymer Authors. All rights reserved.
+Use of this source code is governed by a BSD-style
+license that can be found in the LICENSE file.
+-->
+<!--
+/**
+ * @module Polymer Elements
+ */
+/**
+ * polymer-jsonp can be used to perform JSONP requests.
+ 
+ * Example:
+ *
+ *     <polymer-jsonp url="https://clients1.google.com/finance/info?q=GOOG&client=ig&callback="
+ *         response="{{data}}"></polymer-jsonp>
+ *
+ * @class polymer-jsonp
+ */
+/**
+ * Fired when a response is received.
+ *
+ * @event polymer-response
+ */
+-->
+<link rel="import" href="polymer/polymer.html">
+
+<polymer-element name="polymer-jsonp" attributes="url response auto bustCache" assetpath="polymer-jsonp/">
+  
+</polymer-element>
+<script src="polymer-jsonp.js"></script>

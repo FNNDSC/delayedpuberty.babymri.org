@@ -1,109 +1,83 @@
-<link rel="import" href="../../lib-elements/polymer-jsonp/polymer-jsonp.html">
-
 <link rel="import" href="../page/page.html">
 
 <polymer-element name="highlights-element" extends="page-element">
   <template>
+    <link rel="stylesheet" type="text/css" href="highlights.css">
 
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <link rel="stylesheet" type="text/css" href="../page/page.css" />
-    <link rel="stylesheet" type="text/css" href="highlights.css" />
-    <!-- Important Owl stylesheet -->
-    <link rel="stylesheet" href="../../styles/owl-carousel/owl.carousel.css">
-    <link rel="stylesheet" href="../../styles/owl-carousel/owl.theme.css">
-    
+<div class="pageTitle">
+<div class="container">
+  <div id="jumbo" class="jumbotron fBox">
+      <template if="{{(research == null) && (cache == null)}}">
+        <img class="spinner" src="../../images/spinner.gif">
+      </template>
+<span class="small">Some of our center</span>
+<span class="large {{name}}">highlights</span>
+</div>
+</div>
+</div>
+
       <div class="container">
-        <div id="jumbo" class=" jumbotron fBox" >
-          <template if="{{highlights == null && cache == null}}">
-            <img class="spinner" src="../../images/spinner.gif">
-          </template>
-          <span class="small">Some of our center</span>
-          <span class="large {{name}}">highlights</span>
-      </div>
       <div class="row">
-        <div class="col-md-2 ">
-          <div id='{{name}}-affix' class="fBox">
-            <ul id='{{name}}-navigation' class="nav ">
-              Navigation
+        <div class="col-md-1">
+          <div id="{{name}}-affix" class="fBox">
+            <ul id="{{name}}-navigation" class="nav">
               <template if="{{structure != null}}">
                 <template repeat="{{section in structure}}">
                   <li on-tap="{{gotoSection}}">
-                    <a id='{{name}}-nav-{{section.index}}' class='{{name}}' data-section='{{section.index}}'>{{section.label}}</a>
-                  </li> 
-                </template> 
+                    <a id="{{name}}-nav-{{section.index}}" class="{{name}}" data-section="{{section.index}}">{{section.label}}</a>
+                  </li>
+                </template>
               </template>
             </ul>
           </div>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-11">
         <div class="fBox">
-        <section id="highlights" class="element">
-          <div class="title {{name}}">highlights</div>
-          <div id="owl-demo" class="owl-carousel">
-            <div class="item">
-<!--               <a href="http://goo.gl/oML6sw" target="_blank" class="image"> -->
-                <img src="../../images/highlights/h1.png">
-<!--                 <div class="image-info">" Wow! "<br/>" Amazing! "</div> -->
-                <div class="image-caption">Real-time MRI reslicing in the web browser</div>
-<!--               </a> -->
-            </div>
-            <div class="item">
-<!--               <a href="http://goo.gl/oML6sw" target="_blank" class="image"> -->
-                <img src="../../images/highlights/h2.png">
-                <div class="image-caption">Highlight #2</div>
-<!--               </a> -->
-            </div>
-            <div class="item">
-<!--                 <a href="http://goo.gl/oML6sw" target="_blank" class="image"> -->
-                  <img src="../../images/highlights/h3.png">
-                  <div class="image-caption">Highlight #3</div>
-<!--                 </a> -->
-            </div>
-          </div>
-        </section>
-
         <section id="2014" class="element">
           <div class="title {{name}}">2014</div>
           <template if="{{highlights != null}}">
             <template repeat="{{highlight in highlights.feed.entry}}">
               <template if="{{highlight.gsx$year.$t === '2014'}}">
-                <div class="info row" >
+                <div class="info row">
                   <div class="tags col-md-1">
-                    <div class='row'>
-                      <span class="col-md-12 {{highlight.gsx$category.$t}}"><span class='icon {{highlight.gsx$category.$t}}'>{{highlight.gsx$category.$t}}</span></span>
-                      <span class="col-md-11 date">{{highlight.gsx$month.$t}}-{{highlight.gsx$day.$t}}</span>
+                    <div class="row">
+<span class="col-md-12 month {{highlight.gsx$category.$t}} {{highlight.gsx$category.$t}}-border"><span class="{{highlight.gsx$category.$t}}">{{highlight.gsx$month.$t}}</span></span>
+<span class="col-md-12 date {{highlight.gsx$category.$t}}-border">{{highlight.gsx$day.$t}}</span>
                     </div>
                   </div>
                   <div class="content col-md-11">
-                    {{highlight.gsx$content.$t}}
-                    <template if="{{highlight.gsx$link.$t != null}}">
-                      <a href="{{highlight.gsx$link.$t}}">{{highlight.gsx$linkname.$t}}</a>
-                    </template>
+                    <div class="what">{{highlight.gsx$what.$t}}
+                      <template if="{{highlight.gsx$link.$t != null}}">
+                        <a href="{{highlight.gsx$link.$t}}">{{highlight.gsx$linkname.$t}}</a>
+                      </template>
+                    </div>
+                    <div class="who">{{highlight.gsx$who.$t}} - {{highlight.gsx$where.$t}}</div>
                   </div>
                 </div>
               </template>
             </template>
           </template>
         </section>
- 
+
         <section id="2013" class="element">
           <div class="title {{name}}">2013</div>
           <template if="{{highlights != null}}">
             <template repeat="{{highlight in highlights.feed.entry}}">
               <template if="{{highlight.gsx$year.$t === '2013'}}">
-                <div class="info row" >
+                <div class="info row">
                   <div class="tags col-md-1">
-                    <div class='row'>
-                      <span class="col-md-12 {{highlight.gsx$category.$t}}"><span class='icon {{highlight.gsx$category.$t}}'>{{highlight.gsx$category.$t}}</span></span>
-                      <span class="col-md-11 date">{{highlight.gsx$month.$t}}-{{highlight.gsx$day.$t}}</span>
+                    <div class="row">
+<span class="col-md-12 month {{highlight.gsx$category.$t}} {{highlight.gsx$category.$t}}-border"><span class="{{highlight.gsx$category.$t}}">{{highlight.gsx$month.$t}}</span></span>
+<span class="col-md-12 date {{highlight.gsx$category.$t}}-border">{{highlight.gsx$day.$t}}</span>
                     </div>
                   </div>
                   <div class="content col-md-11">
-                    {{highlight.gsx$content.$t}}
-                    <template if="{{highlight.gsx$link.$t != null}}">
-                      <a href="{{highlight.gsx$link.$t}}">{{highlight.gsx$linkname.$t}}</a>
-                    </template>
+<div class="what">{{highlight.gsx$what.$t}}
+  <template if="{{highlight.gsx$link.$t != null}}">
+    <a href="{{highlight.gsx$link.$t}}">{{highlight.gsx$linkname.$t}}</a>
+  </template>
+</div>
+<div class="who">{{highlight.gsx$who.$t}} - {{highlight.gsx$where.$t}}</div>
                   </div>
                 </div>
               </template>
@@ -116,18 +90,20 @@
           <template if="{{highlights != null}}">
             <template repeat="{{highlight in highlights.feed.entry}}">
               <template if="{{highlight.gsx$year.$t === '2012'}}">
-                <div class="info row" >
+                <div class="info row">
                   <div class="tags col-md-1">
-                    <div class='row'>
-                      <span class="col-md-12 {{highlight.gsx$category.$t}}"><span class='icon {{highlight.gsx$category.$t}}'>{{highlight.gsx$category.$t}}</span></span>
-                      <span class="col-md-11 date">{{highlight.gsx$month.$t}}-{{highlight.gsx$day.$t}}</span>
+                    <div class="row">
+<span class="col-md-12 month {{highlight.gsx$category.$t}} {{highlight.gsx$category.$t}}-border"><span class="{{highlight.gsx$category.$t}}">{{highlight.gsx$month.$t}}</span></span>
+<span class="col-md-12 date {{highlight.gsx$category.$t}}-border">{{highlight.gsx$day.$t}}</span>
                     </div>
                   </div>
                   <div class="content col-md-11">
-                    {{highlight.gsx$content.$t}}
-                    <template if="{{highlight.gsx$link.$t != null}}">
-                      <a href="{{highlight.gsx$link.$t}}">{{highlight.gsx$linkname.$t}}</a>
-                    </template>
+<div class="what">{{highlight.gsx$what.$t}}
+  <template if="{{highlight.gsx$link.$t != null}}">
+    <a href="{{highlight.gsx$link.$t}}">{{highlight.gsx$linkname.$t}}</a>
+  </template>
+</div>
+<div class="who">{{highlight.gsx$who.$t}} - {{highlight.gsx$where.$t}}</div>
                   </div>
                 </div>
               </template>
@@ -140,18 +116,20 @@
           <template if="{{highlights != null}}">
             <template repeat="{{highlight in highlights.feed.entry}}">
               <template if="{{highlight.gsx$year.$t === '2011'}}">
-                <div class="info row" >
+                <div class="info row">
                   <div class="tags col-md-1">
-                    <div class='row'>
-                      <span class="col-md-12 {{highlight.gsx$category.$t}}"><span class='icon {{highlight.gsx$category.$t}}'>{{highlight.gsx$category.$t}}</span></span>
-                      <span class="col-md-11 date">{{highlight.gsx$month.$t}}-{{highlight.gsx$day.$t}}</span>
+                    <div class="row">
+                      <span class="col-md-12 month {{highlight.gsx$category.$t}} {{highlight.gsx$category.$t}}-border"><span class="{{highlight.gsx$category.$t}}">{{highlight.gsx$month.$t}}</span></span>
+                      <span class="col-md-12 date {{highlight.gsx$category.$t}}-border">{{highlight.gsx$day.$t}}</span>
                     </div>
                   </div>
                   <div class="content col-md-11">
-                    {{highlight.gsx$content.$t}}
-                    <template if="{{highlight.gsx$link.$t != null}}">
-                      <a href="{{highlight.gsx$link.$t}}">{{highlight.gsx$linkname.$t}}</a>
-                    </template>
+<div class="what">{{highlight.gsx$what.$t}}
+  <template if="{{highlight.gsx$link.$t != null}}">
+    <a href="{{highlight.gsx$link.$t}}">{{highlight.gsx$linkname.$t}}</a>
+  </template>
+</div>
+<div class="who">{{highlight.gsx$who.$t}} - {{highlight.gsx$where.$t}}</div>
                   </div>
                 </div>
               </template>
@@ -166,7 +144,7 @@
     </div>
 
     <template if="{{cache == null && attached == 1 }}">
-      <polymer-jsonp auto url="https://spreadsheets.google.com/feeds/list/{{spreadsheet}}/od6/public/values?alt=json-in-script&callback=" response="{{highlights}}"></polymer-jsonp>
+      <polymer-jsonp auto="" url="https://spreadsheets.google.com/feeds/list/{{spreadsheet}}/od6/public/values?alt=json-in-script&callback=" response="{{highlights}}"></polymer-jsonp>
     </template>
 
   </template>
@@ -177,19 +155,6 @@
       spreadsheet: '0Asu7h0aKnydhdHlaTndWaUVmOHRpRTMzX3VmWW9VVFE',
       attached: function(){
         this.super();
-        var self = this;
-        this.onload=function(){self.refresh();};
-
-        $('#owl-demo').owlCarousel({
-            slideSpeed : 300,
-            paginationSpeed : 400,
-            singleItem:true,
-            autoPlay: 8000,
-            stopOnHover: true,
-            mouseDrag:false,
-            touchDrage:false,
-            navigation : true
-          });
 
         if(this.cache != null){
           this.highlights = this.cache;
@@ -198,7 +163,7 @@
       },
       highlightsChanged: function() {
         if(this.highlights){
-          this.cache = this.highlights; 
+          this.cache = this.highlights;
         }
       }
     });

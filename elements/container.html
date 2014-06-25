@@ -1,6 +1,5 @@
-<link rel="import" href="../lib-elements/flatiron-director/flatiron-director.html">
+<link rel="import" href="../lib-elements/flatiron-director.html">
 
-<!-- <link rel="import" href="footer/footer.html"> -->
 <link rel="import" href="home/home.html">
 <link rel="import" href="research/research.html">
 <link rel="import" href="highlights/highlights.html">
@@ -10,14 +9,14 @@
 <link rel="import" href="live/live.html">
 <link rel="import" href="events/events.html">
 
-<polymer-element name="container-element"  attributes="route scrollTopC">
+<polymer-element name="container-element" attributes="route scrollTopC">
   <template>
     <style>
       :host { :scope {display: block;} };
     </style>
 <div>
 
-<flatiron-director route="{{route}}" autoHash="false"></flatiron-director>
+<flatiron-director route="{{route}}" autohash="false"></flatiron-director>
 
 <template if="{{route != null}}">
   <template if="{{route == 'home-element' || route == ''}}">
@@ -75,16 +74,15 @@
                          {id:'meg', label:'meg', index:3}];
 
         // highlights a and awards page
-        this.highlights = [{id:'highlights', label:'highlights', index:0},
-                         {id:'ttfourteen', label:'2014', index:1},
-                         {id:'ttthirteen', label:'2013', index:2},
-                         {id:'tttwelve', label:'2012', index:3},
-                         {id:'tteleven', label:'2011', index:4}];
+        this.highlights = [{id:'ttfourteen', label:'2014', index:0},
+                         {id:'ttthirteen', label:'2013', index:1},
+                         {id:'tttwelve', label:'2012', index:2},
+                         {id:'tteleven', label:'2011', index:3}];
 
         // software page
-        this.software = [{id:'labbook', label:'The Web LabBook', index:0},
+        this.software = [{id:'labbook', label:'ChRIS', index:0},
                          {id:'slicedrop', label:'Slice:Drop', index:1},
-                         {id:'xtk', label:'The X-Toolkit', index:2},
+                         {id:'xtk', label:'XTK', index:2},
                          {id:'more', label:'More', index:3}];
 
         // team page
@@ -94,8 +92,8 @@
                      {id:'alumni', label:'alumni', index:3}];
 
         // contact page
-        this.contact = [{id:'main', label:'main campus', index:0},
-                        {id:'autumn', label:'1 autumn street', index:1},
+        this.contact = [{id:'main', label:'main', index:0},
+                        {id:'autumn', label:'autumn st', index:1},
                         {id:'waltham', label:'waltham', index:2}];
 
         // live page
@@ -112,7 +110,8 @@
         this.navElts = this.parentElement.querySelectorAll('.nav-element');
       },
       updateNavigation: function(){
-        if(this.curPage != this.prevPage){
+        if(this.curPage != this.prevPage && typeof(this.navElts) != 'undefined'){
+          // && this.navElts
           // desactivate previous section
           this.navElts[this.prevPage].classList.remove('active');
           // // activate current section
@@ -138,15 +137,6 @@
         }
 
         this.updateNavigation();
-        // update active tags
-        //window.console.log('new route: ' + this.route);
-        //this.currentElt = this.shadowRoot.querySelector(this.route);
-        //window.console.log(this.shadowRoot);
-          // window.console.log('route: ' + this.route);
-          // var location = this.route.split("/");
-          // this.route = location[0];
-          // // if location2 not redefined, we are good!
-          // window.console.log('page: ' + location[1]);
         }
     });
   </script>

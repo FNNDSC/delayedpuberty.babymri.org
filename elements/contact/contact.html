@@ -1,136 +1,134 @@
-<link rel="import" href="../../lib-elements/polymer-jsonp/polymer-jsonp.html">
-
 <link rel="import" href="../page/page.html">
 
 <polymer-element name="contact-element" extends="page-element">
   <template>
-      <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-      <link rel="stylesheet" href="../../styles/main.css">
-      <link rel="stylesheet" type="text/css" href="../page/page.css" />
       <link rel="stylesheet" href="contact.css">
+
+      <div class="pageTitle">
       <div class="container">
-        <div id="jumbo" class=" jumbotron fBox" >
-          <template if="{{contact == null && cache == null}}">
-            <img class="spinner" src="../../images/spinner.gif">
-          </template>
-            <span class="small">We have offices in 3 different</span>
+        <div id="jumbo" class="jumbotron fBox">
+            <template if="{{(research == null) && (cache == null)}}">
+              <span class="spinner"><img src="../../images/spinner.gif"></span>
+            </template>
+            <span class="small">We have offices in 3 different </span>
             <span class="large {{name}}">locations</span>
       </div>
+      </div>
+      </div>
+
+      <div class="container">
       <div class="row">
-        <div class="col-md-2 ">
-          <div id='{{name}}-affix'  class="fBox">
-            <ul id='{{name}}-navigation' class="nav ">
-              Navigation
+        <div class="col-md-1">
+          <div id="{{name}}-affix" class="fBox">
+            <ul id="{{name}}-navigation" class="nav">
               <template if="{{structure != null}}">
                 <template repeat="{{section in structure}}">
                   <li on-tap="{{gotoSection}}">
-                    <a id='{{name}}-nav-{{section.index}}' class='{{name}}' data-section='{{section.index}}'>{{section.label}}</a>
-                  </li> 
-                </template> 
+                    <a id="{{name}}-nav-{{section.index}}" class="{{name}}" data-section="{{section.index}}">{{section.label}}</a>
+                  </li>
+                </template>
               </template>
             </ul>
           </div>
         </div>
-        <div class="col-md-10">
+        <div class="col-md-11">
         <div class="fBox">
 
         <section id="main1" class="element">
           <div class="title {{name}}">main hospital</div>
+
+          <div class="card">
+
           <template if="{{contact != null}}">
             <template repeat="{{location in contact.feed.entry}}">
               <template if="{{location.gsx$location.$t === 'main'}}">
+
                 <div class="info">
-                  {{location.gsx$name.$t}}</br>
-                  {{location.gsx$address.$t}}</br>
-                  {{location.gsx$city.$t}}, {{location.gsx$state.$t}} {{location.gsx$zip.$t}}</br></br>
+                  {{location.gsx$name.$t}}
+                  {{location.gsx$address.$t}}
+                  {{location.gsx$city.$t}}, {{location.gsx$state.$t}} {{location.gsx$zip.$t}}
+
                   <div class="icon phone">
-                    <span style="padding-left:5px;">{{location.gsx$phone.$t}}</span>
+                    <span style="padding-left:5px">{{location.gsx$phone.$t}}</span>
                   </div>
                   <div class="icon fax">
-                    <span style="padding-left:5px;">{{location.gsx$fax.$t}}</span>
+                    <span style="padding-left:5px">{{location.gsx$fax.$t}}</span>
                   </div>
                  </div>
               </template>
             </template>
           </template>
-          <div class="notes">
-            <div class='subtitle {{name}}'>Notes</div>
-            <div id='main-notes'></div>
-          </div>
-          <div class="details">
-            <div class='subtitle {{name}}'>Detailed directions</div>
-            <div id='main-details'></div>
-          </div>
           <div class="map">
-            <div class='subtitle {{name}}'>Map</div>
             <div id="main-map"></div>
+          </div>
+        </div>
+
+          <div id="main-allnotes" class="notes">
+            <div class="subtitle {{name}}">Notes</div>
+            <div id="main-notes"></div>
           </div>
         </section>
 
         <section id="autumn" class="element">
           <div class="title {{name}}">1 autumn street</div>
+
+          <div class="card">
+
           <template if="{{contact != null}}">
             <template repeat="{{location in contact.feed.entry}}">
               <template if="{{location.gsx$location.$t === 'autumn'}}">
-                <div  class="info">
-                  {{location.gsx$name.$t}}</br>
-                  {{location.gsx$address.$t}}</br>
-                  {{location.gsx$city.$t}}, {{location.gsx$state.$t}} {{location.gsx$zip.$t}}</br></br>
+                <div class="info">
+                  {{location.gsx$name.$t}}
+                  {{location.gsx$address.$t}}
+                  {{location.gsx$city.$t}}, {{location.gsx$state.$t}} {{location.gsx$zip.$t}}
                   <div class="icon phone">
-                    <span style="padding-left:5px;">{{location.gsx$phone.$t}}</span>
+                    <span style="padding-left:5px">{{location.gsx$phone.$t}}</span>
                   </div>
                   <div class="icon fax">
-                    <span style="padding-left:5px;">{{location.gsx$fax.$t}}</span>
+                    <span style="padding-left:5px">{{location.gsx$fax.$t}}</span>
                   </div>
                 </div>
               </template>
             </template>
           </template>
-          <div class="notes">
-            <div class='subtitle {{name}}'>Notes</div>
-            <div id='autumn-notes'></div>
-          </div>
-          <div class="details">
-            <div class='subtitle {{name}}'>Detailed directions</div>
-            <div id='autumn-details'></div>
-          </div>
           <div class="map">
-            <div class='subtitle {{name}}'>Map</div>
             <div id="autumn-map"></div>
           </div>
-          
+        </div>
+          <div id="autumn-allnotes" class="notes">
+            <div class="subtitle {{name}}">Notes</div>
+            <div id="autumn-notes"></div>
+          </div>
+
         </section>
 
         <section id="waltham" class="element">
           <div class="title {{name}}">waltham</div>
+          <div class="card">
           <template if="{{contact != null}}">
             <template repeat="{{location in contact.feed.entry}}">
               <template if="{{location.gsx$location.$t === 'waltham'}}">
-                <div  class="info">
-                  {{location.gsx$name.$t}}</br>
-                  {{location.gsx$address.$t}}</br>
-                  {{location.gsx$city.$t}}, {{location.gsx$state.$t}} {{location.gsx$zip.$t}}</br></br>
+                <div class="info">
+                  {{location.gsx$name.$t}}
+                  {{location.gsx$address.$t}}
+                  {{location.gsx$city.$t}}, {{location.gsx$state.$t}} {{location.gsx$zip.$t}}
                   <div class="icon phone">
-                    <span style="padding-left:5px;">{{location.gsx$phone.$t}}</span>
+                    <span style="padding-left:5px">{{location.gsx$phone.$t}}</span>
                   </div>
                   <div class="icon fax">
-                    <span style="padding-left:5px;">{{location.gsx$fax.$t}}</span>
+                    <span style="padding-left:5px">{{location.gsx$fax.$t}}</span>
                   </div>
                 </div>
               </template>
             </template>
           </template>
-          <div class="notes">
-            <div class='subtitle {{name}}'>Notes</div>
-            <div id='waltham-notes'></div>
-          </div>
-          <div class="details">
-            <div class='subtitle {{name}}'>Detailed directions</div>
-            <div id='waltham-details'></div>
-          </div>
           <div class="map">
-            <div class='subtitle {{name}}'>Map</div>
             <div id="waltham-map"></div>
+          </div>
+        </div>
+          <div id="waltham-allnotes" class="notes">
+            <div class="subtitle {{name}}">Notes</div>
+            <div id="waltham-notes"></div>
           </div>
         </section>
 
@@ -140,7 +138,7 @@
     </div>
     </div>
   <template if="{{cache == null && attached == 1 }}">
-  <polymer-jsonp auto url="https://spreadsheets.google.com/feeds/list/{{spreadsheet}}/od6/public/values?alt=json-in-script&callback=" response="{{contact}}"></polymer-jsonp>
+  <polymer-jsonp auto="" url="https://spreadsheets.google.com/feeds/list/{{spreadsheet}}/od6/public/values?alt=json-in-script&callback=" response="{{contact}}"></polymer-jsonp>
 </template>
 
   </template>
@@ -162,7 +160,14 @@
         if(this.contact){
             var len = this.contact.feed.entry.length;
             while (len--) {
-              this.$[this.contact.feed.entry[len].gsx$location.$t+'-notes'].innerHTML = this.contact.feed.entry[len].gsx$notes.$t;
+
+              if(this.contact.feed.entry[len].gsx$notes.$t == ''){
+                this.$[this.contact.feed.entry[len].gsx$location.$t+'-allnotes'].innerHTML = this.contact.feed.entry[len].gsx$notes.$t;
+              }
+              else{
+                this.$[this.contact.feed.entry[len].gsx$location.$t+'-notes'].innerHTML = this.contact.feed.entry[len].gsx$notes.$t;
+              }
+
               this.$[this.contact.feed.entry[len].gsx$location.$t+'-map'].innerHTML = this.contact.feed.entry[len].gsx$map.$t;
             }
 

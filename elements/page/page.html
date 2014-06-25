@@ -1,4 +1,6 @@
-<polymer-element name="page-element"  attributes="scrool structure cache">
+<link rel="import" href="../../lib-elements/polymer-jsonp.html">
+
+<polymer-element name="page-element" attributes="scrool structure cache">
   <script>
     Polymer('page-element', {
       name: '',
@@ -28,10 +30,16 @@
           this.nbSections = this.sections.length;
       },
       gotoSection: function(e){
+        // test perf on mobile....
+        this.refresh();
+
         var id = e.target.getAttribute('data-section');
         this.fire('gotoSection', {offsetTop: this.offsetTops[id]});
       },
       scroolChanged: function(){
+        // test perf on mobile....
+        this.refresh();
+
         var match = false;
         for(var i = 0; i<this.nbSections - 1; i++){
           if(this.scrool >= this.offsetTops[i] - 20 && this.scrool < this.offsetTops[i+1] - 20 ){
@@ -41,11 +49,13 @@
           }
         }
 
-        window.console.log(this.scrool);
-        window.console.log(this.offsetTops);
-
         if(!match){
-          this.curSection = this.nbSections - 1;
+          if(this.scrool < this.offsetTops[0]){
+            this.curSection = 0;
+          }
+          else{
+            this.curSection = this.nbSections - 1;
+          }
         }
 
         this.updateNavigation();
