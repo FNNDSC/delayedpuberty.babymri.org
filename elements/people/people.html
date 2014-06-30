@@ -1,4 +1,4 @@
-<polymer-element name="people-element" attributes="people peopleLoaded">
+<polymer-element name="people-element" attributes="people peopleLoaded peopleSelected">
   <template>
 
     <link rel="stylesheet" href="people.css">
@@ -17,8 +17,13 @@
         <div>{{people.gsx$academictitle.$t}}</div>
         <div class="department">{{people.gsx$department.$t}}</div>
       </div>
+
 </div>
+
+<paper-button label="more" on-click="{{toggleDialog}}" role="button" tabindex="0" aria-label="more"></paper-button>
+
 <div class="clear">
+
       </div>
 
     </div>
@@ -29,12 +34,18 @@
   </template>
   <script>
     Polymer('people-element', {
+      peopleSelected: null,
       peopleLoaded: 1,
       gdrive: 'https://googledrive.com/host/0B8u7h0aKnydhYkRMZ2ktTnh6a3M/',
       peopleChanged: function() {
         var self = this;
         this.onload=function(){this.peopleLoaded *= -1;};
-      }
+      },
+
+   toggleDialog: function(a, b, c) {
+     this.peopleSelected = this.people;
+    }
+
     });
   </script>
 </polymer-element>

@@ -3,41 +3,55 @@
 <polymer-element name="home-element" extends="page-element">
   <template>
     <link rel="stylesheet" type="text/css" href="home.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 
     <div class="pageTitle">
-    <div class="container">
-<div id="jumbo" class="jumbotron fBox">
-  <span class="small">Welcome to the</span>
-  <span class="large {{name}}">FNNDSC</span>
-</div>
-    </div>
+      <div class="container">
+        <div id="jumbo" class="jumbotron fBox">
+          <span class="small">Welcome to the</span>
+          <span class="large {{name}}">FNNDSC</span>
+        </div>
+      </div>
     </div>
 
     <div class="container-fluid">
-
-<div class="container">
-      <section id="welcome" class="element">
-      <img src="../../images/logo.png" class="logo-home">
-      <div id="generalContent" class="content">The <b>Fetal-Neonatal Neuroimaging and Developmental Science Center (FNNDSC) at Boston Children's Hospital</b> brings together a multidisciplinary team of researchers from the fields of medicine, engineering, computer science, and neuroscience.It provides the expertise needed to support and foster cutting edge clinical and translational science.</div>
-      </section>
-    </div>
-    </div>
-
-    <div class="container-fluid light">
       <div class="container">
-      <section id="welcome" class="element">
-      <div id="researchContent" class="content">The Center's research combines three key imaging modalities: magnetic resonance imaging (MRI), magnetoencephalography (MEG), and near-infrared spectroscopy (NIRS) across multiple subspecialties.The combined modalities provide unique data allowing the Center's researchers to study the brain development of fetal and newborn subjects in new and fascinating ways.</div>
-      </section>
-    </div>
-    </div>
-
-    <div class="container-fluid dark">
-      <div class="container">
-<section id="welcome" class="element">
-<div id="softwareContent" class="content">The FNNDSC also designs and develops software for processing large data sets in an effective and clinically meaningful way. The Center is committed not only to being an active player at the cutting edge of MRI research, but importantly also to bring the products of its research as quickly as possible to the broader clinical community.The FNNDSC is also committed to High Performance Computation (HPC) initiatives, and is leading a collaborative effort to design and deploy a compute cluster at Boston Children's Hospital.</div>
-
-      </section>
-    </div>
+        <div class="row">
+          <section id="welcome" class="element">
+            <img src="../../images/logo.png" class="logo-home">
+            <div id="generalContent" class="content">
+              <div class="p1">The <b>Fetal-Neonatal Neuroimaging and Developmental Science Center (FNNDSC) at Boston Children's Hospital</b> brings together a multidisciplinary team of researchers from the fields of medicine, engineering, computer science, and neuroscience.</div>
+              <div class="p2">It provides the expertise needed to support and foster cutting edge clinical and translational science.</div>
+            </div>
+          </section>
+        </div>
+        <div class="row">
+          <a class="col-md-3 col-sd-12" href="../../#research-element">
+            <div class="link research">
+              <i class="fa fa-flask"></i>
+              <div class="sub">RESEARCH</div>
+            </div>
+          </a>
+          <a class="col-md-3 col-sd-12" href="../../#software-element">
+            <div class="link software">
+              <i class="fa fa-laptop"></i>
+              <div class="sub">SOFTWARE</div>
+            </div>
+          </a>
+          <a class="col-md-3 col-sd-12" href="../../#team-element">
+            <div class="link team">
+              <i class="fa fa-users"></i>
+              <div class="sub">TEAM</div>
+            </div>
+          </a>
+          <a class="col-md-3 col-sd-12" href="../../#contact-element">
+            <div class="link contact">
+              <i class="fa fa-phone"></i>
+              <div class="sub">CONTACT</div>
+            </div>
+          </a>
+        </div>
+      </div>
     </div>
 
   </template>
