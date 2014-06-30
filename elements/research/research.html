@@ -4,17 +4,29 @@
   <template>
     <link rel="stylesheet" href="research.css">
 
-<div class="pageTitle">
-<div class="container">
-  <div id="jumbo" class="jumbotron fBox">
-      <template if="{{(research == null) && (cache == null)}}">
-        <span class="spinner"><img src="../../images/spinner.gif"></span>
-      </template>
-      <span class="small">Our research addresses critical needs in the pediatric </span>
-      <span class="large {{name}}">population</span>
-</div>
-</div>
-</div>
+      <!-- <div class='pageTitle'>
+        <div class="container">
+          <div id="jumbo" class=" jumbotron fBox" >
+            <template if="{{(research == null) && (cache == null)}}">
+              <span class="spinner"><img src="../../images/spinner.gif"></span>
+            </template>
+            <span class="small">Our research addresses critical needs in the pediatric </span>
+            <span class="large {{name}}">population</span>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="pageTitle">
+      <div class="container">
+        <div id="jumbo" class="jumbotron fBox">
+            <template if="{{(research == null) && (cache == null)}}">
+              <span class="spinner"><img src="../../images/spinner.gif"></span>
+            </template>
+      <span class="small">We stream live</span>
+      <span class="large {{name}}">events</span>
+      </div>
+      </div>
+      </div>
 
       <div class="container">
       <div class="row">
