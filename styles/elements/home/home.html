@@ -1,0 +1,64 @@
+<link rel="import" href="../page/page.html">
+
+<polymer-element name="home-element" extends="page-element">
+  <template>
+    <link rel="stylesheet" type="text/css" href="home.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <div class="pageTitle">
+      <div class="container">
+        <div id="jumbo" class="jumbotron fBox">
+          <span class="small">Welcome to the</span>
+          <span class="large {{name}}">FNNDSC</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row">
+          <section id="welcome" class="element">
+            <img src="../../images/logo.png" class="logo-home">
+            <div id="generalContent" class="content">
+              <div class="p1">The <b>Fetal-Neonatal Neuroimaging and Developmental Science Center (FNNDSC) at Boston Children's Hospital</b> brings together a multidisciplinary team of researchers from the fields of medicine, engineering, computer science, and neuroscience.</div>
+              <div class="p2">It provides the expertise needed to support and foster cutting edge clinical and translational science.</div>
+            </div>
+          </section>
+        </div>
+        <div class="row">
+          <a class="col-md-3 col-sd-12" href="../../#research-element">
+            <div class="link research">
+              <i class="fa fa-flask"></i>
+              <div class="sub">RESEARCH</div>
+            </div>
+          </a>
+          <a class="col-md-3 col-sd-12" href="../../#software-element">
+            <div class="link software">
+              <i class="fa fa-laptop"></i>
+              <div class="sub">SOFTWARE</div>
+            </div>
+          </a>
+          <a class="col-md-3 col-sd-12" href="../../#team-element">
+            <div class="link team">
+              <i class="fa fa-users"></i>
+              <div class="sub">TEAM</div>
+            </div>
+          </a>
+          <a class="col-md-3 col-sd-12" href="../../#contact-element">
+            <div class="link contact">
+              <i class="fa fa-phone"></i>
+              <div class="sub">CONTACT</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </template>
+
+  <script>
+    Polymer('home-element', {
+      name: 'home'
+    });
+  </script>
+</polymer-element>

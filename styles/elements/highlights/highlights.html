@@ -1,0 +1,168 @@
+<link rel="import" href="../page/page.html">
+
+<polymer-element name="highlights-element" extends="page-element">
+  <template>
+    <link rel="stylesheet" type="text/css" href="highlights.css">
+
+    <div class="pageTitle">
+      <div class="container">
+        <div id="jumbo" class="jumbotron fBox">
+          <template if="{{(research == null) && (cache == null)}}">
+            <img class="spinner" src="../../images/spinner.gif">
+          </template>
+          <span class="small">Some of our center's</span>
+          <span class="large {{name}}">highlights</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1">
+          <div id="{{name}}-affix" class="fBox">
+            <ul id="{{name}}-navigation" class="nav">
+              <template if="{{structure != null}}">
+                <template repeat="{{section in structure}}">
+                  <li on-tap="{{gotoSection}}">
+                    <a id="{{name}}-nav-{{section.index}}" class="{{name}}" data-section="{{section.index}}">{{section.label}}</a>
+                  </li>
+                </template>
+              </template>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-11">
+        <div class="fBox">
+        <section id="2014" class="element">
+          <div class="title {{name}}">2014</div>
+          <template if="{{highlights != null}}">
+            <template repeat="{{highlight in highlights.feed.entry}}">
+              <template if="{{highlight.gsx$year.$t === '2014'}}">
+                <div class="info row">
+                  <div class="tags col-md-1">
+                    <div class="row">
+                      <span class="col-md-12 month {{highlight.gsx$category.$t}} {{highlight.gsx$category.$t}}-border"><span class="{{highlight.gsx$category.$t}}">{{highlight.gsx$month.$t}}</span></span>
+                      <span class="col-md-12 date {{highlight.gsx$category.$t}}-border">{{highlight.gsx$day.$t}}</span>
+                    </div>
+                  </div>
+                  <div class="content col-md-11">
+                    <div class="what">{{highlight.gsx$what.$t}}
+                      <template if="{{highlight.gsx$link.$t != null}}">
+                        <a href="{{highlight.gsx$link.$t}}">{{highlight.gsx$linkname.$t}}</a>
+                      </template>
+                    </div>
+                    <div class="who">{{highlight.gsx$who.$t}} - {{highlight.gsx$where.$t}}</div>
+                  </div>
+                </div>
+              </template>
+            </template>
+          </template>
+        </section>
+
+        <section id="2013" class="element">
+          <div class="title {{name}}">2013</div>
+          <template if="{{highlights != null}}">
+            <template repeat="{{highlight in highlights.feed.entry}}">
+              <template if="{{highlight.gsx$year.$t === '2013'}}">
+                <div class="info row">
+                  <div class="tags col-md-1">
+                    <div class="row">
+                      <span class="col-md-12 month {{highlight.gsx$category.$t}} {{highlight.gsx$category.$t}}-border"><span class="{{highlight.gsx$category.$t}}">{{highlight.gsx$month.$t}}</span></span>
+                      <span class="col-md-12 date {{highlight.gsx$category.$t}}-border">{{highlight.gsx$day.$t}}</span>
+                    </div>
+                  </div>
+                  <div class="content col-md-11">
+                    <div class="what">{{highlight.gsx$what.$t}}
+                      <template if="{{highlight.gsx$link.$t != null}}">
+                        <a href="{{highlight.gsx$link.$t}}">{{highlight.gsx$linkname.$t}}</a>
+                      </template>
+                    </div>
+                    <div class="who">{{highlight.gsx$who.$t}} - {{highlight.gsx$where.$t}}</div>
+                  </div>
+                </div>
+              </template>
+            </template>
+          </template>
+        </section>
+
+        <section id="2012" class="element">
+          <div class="title {{name}}">2012</div>
+          <template if="{{highlights != null}}">
+            <template repeat="{{highlight in highlights.feed.entry}}">
+              <template if="{{highlight.gsx$year.$t === '2012'}}">
+                <div class="info row">
+                  <div class="tags col-md-1">
+                    <div class="row">
+                      <span class="col-md-12 month {{highlight.gsx$category.$t}} {{highlight.gsx$category.$t}}-border"><span class="{{highlight.gsx$category.$t}}">{{highlight.gsx$month.$t}}</span></span>
+                      <span class="col-md-12 date {{highlight.gsx$category.$t}}-border">{{highlight.gsx$day.$t}}</span>
+                    </div>
+                  </div>
+                  <div class="content col-md-11">
+                    <div class="what">{{highlight.gsx$what.$t}}
+                      <template if="{{highlight.gsx$link.$t != null}}">
+                        <a href="{{highlight.gsx$link.$t}}">{{highlight.gsx$linkname.$t}}</a>
+                      </template>
+                    </div>
+                    <div class="who">{{highlight.gsx$who.$t}} - {{highlight.gsx$where.$t}}</div>
+                  </div>
+                </div>
+              </template>
+            </template>
+          </template>
+        </section>
+
+        <section id="2011" class="element">
+          <div class="title {{name}}">2011</div>
+          <template if="{{highlights != null}}">
+            <template repeat="{{highlight in highlights.feed.entry}}">
+              <template if="{{highlight.gsx$year.$t === '2011'}}">
+                <div class="info row">
+                  <div class="tags col-md-1">
+                    <div class="row">
+                      <span class="col-md-12 month {{highlight.gsx$category.$t}} {{highlight.gsx$category.$t}}-border"><span class="{{highlight.gsx$category.$t}}">{{highlight.gsx$month.$t}}</span></span>
+                      <span class="col-md-12 date {{highlight.gsx$category.$t}}-border">{{highlight.gsx$day.$t}}</span>
+                    </div>
+                  </div>
+                  <div class="content col-md-11">
+                    <div class="what">{{highlight.gsx$what.$t}}
+                      <template if="{{highlight.gsx$link.$t != null}}">
+                        <a href="{{highlight.gsx$link.$t}}">{{highlight.gsx$linkname.$t}}</a>
+                      </template>
+                    </div>
+                    <div class="who">{{highlight.gsx$who.$t}} - {{highlight.gsx$where.$t}}</div>
+                  </div>
+                </div>
+              </template>
+            </template>
+          </template>
+        </section>
+
+      </div>
+    </div>
+
+    <template if="{{cache == null && attached == 1 }}">
+      <polymer-jsonp auto="" url="https://spreadsheets.google.com/feeds/list/{{spreadsheet}}/od6/public/values?alt=json-in-script&callback=" response="{{highlights}}"></polymer-jsonp>
+    </template>
+
+  </div></div></template>
+
+  <script>
+    Polymer('highlights-element', {
+      name:'highlights',
+      spreadsheet: '0Asu7h0aKnydhdHlaTndWaUVmOHRpRTMzX3VmWW9VVFE',
+      attached: function(){
+        this.super();
+
+        if(this.cache != null){
+          this.highlights = this.cache;
+        }
+        this.attached = 1;
+      },
+      highlightsChanged: function() {
+        if(this.highlights){
+          this.cache = this.highlights;
+        }
+      }
+    });
+  </script>
+</polymer-element>

@@ -1,0 +1,51 @@
+<polymer-element name="people-element" attributes="people peopleLoaded peopleSelected">
+  <template>
+
+    <link rel="stylesheet" href="people.css">
+
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="summary wrapper2">
+          <div class="name {{people.gsx$group.$t}}">
+        <h1>{{people.gsx$firstname.$t}} {{people.gsx$middlename.$t}} {{people.gsx$lastname.$t}}, {{people.gsx$suffix.$t}}</h1>
+      </div>
+      <div>
+      <div id="picture">
+        <img src="{{gdrive}}/{{people.gsx$picture.$t}}" style="border: 1px solid grey">
+      </div>
+            <div id="info">
+        <div>{{people.gsx$hospitaltitle.$t}}</div>
+        <div>{{people.gsx$academictitle.$t}}</div>
+        <div class="department">{{people.gsx$department.$t}}</div>
+      </div>
+
+</div>
+
+<paper-button label="more" on-click="{{toggleDialog}}" role="button" tabindex="0" aria-label="more"></paper-button>
+
+<div class="clear">
+
+      </div>
+
+    </div>
+      </div>
+
+
+    
+  </template>
+  <script>
+    Polymer('people-element', {
+      peopleSelected: null,
+      peopleLoaded: 1,
+      gdrive: 'https://googledrive.com/host/0B8u7h0aKnydhYkRMZ2ktTnh6a3M/',
+      peopleChanged: function() {
+        var self = this;
+        this.onload=function(){this.peopleLoaded *= -1;};
+      },
+
+   toggleDialog: function(a, b, c) {
+     this.peopleSelected = this.people;
+    }
+
+    });
+  </script>
+</polymer-element>
