@@ -2,17 +2,18 @@
   "name": "core-overlay",
   "private": true,
   "dependencies": {
-    "polymer": "Polymer/polymer#master",
-    "core-transition": "Polymer/core-transition#master"
+    "polymer": "Polymer/polymer#>=0.4.0 <1.0.0",
+    "core-transition": "Polymer/core-transition#>=0.4.0 <1.0.0"
   },
   "homepage": "https://github.com/Polymer/core-overlay",
-  "_release": "50aaa0f6ab",
+  "version": "0.4.0",
+  "_release": "0.4.0",
   "_resolution": {
-    "type": "branch",
-    "branch": "master",
-    "commit": "50aaa0f6ab8e3b57835f543bee52b62345c3f69e"
+    "type": "version",
+    "tag": "0.4.0",
+    "commit": "dbb1c5198bbec6809c7001bc7ab123c3e7916b04"
   },
   "_source": "git://github.com/Polymer/core-overlay.git",
-  "_target": "master",
+  "_target": ">=0.4.0 <1.0.0",
   "_originalSource": "Polymer/core-overlay"
 }

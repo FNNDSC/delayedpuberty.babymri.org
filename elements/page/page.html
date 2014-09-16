@@ -57,8 +57,31 @@
             this.curSection = this.nbSections - 1;
           }
         }
-
+        this.updateStyle();
         this.updateNavigation();
+      },
+      updateStyle: function(){
+        var header = 263;
+        var nav = document.querySelectorAll('.navbar')[0];
+        // var title = this.shadowRoot.querySelectorAll('.pageTitle')[0];
+
+        if(this.scrool == 0){
+          // remove all shades
+          nav.classList.remove('shady');
+          // title.classList.remove('shady');
+        }
+        // else if(this.scrool > header){
+        //   // header shade
+        //   nav.classList.add('shady');
+        //   title.classList.remove('shady');
+        // }
+        else{
+          // reduce font size
+          // title shade
+          // nav.classList.remove('shady');
+          nav.classList.add('shady');
+        }
+
       },
       updateNavigation: function(){
         if(this.curSection != this.prevSection && this.targets){

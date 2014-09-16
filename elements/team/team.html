@@ -15,7 +15,7 @@
     <!-- Page Title -->
     <div class="pageTitle">
       <div class="container">
-        <div id="jumbo" class="jumbotron fBox">
+        <div id="jumbo" class="jumbotron">
           <template if="{{(research == null) && (cache == null)}}">
             <span class="spinner"><img src="../../images/spinner.gif"></span>
           </template>
@@ -49,8 +49,8 @@
     <div class="container">
       <div class="row">
 
-        <div class="col-md-1">
-          <div id="{{name}}-affix" class="fBox">
+        <div class="col-md-1 col-lg-2">
+          <div id="{{name}}-affix">
             <ul id="{{name}}-navigation" class="nav">
               <template if="{{structure != null}}">
                 <template repeat="{{section in structure}}">
@@ -63,12 +63,16 @@
           </div>
         </div>
 
-        <div class="col-md-11">
+        <div class="col-md-11 col-lg-10">
           <div class="fBox">
 
-            <section id="faculty" class="element row">
-              <div class="title {{name}}">faculty members</div>
-              <div class="peeps">
+            <section id="faculty" class="element">
+
+
+              <div class="row card">
+
+                <div class="title">faculty members</div>
+
                 <template if="{{team != null}}">
                   <template repeat="{{people in team.feed.entry}}">
                     <template if="{{people.gsx$group.$t === 'faculty'}}">
@@ -79,9 +83,12 @@
               </div>
             </section>
 
-            <section id="staff" class="element row">
-                <div class="title {{name}}">staff</div>
-                <div class="peeps">
+            <section id="staff" class="element">
+
+                <div class="row card">
+
+                  <div class="title">staff</div>
+
                 <template if="{{team != null}}">
                   <template repeat="{{people in team.feed.entry}}">
                     <template if="{{people.gsx$group.$t === 'staff'}}">
@@ -92,9 +99,12 @@
               </div>
             </section>
 
-            <section id="collaborators" class="element row">
-              <div class="title {{name}}">collaborators</div>
-              <div class="peeps">
+            <section id="collaborators" class="element">
+
+              <div class="row card">
+
+                <div class="title">collaborators</div>
+
                 <template if="{{team != null}}">
                   <template repeat="{{people in team.feed.entry}}">
                     <template if="{{people.gsx$group.$t === 'collaborators'}}">
@@ -105,9 +115,12 @@
               </div>
             </section>
 
-            <section id="alumni" class="element row">
-              <div class="title {{name}}">alumni</div>
-              <div class="peeps">
+            <section id="alumni" class="element">
+
+              <div class="row card">
+
+                <div class="title">alumni</div>
+
                 <template if="{{team != null}}">
                   <template repeat="{{people in team.feed.entry}}">
                     <template if="{{people.gsx$group.$t === 'alumni'}}">
