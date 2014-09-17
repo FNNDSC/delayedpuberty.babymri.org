@@ -45,7 +45,6 @@
 
     </paper-dialog>
 
-      <div id="navnavContainer">
      <div id="navnav">
     <div class="row">
       <div class="container">
@@ -61,7 +60,6 @@
       </div>
     </div>
   </div>
-</div>
 
     <!-- Page Content -->
     <div class="container">
@@ -197,6 +195,7 @@
       },
       peopleLoadedChanged: function(){
         this.refresh();
+        this.updateNavigation();
       },
       peopleSelectedChanged: function(){
         // update content of dialog

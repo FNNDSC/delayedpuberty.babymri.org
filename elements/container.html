@@ -52,7 +52,7 @@
     Polymer('container-element', {
       route: 'home-element',
       curPage: 0,
-      prevPage: 0,
+      prevPage: -1,
       ready: function() {
         // list the pages
         this.pages = [{id:'home-element', label:'home', index:0},
@@ -108,12 +108,18 @@
       refresh: function(){
         // select right element in the top nav
         this.navElts = this.parentElement.querySelectorAll('.nav-element');
+        this.updateNavigation();
       },
       updateNavigation: function(){
+        console.log(this.curPage);
+        console.log(this.prevPage);
+        console.log(typeof(this.navElts));
         if(this.curPage != this.prevPage && typeof(this.navElts) != 'undefined'){
           // && this.navElts
           // desactivate previous section
-          this.navElts[this.prevPage].classList.remove('active');
+          if(this.prevPage >= 0){
+            this.navElts[this.prevPage].classList.remove('active');
+          }
           // // activate current section
           this.navElts[this.curPage].classList.add('active');
           // update variable
@@ -121,6 +127,7 @@
         }
       },
       routeChanged: function() {
+        console.log('route changed...' + this.route);
         // get index of current page
         // should be optimized
         var nbPages = this.pages.length;
@@ -135,7 +142,6 @@
             }
           }
         }
-
         this.updateNavigation();
         }
     });
