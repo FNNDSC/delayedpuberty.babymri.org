@@ -10,8 +10,8 @@
       cache: null,
       attached:0,
       attached: function(){
-        var affix = this.shadowRoot.querySelector('#'+this.name+'-affix');
-        $(affix).affix();
+        // var affix = this.shadowRoot.querySelector('#'+this.name+'-affix');
+        // $(affix).affix();
 
         this.refresh();
       },
@@ -23,7 +23,7 @@
           this.nbSections = null;
       },
       refresh: function(){
-          this.targets = this.shadowRoot.querySelectorAll('#'+this.name+'-affix ul a');
+          this.targets = this.shadowRoot.querySelectorAll('#navnav ul a');
           this.sections = $(this.shadowRoot.querySelectorAll('section'));
           this.sectionsID = this.sections.map( function(){ return this.id;});
           this.offsetTops = this.sections.map( function(){ return this.offsetTop;});
@@ -62,11 +62,17 @@
       },
       updateStyle: function(){
         var header = 263;
-        var nav = document.querySelectorAll('.navbar')[0];
+        //var nav = document.querySelectorAll('.navbar')[0];
+        var nav = this.shadowRoot.querySelectorAll('#navnav')[0];
+        var jumbo = this.shadowRoot.querySelectorAll('#jumbo')[0];
+        console.log(nav);
         // var title = this.shadowRoot.querySelectorAll('.pageTitle')[0];
-
-        if(this.scrool == 0){
+        if(this.scrool < 30){
+          jumbo.classList.remove('scrolled');
+        }
+        else if(this.scrool <= header){
           // remove all shades
+          jumbo.classList.add('scrolled');
           nav.classList.remove('shady');
           // title.classList.remove('shady');
         }
@@ -79,8 +85,12 @@
           // reduce font size
           // title shade
           // nav.classList.remove('shady');
+          jumbo.classList.add('scrolled');
           nav.classList.add('shady');
         }
+
+
+
 
       },
       updateNavigation: function(){
