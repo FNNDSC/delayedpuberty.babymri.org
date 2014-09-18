@@ -31,7 +31,7 @@
         this.refresh();
 
         var id = e.target.getAttribute('data-section');
-        this.fire('gotoSection', {offsetTop: this.offsetTops[id] + 213 - 20});
+        this.fire('gotoSection', {offsetTop: this.offsetTops[id] + 263 - 20});
       },
       scroolChanged: function(){
         // test perf on mobile....
@@ -39,7 +39,7 @@
 
         var match = false;
         for(var i = 0; i<this.nbSections - 1; i++){
-          if(this.scrool >= this.offsetTops[i] + 213 - 20 && this.scrool < this.offsetTops[i+1] + 213 - 20){
+          if(this.scrool >= this.offsetTops[i] + 263 - 20 && this.scrool < this.offsetTops[i+1] + 263 - 20){
             this.curSection = i;
             match = true;
             break;
@@ -47,7 +47,7 @@
         }
 
         if(!match){
-          if(this.scrool < this.offsetTops[0] + 213 - 20){
+          if(this.scrool < this.offsetTops[0] + 263 - 20){
             this.curSection = 0;
           }
           else{
@@ -58,14 +58,17 @@
         this.updateNavigation();
       },
       updateStyle: function(){
+        console.log(this.scrool);
         // 263 - 50 or 100?
-        var header = 213;
+        var header = 263;
         //var nav = document.querySelectorAll('.navbar')[0];
         var nav = this.shadowRoot.querySelectorAll('#navnav')[0];
         var jumbo = this.shadowRoot.querySelectorAll('#jumbo')[0];
         // var title = this.shadowRoot.querySelectorAll('.pageTitle')[0];
         if(this.scrool < 30){
           jumbo.classList.remove('scrolled');
+          // need that for fast scroll
+          nav.classList.remove('shady');
         }
         else if(this.scrool <= header){
           // remove all shades
