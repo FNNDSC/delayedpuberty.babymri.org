@@ -1,0 +1,150 @@
+<link rel="import" href="../page/page.html">
+<link rel="import" href="../highlights_card/highlights_card.html">
+
+<polymer-element name="highlights-element" extends="page-element">
+  <template>
+    <link rel="stylesheet" type="text/css" href="highlights.css">
+
+    <div class="pageTitle">
+      <div class="container">
+        <div id="jumbo" class="jumbotron">
+          <template if="{{(research == null) && (cache == null)}}">
+            <img class="spinner" src="../../images/spinner.gif">
+          </template>
+          <span class="small">Some of our center's</span>
+          <span class="large {{name}}">highlights</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-1 col-lg-2">
+          <div id="{{name}}-affix">
+            <ul id="{{name}}-navigation" class="nav">
+              <template if="{{structure != null}}">
+                <template repeat="{{section in structure}}">
+                  <li on-tap="{{gotoSection}}">
+                    <a id="{{name}}-nav-{{section.index}}" class="{{name}}" data-section="{{section.index}}">{{section.label}}</a>
+                  </li>
+                </template>
+              </template>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-11 col-lg-10">
+        <div class="fBox">
+        <section id="ttfourteen" class="element">
+          <div class="row card">
+          <div class="title">2014</div>
+
+          <div class="row">
+            <template if="{{highlights != null}}">
+              <template repeat="{{highlight in highlights.feed.entry}}">
+                <template if="{{highlight.gsx$year.$t === '2014'}}">
+                  <highlights_card-element highlight="{{highlight}}" category="{{highlight.gsx$category.$t}}" peopleloaded="{{peopleLoaded}}" peopleselected="{{peopleSelected}}"></highlights_card-element>
+                </template>
+              </template>
+            </template>
+        </div>
+</div>
+        </section>
+
+        <section id="ttthirteen" class="element">
+          <div class="row card">
+          <div class="title">2013</div>
+
+          <div class="row">
+            <template if="{{highlights != null}}">
+              <template repeat="{{highlight in highlights.feed.entry}}">
+                <template if="{{highlight.gsx$year.$t === '2013'}}">
+                  <highlights_card-element highlight="{{highlight}}" category="{{highlight.gsx$category.$t}}" peopleloaded="{{peopleLoaded}}" peopleselected="{{peopleSelected}}"></highlights_card-element>
+                </template>
+              </template>
+            </template>
+          </div>
+        </div>
+        </section>
+
+        <section id="tttwelve" class="element">
+          <div class="row card">
+          <div class="title">2012</div>
+
+          <div class="row">
+            <template if="{{highlights != null}}">
+              <template repeat="{{highlight in highlights.feed.entry}}">
+                <template if="{{highlight.gsx$year.$t === '2012'}}">
+                  <highlights_card-element highlight="{{highlight}}" category="{{highlight.gsx$category.$t}}" peopleloaded="{{peopleLoaded}}" peopleselected="{{peopleSelected}}"></highlights_card-element>
+                </template>
+              </template>
+            </template>
+          </div>
+          </div>
+        </section>
+
+        <section id="tteleven" class="element">
+          <div class="row card">
+          <div class="title">2011</div>
+
+          <div class="row">
+            <template if="{{highlights != null}}">
+              <template repeat="{{highlight in highlights.feed.entry}}">
+                <template if="{{highlight.gsx$year.$t === '2011'}}">
+                  <highlights_card-element highlight="{{highlight}}" category="{{highlight.gsx$category.$t}}" peopleloaded="{{peopleLoaded}}" peopleselected="{{peopleSelected}}"></highlights_card-element>
+                  <!-- <div class="info {{highlight.gsx$category.$t}} col-md-4" >
+                    <div class="tags {{highlight.gsx$category.$t}} col-md-3">
+                      <div class='row'>
+                        <span class="col-md-12 month"><span class='{{highlight.gsx$category.$t}}'>{{highlight.gsx$month.$t}}</span></span>
+                        <span class="col-md-12 date">{{highlight.gsx$day.$t}}</span>
+                      </div>
+                  </div>
+                    <div class="summary col-md-9">
+                      <div class="what">{{highlight.gsx$what.$t}}
+                        <template if="{{highlight.gsx$link.$t != null}}">
+                          <a href="{{highlight.gsx$link.$t}}">{{highlight.gsx$linkname.$t}}</a>
+                        </template>
+                      </div>
+                    <div class="who">{{highlight.gsx$who.$t}}</div>
+                    <div class="where">{{highlight.gsx$where.$t}}</div>
+                    <template if="{{highlight.gsx$location.$t != null}}">
+                      <div class="location">{{highlight.gsx$location.$t}}</div>
+                    </template>
+                    </div>
+                  </div> -->
+                </template>
+              </template>
+            </template>
+          </div>
+        </div>
+
+        </section>
+
+      </div>
+    </div>
+
+    <template if="{{cache == null && attached == 1 }}">
+      <polymer-jsonp auto="" url="https://spreadsheets.google.com/feeds/list/{{spreadsheet}}/od6/public/values?alt=json-in-script&callback=" response="{{highlights}}"></polymer-jsonp>
+    </template>
+
+  </div></div></template>
+
+  <script>
+    Polymer('highlights-element', {
+      name:'highlights',
+      spreadsheet: '0Asu7h0aKnydhdHlaTndWaUVmOHRpRTMzX3VmWW9VVFE',
+      attached: function(){
+        this.super();
+
+        if(this.cache != null){
+          this.highlights = this.cache;
+        }
+        this.attached = 1;
+      },
+      highlightsChanged: function() {
+        if(this.highlights){
+          this.cache = this.highlights;
+        }
+      }
+    });
+  </script>
+</polymer-element>

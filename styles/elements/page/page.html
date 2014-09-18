@@ -1,0 +1,112 @@
+<link rel="import" href="../../lib-elements/polymer-jsonp/polymer-jsonp.html">
+
+<polymer-element name="page-element" attributes="scrool structure cache">
+  <script>
+    Polymer('page-element', {
+      name: '',
+      targets: null,
+      curSection: 0,
+      prevSection: -1,
+      cache: null,
+      attached:0,
+      attached: function(){
+        this.refresh();
+      },
+      detached: function(){
+          this.targets = null;
+          this.sections = null;
+          this.sectionsID = null;
+          this.offsetHeights = null;
+          this.nbSections = null;
+      },
+      refresh: function(){
+          this.targets = this.shadowRoot.querySelectorAll('#navnav ul a');
+          this.sections = $(this.shadowRoot.querySelectorAll('section'));
+          this.sectionsID = this.sections.map( function(){ return this.id;});
+          this.offsetTops = this.sections.map( function(){ return this.offsetTop;});
+          this.nbSections = this.sections.length;
+      },
+      gotoSection: function(e){
+        // test perf on mobile....
+        this.refresh();
+
+        var id = e.target.getAttribute('data-section');
+        this.fire('gotoSection', {offsetTop: this.offsetTops[id] + 263 - 20});
+      },
+      scroolChanged: function(){
+        // test perf on mobile....
+        this.refresh();
+
+        var match = false;
+        for(var i = 0; i<this.nbSections - 1; i++){
+          if(this.scrool >= this.offsetTops[i] + 263 - 20 && this.scrool < this.offsetTops[i+1] + 263 - 20){
+            this.curSection = i;
+            match = true;
+            break;
+          }
+        }
+
+        if(!match){
+          if(this.scrool < this.offsetTops[0] + 263 - 20){
+            this.curSection = 0;
+          }
+          else{
+            this.curSection = this.nbSections - 1;
+          }
+        }
+        this.updateStyle();
+        this.updateNavigation();
+      },
+      updateStyle: function(){
+        console.log(this.scrool);
+        // 263 - 50 or 100?
+        var header = 263;
+        //var nav = document.querySelectorAll('.navbar')[0];
+        var nav = this.shadowRoot.querySelectorAll('#navnav')[0];
+        var jumbo = this.shadowRoot.querySelectorAll('#jumbo')[0];
+        // var title = this.shadowRoot.querySelectorAll('.pageTitle')[0];
+        if(this.scrool < 30){
+          jumbo.classList.remove('scrolled');
+          // need that for fast scroll
+          nav.classList.remove('shady');
+        }
+        else if(this.scrool <= header){
+          // remove all shades
+          jumbo.classList.add('scrolled');
+          nav.classList.remove('shady');
+          // title.classList.remove('shady');
+        }
+        // else if(this.scrool > header){
+        //   // header shade
+        //   nav.classList.add('shady');
+        //   title.classList.remove('shady');
+        // }
+        else{
+          // reduce font size
+          // title shade
+          // nav.classList.remove('shady');
+          jumbo.classList.add('scrolled');
+          nav.classList.add('shady');
+        }
+
+
+
+
+      },
+      updateNavigation: function(){
+        console.log('update navigation');
+        if(this.curSection != this.prevSection && this.targets){
+          // desactivate previous section
+          if(this.prevSection >= 0){
+            this.targets[this.prevSection].classList.remove('active');
+          }
+          // activate current section
+          this.targets[this.curSection].classList.add('active');
+          // update variable
+          this.prevSection = this.curSection;
+        }
+      }
+    });
+
+  </script>
+</polymer-element>
