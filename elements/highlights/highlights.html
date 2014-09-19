@@ -1,5 +1,5 @@
 <link rel="import" href="../page/page.html">
-<link rel="import" href="../highlights_card/highlights_card.html">
+<link rel="import" href="../people/people.html">
 
 <polymer-element name="highlights-element" extends="page-element">
   <template>
@@ -17,14 +17,14 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-md-1 col-lg-2">
-          <div id="{{name}}-affix">
-            <ul id="{{name}}-navigation" class="nav">
+    <div id="navnavContainer">
+         <div id="navnav">
+        <div class="row">
+          <div class="container">
+            <ul class="navbar-nav nav">
               <template if="{{structure != null}}">
                 <template repeat="{{section in structure}}">
-                  <li on-tap="{{gotoSection}}">
+                  <li on-tap="{{gotoSection}}" class="nav-element">
                     <a id="{{name}}-nav-{{section.index}}" class="{{name}}" data-section="{{section.index}}">{{section.label}}</a>
                   </li>
                 </template>
@@ -32,7 +32,12 @@
             </ul>
           </div>
         </div>
-        <div class="col-md-11 col-lg-10">
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="">
+        <div class="col-md-12 col-lg-12">
         <div class="fBox">
         <section id="ttfourteen" class="element">
           <div class="row card">
@@ -42,8 +47,8 @@
             <template if="{{highlights != null}}">
               <template repeat="{{highlight in highlights.feed.entry}}">
                 <template if="{{highlight.gsx$year.$t === '2014'}}">
-                  <highlights_card-element highlight="{{highlight}}" category="{{highlight.gsx$category.$t}}" peopleloaded="{{peopleLoaded}}" peopleselected="{{peopleSelected}}"></highlights_card-element>
-                </template>
+                  <card-element cardobject="{{highlight}}" cardloaded="{{highlightLoaded}}" cardselected="{{highlightSelected}}"></card-element>
+</template>
               </template>
             </template>
         </div>
@@ -58,7 +63,7 @@
             <template if="{{highlights != null}}">
               <template repeat="{{highlight in highlights.feed.entry}}">
                 <template if="{{highlight.gsx$year.$t === '2013'}}">
-                  <highlights_card-element highlight="{{highlight}}" category="{{highlight.gsx$category.$t}}" peopleloaded="{{peopleLoaded}}" peopleselected="{{peopleSelected}}"></highlights_card-element>
+<card-element cardobject="{{highlight}}" cardloaded="{{highlightLoaded}}" cardselected="{{highlightSelected}}"></card-element>
                 </template>
               </template>
             </template>
@@ -74,7 +79,7 @@
             <template if="{{highlights != null}}">
               <template repeat="{{highlight in highlights.feed.entry}}">
                 <template if="{{highlight.gsx$year.$t === '2012'}}">
-                  <highlights_card-element highlight="{{highlight}}" category="{{highlight.gsx$category.$t}}" peopleloaded="{{peopleLoaded}}" peopleselected="{{peopleSelected}}"></highlights_card-element>
+<card-element cardobject="{{highlight}}" cardloaded="{{highlightLoaded}}" cardselected="{{highlightSelected}}"></card-element>
                 </template>
               </template>
             </template>
@@ -90,27 +95,8 @@
             <template if="{{highlights != null}}">
               <template repeat="{{highlight in highlights.feed.entry}}">
                 <template if="{{highlight.gsx$year.$t === '2011'}}">
-                  <highlights_card-element highlight="{{highlight}}" category="{{highlight.gsx$category.$t}}" peopleloaded="{{peopleLoaded}}" peopleselected="{{peopleSelected}}"></highlights_card-element>
-                  <!-- <div class="info {{highlight.gsx$category.$t}} col-md-4" >
-                    <div class="tags {{highlight.gsx$category.$t}} col-md-3">
-                      <div class='row'>
-                        <span class="col-md-12 month"><span class='{{highlight.gsx$category.$t}}'>{{highlight.gsx$month.$t}}</span></span>
-                        <span class="col-md-12 date">{{highlight.gsx$day.$t}}</span>
-                      </div>
-                  </div>
-                    <div class="summary col-md-9">
-                      <div class="what">{{highlight.gsx$what.$t}}
-                        <template if="{{highlight.gsx$link.$t != null}}">
-                          <a href="{{highlight.gsx$link.$t}}">{{highlight.gsx$linkname.$t}}</a>
-                        </template>
-                      </div>
-                    <div class="who">{{highlight.gsx$who.$t}}</div>
-                    <div class="where">{{highlight.gsx$where.$t}}</div>
-                    <template if="{{highlight.gsx$location.$t != null}}">
-                      <div class="location">{{highlight.gsx$location.$t}}</div>
-                    </template>
-                    </div>
-                  </div> -->
+                  <card-element cardobject="{{highlight}}" cardloaded="{{highlightLoaded}}" cardselected="{{highlightSelected}}"></card-element>
+
                 </template>
               </template>
             </template>
@@ -142,6 +128,42 @@
       },
       highlightsChanged: function() {
         if(this.highlights){
+          // // format the object
+          // <template repeat="{{people in team.feed.entry}}">
+          //   <template if="{{people.gsx$group.$t === 'faculty'}}">
+          //     <card-element cardObject="{{people}}" cardLoad
+          // {{cardObject.gsx$title.$t}}
+          // {{cardObject.gsx$art.$t}}
+          // {{cardObject.gsx$date.$t}}
+          // {{cardObject.gsx$category.$t}}
+          // {{cardObject.gsx$l1.$t}}
+          // {{cardObject.gsx$l2.$t}}
+          // {{cardObject.gsx$l3.$t}}
+          for(var i = 0; i < this.highlights.feed.entry.length; i++){
+            // generate title if no title
+            if(!this.highlights.feed.entry[i].gsx$title){
+              this.highlights.feed.entry[i].gsx$title = {$t:''};
+              this.highlights.feed.entry[i].gsx$title.$t = this.highlights.feed.entry[i].gsx$group.$t;
+            }
+
+            // generate text for the lines
+            if(!this.highlights.feed.entry[i].gsx$l1){
+              this.highlights.feed.entry[i].gsx$l1 = {$t:''};
+              this.highlights.feed.entry[i].gsx$l1.$t = this.highlights.feed.entry[i].gsx$what.$t.substring(0,140);
+              if(this.highlights.feed.entry[i].gsx$what.$t.length > 140){
+                this.highlights.feed.entry[i].gsx$l1.$t += '...';
+              }
+            }
+            // if(!this.team.feed.entry[i].gsx$l2){
+            //   this.team.feed.entry[i].gsx$l2 = {$t:''};
+            //   this.team.feed.entry[i].gsx$l2.$t = this.team.feed.entry[i].gsx$academictitle.$t;
+            // }
+            // if(!this.team.feed.entry[i].gsx$l3){
+            //   this.team.feed.entry[i].gsx$l3 = {$t:''};
+            //   this.team.feed.entry[i].gsx$l3.$t = this.team.feed.entry[i].gsx$department.$t;
+            // }
+          }
+
           this.cache = this.highlights;
         }
       }

@@ -1,4 +1,4 @@
-<polymer-element name="people-element" attributes="people peopleLoaded peopleSelected">
+<polymer-element name="card-element" attributes="cardObject cardLoaded cardSelected">
 
   <template>
 
@@ -6,22 +6,49 @@
 
     <div class="col-md-4 col-sm-6 col-xs-12">
       <div class="summary wrapper2">
-        <div class="name {{people.gsx$group.$t}}">
-            <h1 class="max-lines">{{people.gsx$firstname.$t}} {{people.gsx$middlename.$t}} {{people.gsx$lastname.$t}}, {{people.gsx$suffix.$t}}</h1>
+        <div class="name {{cardObject.gsx$group.$t}}">
+            <h1>{{cardObject.gsx$title.$t}}</h1>
           </div>
           <div>
             <div id="picture">
-              <img src="{{gdrive}}/{{people.gsx$picture.$t}}">
+
+              <!-- if no picture -->
+              <template if="{{cardObject.gsx$picture.$t === '' || cardObject.gsx$picture.$t === undefined}}">
+                <!-- day and month! -->
+                <template if="{{cardObject.gsx$day != undefined}}">
+                  <template if="{{cardObject.gsx$month != undefined}}">
+                    <div id="calendar">
+                    <span class="month"><span class="border {{cardObject.gsx$group.$t}}">{{cardObject.gsx$month.$t}}</span></span>
+                    <span class="date border {{cardObject.gsx$group.$t}}">{{cardObject.gsx$day.$t}}</span>
+                  </div>
+                  </template>
+                </template>
+              </template>
+
+              <!-- if picture -->
+              <template if="{{cardObject.gsx$picture.$t != '' && cardObject.gsx$picture.$t != undefined}}">
+                <!-- no link -->
+                <template if="{{cardObject.gsx$picturelink === '' || cardObject.gsx$picturelink === undefined}}">
+                  <img src="{{cardObject.gsx$picture.$t}}">
+                </template>
+                <!-- link -->
+                <template if="{{cardObject.gsx$picturelink != '' && cardObject.gsx$picturelink.$t != undefined}}">
+                  <a href="{{cardObject.gsx$picturelink.$t}}" target="_blank">
+                    <img src="{{cardObject.gsx$picture.$t}}">
+                  </a>
+                </template>
+              </template>
+
             </div>
           <div id="info">
-            <div>{{people.gsx$hospitaltitle.$t}}</div>
-            <div>{{people.gsx$academictitle.$t}}</div>
-            <div class="department">{{people.gsx$department.$t}}</div>
+            <div class="subtitle">{{cardObject.gsx$l1.$t}}</div>
+            <div>{{cardObject.gsx$l2.$t}}</div>
+            <div class="event">{{cardObject.gsx$l3.$t}}</div>
+            <div></div>
           </div>
         </div>
 
-
-        <div class="item-overlay top {{people.gsx$group.$t}}"><paper-button label="more information" on-click="{{toggleDialog}}" role="button" tabindex="0" aria-label="more information"></paper-button></div>
+        <div class="item-overlay top"><paper-button label="more information" on-click="{{toggleDialog}}" role="button" tabindex="0" aria-label="more information"></paper-button></div>
 
         <div class="clear"></div>
       </div>
@@ -30,16 +57,18 @@
   </template>
 
   <script>
-    Polymer('people-element', {
-      peopleSelected: null,
-      peopleLoaded: 1,
-      gdrive: 'https://googledrive.com/host/0B8u7h0aKnydhYkRMZ2ktTnh6a3M/',
-      peopleChanged: function() {
+    Polymer('card-element', {
+      cardObject: null,
+      // contains the card information if "More Information" clicked (dialog is not triggered from here)
+      cardSelected: null,
+      // value changes when page is loaded, to update the naviagation bar/scrolll spy
+      cardLoaded: 1,
+      cardObjectChanged: function() {
         var self = this;
-        this.onload=function(){this.peopleLoaded *= -1;};
+        this.onload=function(){this.cardLoaded *= -1;};
       },
       toggleDialog: function(a, b, c) {
-       this.peopleSelected = this.people;
+       this.cardSelected = this.cardObject;
       }
     });
   </script>

@@ -4,24 +4,6 @@
   <template>
       <link rel="stylesheet" href="contact.css">
 
-<div id="navnavContainer">
-     <div id="navnav">
-    <div class="row">
-      <div class="container">
-        <ul class="navbar-nav nav">
-          <template if="{{structure != null}}">
-            <template repeat="{{section in structure}}">
-              <li on-tap="{{gotoSection}}" class="nav-element">
-                <a id="{{name}}-nav-{{section.index}}" class="{{name}}" data-section="{{section.index}}">{{section.label}}</a>
-              </li>
-            </template>
-          </template>
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
-
       <div class="pageTitle">
       <div class="container">
         <div id="jumbo" class="jumbotron">
@@ -34,8 +16,26 @@
       </div>
       </div>
 
+      <div id="navnavContainer">
+           <div id="navnav">
+          <div class="row">
+            <div class="container">
+              <ul class="navbar-nav nav">
+                <template if="{{structure != null}}">
+                  <template repeat="{{section in structure}}">
+                    <li on-tap="{{gotoSection}}" class="nav-element">
+                      <a id="{{name}}-nav-{{section.index}}" class="{{name}}" data-section="{{section.index}}">{{section.label}}</a>
+                    </li>
+                  </template>
+                </template>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="container">
-      <div class="row">
+      <div class="">
         <div class="col-md-12 col-lg-12">
         <div class="fBox">
 

@@ -1,5 +1,5 @@
 <link rel="import" href="../page/page.html">
-<link rel="import" href="../event/event.html">
+<link rel="import" href="../people/people.html">
 
 <link rel="import" href="../../lib-elements/paper-button/paper-button.html">
 <link rel="import" href="../../lib-elements/paper-dialog/paper-dialog-transition.html">
@@ -23,6 +23,24 @@
       </div>
     </div>
 
+    <div id="navnavContainer">
+         <div id="navnav">
+        <div class="row">
+          <div class="container">
+            <ul class="navbar-nav nav">
+              <template if="{{structure != null}}">
+                <template repeat="{{section in structure}}">
+                  <li on-tap="{{gotoSection}}" class="nav-element">
+                    <a id="{{name}}-nav-{{section.index}}" class="{{name}}" data-section="{{section.index}}">{{section.label}}</a>
+                  </li>
+                </template>
+              </template>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- Paper Dialog -->
     <paper-dialog heading="Abstract" transition="paper-dialog-transition-center" tabindex="-1" class="paper-dialog-transition paper-dialog-transition-center" style="z-index: 2000; position: fixed; display: none">
       <content>
@@ -37,21 +55,8 @@
 
     <!-- Content -->
     <div class="container">
-      <div class="row">
-        <div class="col-md-1 col-lg-2">
-          <div id="{{name}}-affix">
-            <ul id="{{name}}-navigation" class="nav">
-              <template if="{{structure != null}}">
-                <template repeat="{{section in structure}}">
-                  <li on-tap="{{gotoSection}}">
-                    <a id="{{name}}-nav-{{section.index}}" class="{{name}}" data-section="{{section.index}}">{{section.label}}</a>
-                  </li>
-                </template>
-              </template>
-            </ul>
-          </div>
-        </div>
-        <div class="col-md-11 col-lg-10">
+      <div class="">
+        <div class="col-md-12 col-lg-12">
           <div class="fBox">
             <section id="live" class="element">
 
@@ -61,9 +66,9 @@
 
               <template if="{{live != null}}">
                 <template repeat="{{event in live.feed.entry}}">
-                  <template if="{{event.gsx$section.$t === 'next'}}">
+                  <template if="{{event.gsx$group.$t === 'next'}}">
                     <div>
-                      <event-element event="{{event}}" eventselected="{{eventSelected}}"></event-element>
+                      <card-element cardobject="{{event}}" cardloaded="{{eventLoaded}}" cardselected="{{eventSelected}}"></card-element>
                     </div>
                   </template>
                 </template>
@@ -79,9 +84,9 @@
 
               <template if="{{live != null}}">
                 <template repeat="{{event in live.feed.entry}}">
-                  <template if="{{event.gsx$section.$t === 'fnndsctalk'}}">
+                  <template if="{{event.gsx$group.$t === 'fnndsctalk'}}">
                     <div>
-                      <event-element event="{{event}}" eventselected="{{eventSelected}}"></event-element>
+<card-element cardobject="{{event}}" cardloaded="{{eventLoaded}}" cardselected="{{eventSelected}}"></card-element>
                     </div>
                   </template>
                 </template>
@@ -96,9 +101,9 @@
                 <div id="prevTitle" class="title {{name}}">Unix 101 series</div>
               <template if="{{live != null}}">
                 <template repeat="{{event in live.feed.entry}}">
-                  <template if="{{event.gsx$section.$t === 'unix101'}}">
+                  <template if="{{event.gsx$group.$t === 'unix101'}}">
                     <div>
-                      <event-element event="{{event}}" eventselected="{{eventSelected}}"></event-element>
+<card-element cardobject="{{event}}" cardloaded="{{eventLoaded}}" cardselected="{{eventSelected}}"></card-element>
                     </div>
                   </template>
                 </template>
@@ -120,6 +125,8 @@
     Polymer('live-element', {
       name: 'live',
       spreadsheet: '0Asu7h0aKnydhdHdNOUMxWVVvQkJlQUZvYTFQX0t5OXc',
+      youtubeVideo: 'https://www.youtube.com/watch?v=',
+      youtubeImage: 'http://img.youtube.com/vi',
       attached: function(){
         this.super();
         if(this.cache != null){
@@ -129,6 +136,56 @@
       },
       liveChanged: function(){
         if(this.live){
+
+          // // format the object
+          // <template repeat="{{people in team.feed.entry}}">
+          //   <template if="{{people.gsx$group.$t === 'faculty'}}">
+          //     <card-element cardObject="{{people}}" cardLoad
+          // {{cardObject.gsx$title.$t}}
+          // {{cardObject.gsx$art.$t}}
+          // {{cardObject.gsx$date.$t}}
+          // {{cardObject.gsx$category.$t}}
+          // {{cardObject.gsx$l1.$t}}
+          // {{cardObject.gsx$l2.$t}}
+          // {{cardObject.gsx$l3.$t}}
+          for(var i = 0; i < this.live.feed.entry.length; i++){
+            // generate title if no title
+            if(!this.live.feed.entry[i].gsx$title){
+              this.live.feed.entry[i].gsx$title = {$t:''};
+              this.live.feed.entry[i].gsx$title.$t = this.live.feed.entry[i].gsx$titlefull.$t.substring(0,30);
+              if(this.live.feed.entry[i].gsx$titlefull.$t.length > 30){
+                this.live.feed.entry[i].gsx$title.$t += '...';
+              }
+            }
+
+            //generate picture if no
+            if(!this.live.feed.entry[i].gsx$picture){
+              this.live.feed.entry[i].gsx$picture = {$t:''};
+              this.live.feed.entry[i].gsx$picture.$t = this.youtubeImage + '/' +this.live.feed.entry[i].gsx$videoid.$t + '/2.jpg';
+            }
+
+            //generate picturelink if no
+            if(!this.live.feed.entry[i].gsx$picturelink){
+              this.live.feed.entry[i].gsx$picturelink = {$t:''};
+              this.live.feed.entry[i].gsx$picturelink.$t = this.youtubeVideo +this.live.feed.entry[i].gsx$videoid.$t;
+            }
+
+            // generate text for the lines
+            if(!this.live.feed.entry[i].gsx$l1){
+              this.live.feed.entry[i].gsx$l1 = {$t:''};
+              this.live.feed.entry[i].gsx$l1.$t = this.live.feed.entry[i].gsx$speaker.$t;
+            }
+            if(!this.live.feed.entry[i].gsx$l2){
+              this.live.feed.entry[i].gsx$l2 = {$t:''};
+              this.live.feed.entry[i].gsx$l2.$t = this.live.feed.entry[i].gsx$showtime.$t;
+            }
+            if(!this.live.feed.entry[i].gsx$l3){
+              this.live.feed.entry[i].gsx$l3 = {$t:''};
+              this.live.feed.entry[i].gsx$l3.$t = this.live.feed.entry[i].gsx$event.$t;
+            }
+          }
+
+
           this.cache = this.live;
         }
       },
@@ -138,7 +195,7 @@
           this.$.abstract.innerHTML = this.eventSelected.gsx$abstract.$t;
 
           var dialog = this.shadowRoot.querySelector('paper-dialog');
-          dialog.shadowRoot.querySelector('#main h1').innerHTML = this.eventSelected.gsx$title.$t;
+          dialog.shadowRoot.querySelector('#main h1').innerHTML = this.eventSelected.gsx$titlefull.$t;
           dialog.toggle();
 
           this.eventSelected = null;

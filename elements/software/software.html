@@ -17,15 +17,14 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="row">
-
-        <div class="col-md-1 col-lg-2">
-          <div id="{{name}}-affix">
-            <ul id="{{name}}-navigation" class="nav">
+    <div id="navnavContainer">
+         <div id="navnav">
+        <div class="row">
+          <div class="container">
+            <ul class="navbar-nav nav">
               <template if="{{structure != null}}">
                 <template repeat="{{section in structure}}">
-                  <li on-tap="{{gotoSection}}">
+                  <li on-tap="{{gotoSection}}" class="nav-element">
                     <a id="{{name}}-nav-{{section.index}}" class="{{name}}" data-section="{{section.index}}">{{section.label}}</a>
                   </li>
                 </template>
@@ -33,8 +32,13 @@
             </ul>
           </div>
         </div>
+      </div>
+    </div>
 
-        <div class="col-md-11 col-lg-10">
+    <div class="container">
+      <div class="">
+
+        <div class="col-md-12">
           <div class="fBox">
 
             <section id="labbook" class="element">

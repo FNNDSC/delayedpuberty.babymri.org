@@ -16,22 +16,27 @@
         </div>
       </div>
 
-      <div class="container">
-      <div class="row">
-        <div class="col-md-1 col-lg-2">
-          <div id="{{name}}-affix">
-            <ul id="{{name}}-navigation" class="nav">
-              <template if="{{structure != null}}">
-                <template repeat="{{section in structure}}">
-                  <li on-tap="{{gotoSection}}">
-                    <a id="{{name}}-nav-{{section.index}}" class="{{name}}" data-section="{{section.index}}">{{section.label}}</a>
-                  </li>
+      <div id="navnavContainer">
+           <div id="navnav">
+          <div class="row">
+            <div class="container">
+              <ul class="navbar-nav nav">
+                <template if="{{structure != null}}">
+                  <template repeat="{{section in structure}}">
+                    <li on-tap="{{gotoSection}}" class="nav-element">
+                      <a id="{{name}}-nav-{{section.index}}" class="{{name}}" data-section="{{section.index}}">{{section.label}}</a>
+                    </li>
+                  </template>
                 </template>
-              </template>
-            </ul>
+              </ul>
+            </div>
           </div>
         </div>
-        <div class="col-md-11 col-lg-10">
+      </div>
+
+      <div class="container">
+      <div class="">
+        <div class="col-md-12 col-lg-12">
         <div class="fBox">
 
         <section id="challenges" class="element">
