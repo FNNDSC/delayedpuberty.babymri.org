@@ -63,7 +63,7 @@
               <div class="row card">
 
                 <div id="liveSectionTitle" class="title {{name}}">Upcoming talks</div>
-
+<div class="row">
               <template if="{{live != null}}">
                 <template repeat="{{event in live.feed.entry}}">
                   <template if="{{event.gsx$group.$t === 'next'}}">
@@ -74,6 +74,7 @@
                 </template>
               </template>
             </div>
+            </div>
             </section>
 
             <section id="fnndsctalks" class="element">
@@ -81,7 +82,7 @@
               <div class="row card">
 
                 <div id="prevTitle" class="title {{name}}">Fnndsc talks</div>
-
+<div class="row">
               <template if="{{live != null}}">
                 <template repeat="{{event in live.feed.entry}}">
                   <template if="{{event.gsx$group.$t === 'fnndsctalk'}}">
@@ -92,6 +93,7 @@
                 </template>
               </template>
             </div>
+            </div>
             </section>
 
             <section id="unix101" class="element">
@@ -99,6 +101,7 @@
               <div class="row card">
 
                 <div id="prevTitle" class="title {{name}}">Unix 101 series</div>
+                <div class="row">
               <template if="{{live != null}}">
                 <template repeat="{{event in live.feed.entry}}">
                   <template if="{{event.gsx$group.$t === 'unix101'}}">
@@ -108,6 +111,7 @@
                   </template>
                 </template>
               </template>
+            </div>
             </div>
             </section>
           </div>
