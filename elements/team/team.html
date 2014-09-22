@@ -1,0 +1,274 @@
+<link rel="import" href="../page/page.html">
+<link rel="import" href="../people/people.html">
+
+<link rel="import" href="../../lib-elements/paper-button/paper-button.html">
+<link rel="import" href="../../lib-elements/paper-dialog/paper-dialog-transition.html">
+<link rel="import" href="../../lib-elements/paper-dialog/paper-dialog.html">
+<link rel="import" href="../../lib-elements/core-selector/core-selector.html">
+<link rel="import" href="../../lib-elements/paper-tabs/paper-tabs.html">
+
+<polymer-element name="team-element" extends="page-element">
+  <template>
+
+    <link rel="stylesheet" href="team.css">
+
+    <!-- Page Title -->
+    <div class="pageTitle">
+      <div class="container">
+        <div id="jumbo" class="jumbotron">
+          <template if="{{(research == null) && (cache == null)}}">
+            <span class="spinner"><img src="../../images/spinner.gif"></span>
+          </template>
+          <span class="small">We are a multi-disciplinary </span>
+          <span class="large">team</span>
+        </div>
+      </div>
+    </div>
+
+    <div id="navnavContainer">
+         <div id="navnav">
+        <div class="row">
+          <div class="container">
+            <ul class="navbar-nav nav">
+              <template if="{{structure != null}}">
+                <template repeat="{{section in structure}}">
+                  <li on-tap="{{gotoSection}}" class="nav-element">
+                    <a id="{{name}}-nav-{{section.index}}" data-section="{{section.index}}">{{section.label}}</a>
+                  </li>
+                </template>
+              </template>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paper Dialog -->
+    <paper-dialog heading="More about" transition="paper-dialog-transition-center" tabindex="-1" class="{{people.gsx$lastname.$t}} paper-dialog-transition paper-dialog-transition-center" style="z-index: 2000; position: fixed; display: none">
+      <content>
+
+        <paper-tabs selected="0" class="transparent-teal" noink="">
+          <paper-tab>BIOGRAPHY</paper-tab>
+          <paper-tab>PUBLICATION</paper-tab>
+          <paper-tab>AWARDS</paper-tab>
+        </paper-tabs>
+
+        <div id="biography"></div>
+        <div id="papers"></div>
+        <div id="awards"></div>
+
+      </content>
+
+      <paper-button label="Close" affirmative="" default=""></paper-button>
+
+    </paper-dialog>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="col-md-12 col-lg-12">
+          <div class="fBox">
+
+            <section id="faculty" class="element">
+
+
+              <div class="row card">
+
+                <div class="title">faculty members</div>
+<div class="row">
+                <template if="{{team != null}}">
+                  <template repeat="{{people in team.feed.entry}}">
+                    <template if="{{people.gsx$group.$t === 'faculty'}}">
+                      <card-element cardobject="{{people}}" cardloaded="{{peopleLoaded}}" cardselected="{{peopleSelected}}"></card-element>
+                    </template>
+                  </template>
+                </template>
+              </div>
+            </div>
+            </section>
+
+            <section id="staff" class="element">
+
+                <div class="row card">
+
+                  <div class="title">staff</div>
+<div class="row">
+                <template if="{{team != null}}">
+                  <template repeat="{{people in team.feed.entry}}">
+                    <template if="{{people.gsx$group.$t === 'staff'}}">
+<card-element cardobject="{{people}}" cardloaded="{{peopleLoaded}}" cardselected="{{peopleSelected}}"></card-element>
+                    </template>
+                  </template>
+                </template>
+              </div>
+            </div>
+            </section>
+
+            <section id="collaborators" class="element">
+
+              <div class="row card">
+
+                <div class="title">collaborators</div>
+<div class="row">
+                <template if="{{team != null}}">
+                  <template repeat="{{people in team.feed.entry}}">
+                    <template if="{{people.gsx$group.$t === 'collaborators'}}">
+<card-element cardobject="{{people}}" cardloaded="{{peopleLoaded}}" cardselected="{{peopleSelected}}"></card-element>
+                    </template>
+                  </template>
+                </template>
+              </div>
+            </div>
+            </section>
+
+            <section id="alumni" class="element">
+
+              <div class="row card">
+
+                <div class="title">alumni</div>
+<div class="row">
+                <template if="{{team != null}}">
+                  <template repeat="{{people in team.feed.entry}}">
+                    <template if="{{people.gsx$group.$t === 'alumni'}}">
+<card-element cardobject="{{people}}" cardloaded="{{peopleLoaded}}" cardselected="{{peopleSelected}}"></card-element>
+                    </template>
+                  </template>
+                </template>
+              </div>
+              </div>
+            </section>
+
+          </div>
+        </div>
+
+      </div>
+    
+
+    <template if="{{cache == null && attached == 1 }}">
+      <polymer-jsonp auto="" url="https://spreadsheets.google.com/feeds/list/{{spreadsheet}}/od6/public/values?alt=json-in-script&callback=" response="{{team}}"></polymer-jsonp>
+    </template>
+
+  </template>
+  <script>
+    Polymer('team-element', {
+      name: 'team',
+      spreadsheet: '0Asu7h0aKnydhdHN6R2lCX1N4VlZ3dnB2ZHhLWWFZQ3c',
+      cdn: 'https://googledrive.com/host/0B8u7h0aKnydhYkRMZ2ktTnh6a3M/',
+      team: null,
+      attached: function(){
+        this.super();
+        if(this.cache != null){
+          this.team = this.cache;
+        }
+
+        var tabs = this.shadowRoot.querySelector('paper-tabs');
+
+        if(tabs.selected == 0){
+          this.$.papers.style.display="none";
+          this.$.awards.style.display="none";
+          this.$.biography.style.display="block";
+        }
+        else if(tabs.selected == 1){
+          this.$.awards.style.display="none";
+          this.$.biography.style.display="none";
+          this.$.papers.style.display="block";
+        }
+        else{
+          this.$.papers.style.display="none";
+          this.$.biography.style.display="none";
+          this.$.awards.style.display="block";
+        }
+
+        var self = this;
+        tabs.addEventListener('core-select', function() {
+
+          if(tabs.selected == 0){
+            self.$.papers.style.display="none";
+            self.$.awards.style.display="none";
+            self.$.biography.style.display="block";
+          }
+          else if(tabs.selected == 1){
+            self.$.awards.style.display="none";
+            self.$.biography.style.display="none";
+            self.$.papers.style.display="block";
+          }
+          else{
+            self.$.papers.style.display="none";
+            self.$.biography.style.display="none";
+            self.$.awards.style.display="block";
+          }
+
+        });
+
+        this.attached = 1;
+      },
+      peopleLoadedChanged: function(){
+        this.refresh();
+        this.updateNavigation();
+      },
+      peopleSelectedChanged: function(){
+        // update content of dialog
+        if(this.peopleSelected != null){
+          this.$.biography.innerHTML = this.peopleSelected.gsx$bio.$t;
+          this.$.papers.innerHTML = this.peopleSelected.gsx$publications.$t;
+          this.$.awards.innerHTML = this.peopleSelected.gsx$awards.$t;
+
+          var dialog = this.shadowRoot.querySelector('paper-dialog');
+          dialog.shadowRoot.querySelector('#main h1').innerHTML = this.peopleSelected.gsx$firstname.$t + ' ' + this.peopleSelected.gsx$middlename.$t + ' ' + this.peopleSelected.gsx$lastname.$t;
+          dialog.toggle();
+
+          this.peopleSelected = null;
+        }
+
+      },
+      teamChanged: function(){
+        if(this.team){
+          // // format the object
+          // <template repeat="{{people in team.feed.entry}}">
+          //   <template if="{{people.gsx$group.$t === 'faculty'}}">
+          //     <card-element cardObject="{{people}}" cardLoad
+          // {{cardObject.gsx$title.$t}}
+          // {{cardObject.gsx$art.$t}}
+          // {{cardObject.gsx$date.$t}}
+          // {{cardObject.gsx$category.$t}}
+          // {{cardObject.gsx$l1.$t}}
+          // {{cardObject.gsx$l2.$t}}
+          // {{cardObject.gsx$l3.$t}}
+          for(var i = 0; i < this.team.feed.entry.length; i++){
+            // generate title if no title
+            if(!this.team.feed.entry[i].gsx$title){
+              this.team.feed.entry[i].gsx$title = {$t:''};
+              this.team.feed.entry[i].gsx$title.$t = this.team.feed.entry[i].gsx$firstname.$t + ' ' + this.team.feed.entry[i].gsx$middlename.$t + ' ' + this.team.feed.entry[i].gsx$lastname.$t;
+              if(this.team.feed.entry[i].gsx$suffix.$t != ''){
+                this.team.feed.entry[i].gsx$title.$t += ', ' + this.team.feed.entry[i].gsx$suffix.$t;
+              }
+            }
+
+            // generate picture if no
+            if(!this.team.feed.entry[i].gsx$picture){
+              this.team.feed.entry[i].gsx$picture = {$t:''};
+              this.team.feed.entry[i].gsx$picture.$t = this.cdn +this.team.feed.entry[i].gsx$picturename.$t;
+            }
+
+            // generate text for the lines
+            if(!this.team.feed.entry[i].gsx$l1){
+              this.team.feed.entry[i].gsx$l1 = {$t:''};
+              this.team.feed.entry[i].gsx$l1.$t = this.team.feed.entry[i].gsx$hospitaltitle.$t;
+            }
+            if(!this.team.feed.entry[i].gsx$l2){
+              this.team.feed.entry[i].gsx$l2 = {$t:''};
+              this.team.feed.entry[i].gsx$l2.$t = this.team.feed.entry[i].gsx$academictitle.$t;
+            }
+            if(!this.team.feed.entry[i].gsx$l3){
+              this.team.feed.entry[i].gsx$l3 = {$t:''};
+              this.team.feed.entry[i].gsx$l3.$t = this.team.feed.entry[i].gsx$department.$t;
+            }
+          }
+
+          // cache it
+          this.cache = this.team;
+        }
+      }
+    });
+
+  </script>
+</polymer-element>

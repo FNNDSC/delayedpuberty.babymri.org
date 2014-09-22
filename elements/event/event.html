@@ -1,0 +1,46 @@
+<polymer-element name="event-element" attributes="event eventSelected">
+  <template>
+
+    <link rel="stylesheet" href="event.css">
+
+    <div class="col-md-4 col-sm-6 col-xs-12">
+      <div class="summary wrapper2">
+
+        <div class="name {{event.gsx$section.$t}}">
+            <h1 class="max-lines">{{event.gsx$titleshort.$t}}</h1>
+          </div>
+        <div>
+
+        <div id="picture">
+          <a href="{{yWatch}}{{event.gsx$videoid.$t}}" target="_blank">
+            <img src="{{yImage}}/{{event.gsx$videoid.$t}}/2.jpg">
+          </a>
+        </div>
+
+        <div id="info">
+          <div class="subtitle">{{event.gsx$speaker.$t}}</div>
+          <div>{{event.gsx$showtime.$t}}</div>
+          <div class="event">{{event.gsx$event.$t}}</div>
+          <div></div>
+        </div>
+      </div>
+
+      <paper-button label="more" on-click="{{toggleDialog}}" role="button" tabindex="0" aria-label="more"></paper-button>
+      <div class="clear"></div>
+    </div>
+  </div>
+
+  </template>
+
+  <script>
+    Polymer('event-element', {
+      event: null,
+      eventSelected: null,
+      yWatch: 'https://www.youtube.com/watch?v=',
+      yImage: 'http://img.youtube.com/vi',
+      toggleDialog: function(){
+        this.eventSelected = this.event;
+      }
+    });
+  </script>
+</polymer-element>
