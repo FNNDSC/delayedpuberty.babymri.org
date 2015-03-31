@@ -1,0 +1,108 @@
+<polymer-element name="highlight-element" attributes="page nextpage previouspage route narrow full color colorinit">
+  <template>
+    <link rel="stylesheet" href="highlight.css"> 
+    <div layout horizontal fit>
+
+      <core-animated-pages id="pages" flex selected="0" on-core-animated-pages-transition-end="{{transitionend}}" transitions="cross-fade-all hero-transition">
+
+        <section vertical layout>
+<!--           <core-scroll-header-panel id='goshadow' noReveal condenses keepCondensedHeader fit cross-fade>
+            <core-toolbar class="tall">
+              <div flex></div>
+                <template if="{{!items}}">
+                  <paper-spinner active></paper-spinner>
+                </template>
+            </core-toolbar>  -->
+<div id="noscroll" fit hero-p>
+            <div id="container" flex horizontal wrap around-justified layout cross-fade>
+              <template repeat="{{item in items}}">
+                <div class="card" vertical center center-justified layout hero-id="item-{{item}}" hero?="{{$.pages.selected === item + 1 || lastSelected === item + 1}}" on-tap="{{selectView}}"><span cross-fade>{{item}}</span></div>
+              </template>
+
+              <footer-element cross-fade id="footerYo" narrow="{{narrow}}"></footer-element>
+            </div>
+            </div>
+          <!-- </core-scroll-header-panel> -->
+        </section>
+
+        <template repeat="{{item in items}}">
+          <section vertical layout>
+            <div on-tap="{{back}}" class="view" flex vertical center center-justified layout hero-id="item-{{item}}" hero?="{{$.pages.selected === item + 1 || $.pages.selected === 0}}"><span cross-fade>{{item}}</span></div>
+          </section>
+        </template>
+
+      </core-animated-pages>
+
+    </div>
+
+    <!-- GET THE DATA! -->
+    <!-- USE CORE AJAX -->
+    <polymer-jsonp auto url="https://spreadsheets.google.com/feeds/list/{{key}}/od6/public/values?alt=json-in-script&callback=" response="{{responseyaya}}"></polymer-jsonp>
+
+  </template>
+
+  <script>
+    Polymer('highlight-element', {
+      items : null,
+      key : '0Asu7h0aKnydhdHN6R2lCX1N4VlZ3dnB2ZHhLWWFZQ3c',
+      response : {},
+      page: {
+        color: ''
+      },
+      responseyayaChanged : function(){
+        if(this.responseyaya){
+          this.items = [];
+          for(var i = 0; i < this.responseyaya.feed.entry.length; i++){
+            this.items.push(i);
+          }
+        }
+      },
+      ready: function(){
+        //this.$.goshadow.shadowRoot.getElementById('headerBg').style.backgroundColor = 'cyan';
+        //this.$.goshadow.shadowRoot.getElementById('mainContainer').setAttribute('cross-fade',true);
+        //this.$.goshadow.shadowRoot.getElementById('headerContainer').setAttribute('cross-fade',true);
+      },
+      routeChanged : function(){
+        // not right page, exit
+        if(! (this.route[0] === this.page.chapterId && this.route[1] === this.page.id )){
+            return;
+        }
+
+        if(this.route.length < 3){
+          this.back();
+        }
+        else{
+          this.$.pages.selected = parseInt(this.route[3]) + 1;
+        }
+      },
+      transitionend : function(){
+        if (this.lastSelected) {
+          this.lastSelected = null;
+        }
+
+        // update route here if not it cripples animation
+        if(this.$.pages.selected === 0){
+          window.location.href = '#' + this.page.chapterId + '/' + this.page.id;
+        }
+        else{
+          window.location.href = '#' + this.page.chapterId + '/' + this.page.id + '/full/' + (this.$.pages.selected - 1);
+        }
+
+      },
+      previouspageChanged : function(){
+        this.$.footerYo.previous = this.previouspage;
+      },
+      nextpageChanged : function(){
+        this.$.footerYo.next = this.nextpage;
+      },
+      selectView : function(e) {
+        var i = e.target.templateInstance.model.item;
+        this.$.pages.selected = i+1;
+      },
+      back : function() {
+        this.lastSelected = this.$.pages.selected;
+        this.$.pages.selected = 0;
+      }
+    });
+  </script>
+</polymer-element>

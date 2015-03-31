@@ -1,0 +1,139 @@
+:host{
+  font-size: 1rem;
+}
+
+@media(min-width: 1416px){
+  .grid_outer {
+    width: 1160px;
+  }
+}
+
+@media(max-width: 1416px){
+  .grid_outer {
+    width: 100%;
+  }
+}
+
+/*handle narrow style 256px navigation + 640px content*/
+@media(max-width: 896px){
+
+  .text_image img, .image_text img{
+    float: none!important;
+    width:100%!important;
+  }
+
+  .content{
+    font-size: 1em!important;
+  }
+
+}
+
+/*narrow: 640px*/
+
+.grid_outer {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#container1{
+  color: #FFF;
+}
+
+#container {
+  /*YAY! hidden scroolbars that distub user Xperience*/
+  overflow: hidden;
+  min-height:100%;
+  display: flex;
+  /*flex-direction: column;*/
+}
+
+#noscroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.block {
+  flex: 1;
+}
+
+.block > span{
+
+  display: block;
+}
+
+.padder {
+  padding: 1em;
+}
+
+.fit-image{
+  margin:auto;
+  display: block;
+  -webkit-shape-outside: circle(50%);
+  -ms-shape-outside: circle(50%);
+  -moz-shape-outside: circle(50%);
+  -o-shape-outside: circle(50%);
+  shape-outside: circle(50%);
+}
+
+
+.content{
+  flex: 1 100%;
+  font-size: 1.3em;
+}
+
+.chapter{
+  flex: 1 100%;
+  display: flex;
+}
+
+.chapter .page{
+  align-self: flex-end;
+}
+
+.chapter .page .block span{
+  font-size: 2em;
+  align-self: flex-end;
+}
+
+.page{
+  flex: 1 100%;
+}
+
+.page .block span{
+  font-size: 1.2em;
+}
+
+.text{
+  flex: 1 100%;
+}
+
+.text_image{
+  flex: 1 100%;
+}
+
+.text_image img{
+  float: right;
+}
+
+.image_text{
+  flex: 1 100%;
+}
+
+.image_text img{
+  float: left;
+}
+
+.image{
+  width:100%;
+  padding: 0;
+  flex: 1 100%;
+}
+
+.image img{
+  width: 100%;
+}
+
+#footerYo{
+  width:100%;
+  align-self:flex-end;
+}

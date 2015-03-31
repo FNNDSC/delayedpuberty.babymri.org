@@ -1,0 +1,221 @@
+<polymer-element name="members-element" attributes="page nextpage previouspage route narrow">
+<template>
+
+  <link rel="stylesheet" href="../home/home.css"> 
+  <link rel="stylesheet" href="members.css"> 
+  
+  <div id="container1" layout horizontal fit style="background-color: {{ page.style.primary.normal.color }};">
+
+    <core-animated-pages id="pages" flex selected="0" on-core-animated-pages-transition-end="{{transitionend}}" transitions="hero-transition slide-up slide-down cross-fade cross-fade-delayed">
+
+      <!-- loading section -->
+      <section vertical layout >
+
+        <div class="loading" fit style="min-height:100%;" flex="" horizontal="" wrap="" center="" around-justified="" layout="" slide-down cross-fade>
+          Loading the page!
+        </div>
+
+      </section>
+
+      <!-- actual content -->
+      <!-- overflow hidden to hide scroll bar on animation -->
+      <section vertical layout style="overflow:hidden">
+
+        <div id="noscroll" fit slide-up?="{{lastSelected === 0 && $.pages.selected === 1}}">
+          <div id="container" flex vertical wrap around-justified layout>
+
+            <template repeat="{{item, itemIndex in rows}}">
+
+              <!-- only text -->
+              <template if="{{ item.gsx$type.$t === 'text' || item.gsx$type.$t === ''}}">
+
+                <div class="text {{ item.gsx$class.$t }}" row style='background-color: {{ page.style[item.gsx$palettebg.$t][item.gsx$colorbg.$t].color }}; color: {{ page.style[item.gsx$palettefont.$t][item.gsx$colorfont.$t].color }};'>
+                  <div class="block grid_outer">
+                    <div class="padder"> {{ item.gsx$text.$t }} </div>
+                  </div>
+                </div>
+
+              </template>
+
+              <!-- only image: banner we go full width -->
+              <template if="{{ item.gsx$type.$t === 'image' }}">
+
+                <div class="image" row style='background: url({{ item.gsx$image.$t }}) no-repeat 50% 0;'> </div>
+
+              </template>
+
+              <!-- text + image-->
+              <template if="{{ item.gsx$type.$t === 'text_image' }}">
+
+                <div class="text_image  {{ item.gsx$class.$t }}" row  style='background-color: {{ page.style[item.gsx$palettebg.$t][item.gsx$colorbg.$t].color }}; color: {{ page.style[item.gsx$palettefont.$t][item.gsx$colorfont.$t].color }};'>
+                  <div class="block grid_outer">
+                    <div class="padder">
+                      <div cross-fade > {{ item.gsx$text.$t }} </div>
+                      <div cross-fade class="img">
+                        <img cross-fade src="{{ item.gsx$image.$t }}">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </template>
+
+              <!-- if first member element -->
+              <template if="{{ item.gsx$type.$t === 'member' && rows[ itemIndex - 1].gsx$type.$t !== 'member'}}">
+
+                <div class="{{ item.gsx$class.$t }}" row  style='background-color: {{ page.style[item.gsx$palettebg.$t][item.gsx$colorbg.$t].color }}; color: {{ page.style[item.gsx$palettefont.$t][item.gsx$colorfont.$t].color }};'>
+                  <div class="grid_outer" flex horizontal wrap around-justified layout>
+
+                    <template repeat="{{member, memberIndex in rows}}">
+                      <template if="{{ memberIndex >=  itemIndex }}">
+                        <template if="{{ [itemIndex, memberIndex] | inGroup}} ">
+                          <template if="{{ next }}">
+      
+                            <paper-shadow z="2" class="card" vertical center center-justified layout  on-tap="{{selectView}}">
+                              <div hero-id="item-{{memberIndex}}-content" hero?="{{memberId === memberIndex}}" class="tile theme-bg-a" dummy="" fit=""  style="background-color:#f9f9f9;"></div>
+                              <div flex="" auto="" vertical="" layout="" relative style="width:100%">
+                                <div hero-id="item-{{memberIndex}}-img" hero?="{{memberId === memberIndex}}" flex="" auto="" relative="" style="background-image:url({{member.gsx$picture.$t}}); background-size: cover"></div>
+                                <div hero-id="item-{{memberIndex}}" hero?="{{memberId === memberIndex}}" class="cat-name" horizontal center="" layout=""style="-webkit-transform-origin: 0px 0px 0px; border-radius: 0px; background-color: {{ page.style.primary.normal.color }}">
+                                  <div cross-fade-delayed?="{{memberId === memberIndex && lastSelected !== 0}}" class="flexit" flex vertical center>
+                                    <div class="flexit" style="border-bottom: 1px solid rgba(0,0,0,.1);" flex horizontal center>
+                                    {{member.gsx$firstname.$t}} {{member.gsx$middlename.$t}} {{member.gsx$lastname.$t}}
+                                    </div>
+                                    <div class="flexit" flex horizontal center style="color: {{ page.style.primary.light.color }}">
+                                    {{member.gsx$title.$t}}
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </paper-shadow>
+
+                          </template>
+                        </template>
+                      </template>
+                    </template>
+
+                  </div>
+                </div>
+
+              </template>
+            </template>
+
+            <footer-element id="footer" narrow="{{narrow}}"></footer-element>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- // if  1 element/person waaaay too slow -->
+      <member-element id="member" memberId="{{memberId}}" member="{{member}}" page="{{page}}" backV="{{backFromFull}}" narrow="{{narrow}}"><member-element>
+
+    </core-animated-pages>
+
+    <google-sheets id="gsheet" key="{{ page.key }}"  rows="{{ rows }}" published></google-sheets>
+
+  </div>
+
+</template>
+<script>
+    Polymer('members-element', {
+      memberId: 0,
+      backFromFull: 1,
+      inGroup : function(value){
+        //
+        var max = -1;
+        this.next = true;
+
+        //
+        for(var i = value[0]; i<this.rows.length; i++ ){
+          if(this.rows[i].gsx$type.$t != 'member'){
+            max = i;
+            break;
+          }
+        }
+
+        if(value[1] >= max){
+          this.next = false;
+        }
+      },
+      ready: function(){
+        this.$.gsheet.addEventListener('core-error', function(e) {
+          window.console.log('gsheet error!');
+        });
+      },
+      backFromFullChanged: function(){
+        this.back();
+      },
+      rowsChanged: function(){
+        if( this.rows && this.rows.length >= 1 ){
+          if(this.$.pages.selected === 0){
+            this.lastSelected = 0;
+            this.$.pages.selected = 1;
+          }
+          else{
+            this.member = this.rows[this.memberId];
+          }
+        }
+      },
+      routeChanged : function(){
+        // not right page, exit
+        if(! (this.route[0] === this.page.chapterId && this.route[1] === this.page.id )){
+            return;
+        }
+
+        if(this.route.length < 3){
+          // here we assume data is loaded....
+          if(this.rows && this.rows.length > 0){
+            this.back();
+          }
+          else{
+            this.$.pages.selected = 0;
+          }
+        }
+        else{
+          // update member for full view
+          this.memberId = parseInt(this.route[2].split('_')[1]);
+          this.member = this.rows[this.memberId];
+          // go to full view!
+          this.$.pages.selected = 2;
+        }
+      },
+      transitionend : function(){
+        if (this.lastSelected) {
+          this.lastSelected = null;
+        }
+
+        // update route here if not it cripples animation
+        if(this.$.pages.selected === 0 || this.$.pages.selected === 1){
+          window.location.href = '#' + this.page.chapterId + '/' + this.page.id;
+        }
+        else{
+          window.location.href = '#' + this.page.chapterId + '/' + this.page.id + '/profile_' + this.memberId + '/' + this.rows[this.memberId].gsx$firstname.$t + '_' + this.rows[this.memberId].gsx$middlename.$t + '_' + this.rows[this.memberId].gsx$lastname.$t;
+        }
+
+      },
+      previouspageChanged : function(){
+        this.$.footer.previous = this.previouspage;
+      },
+      nextpageChanged : function(){
+        this.$.footer.next = this.nextpage;
+      },
+      selectView : function(e) {
+        var i = e.target.templateInstance.model.memberIndex;
+        this.member = this.rows[i];
+        this.memberId = i;
+        this.$.pages.selected = 2;
+      },
+      back : function() {
+        this.lastSelected = this.$.pages.selected;
+        this.$.pages.selected = 1;
+      },
+      narrowChanged: function(){
+      if(this.narrow){
+        this.classList.add('narrow');
+      }
+      else{
+        this.classList.remove('narrow');
+      }
+    }
+    });
+  </script>
+</polymer-element>

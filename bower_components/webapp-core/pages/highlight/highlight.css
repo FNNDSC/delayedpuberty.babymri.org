@@ -1,0 +1,41 @@
+#container {
+  /*YAY! hidden scroolbars that distub user Xperience*/
+  overflow: hidden;
+  min-height:100%;
+}
+
+#noscroll {
+      overflow-x: hidden;
+      overflow-y: auto;
+     }
+
+.card {
+  position: relative;
+  height: 150px;
+  width: 150px;
+  font-size: 50px;
+  margin: 8px;
+  background-color: tomato;
+  border-radius: 4px;
+  cursor: default;
+}
+
+.view {
+  font-size: 250px;
+  background-color: tomato;
+}
+
+#footerYo{
+  flex: 1 100%;
+  align-self:flex-end;
+}
+
+/* background for toolbar when it is at its full size */
+core-scroll-header-panel::shadow #headerBg {
+  background-color: blue;
+}
+
+/* background for toolbar when it is condensed */
+core-scroll-header-panel::shadow #condensedHeaderBg {
+  background-color: red;
+}

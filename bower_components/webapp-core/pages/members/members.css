@@ -1,0 +1,37 @@
+polyfill-next-selector { content: ':host .card'; }
+:host .card{
+  position: relative;
+  height: 260px;
+  width: 180px;
+  margin: 8px;
+  cursor: default;
+}
+
+polyfill-next-selector { content: ':host .card:hover'; }
+:host .card:hover{
+  cursor: pointer;
+}
+
+polyfill-next-selector { content: ':host .tile'; }
+:host .tile{
+  position: relative;
+}
+
+polyfill-next-selector { content: ':host .cat-name'; }
+:host .cat-name{
+  min-height: 56px;
+  padding: 0 16px;
+  font-size: .8em;
+  text-align: center;
+}
+
+polyfill-next-selector { content: ':host(.narrow) .cat-name'; }
+:host(.narrow) .cat-name{
+  font-size: 1em;
+}
+
+polyfill-next-selector { content: ':host .flexit'; }
+:host .flexit{
+  flex: 1;
+}
+

@@ -1,0 +1,110 @@
+<polymer-element name="member-element" attributes="member memberId page backV narrow">
+  <template>
+    <link rel="stylesheet" href="member.css"> 
+
+    <div vertical center center-justified layout fit>
+
+      <div cross-fade class="tile theme-bg-a" style="background-color:{{ page.style.primary.light.color }};" dummy="" fit=""></div>
+
+      <div hero-id="item-{{memberId}}-content" hero class="grid_outer" fit style="background: #f9f9f9;"></div>
+      
+      <div flex="" auto="" vertical="" layout="" relative style="width:100%">
+        <div flex="" auto="" relative="">
+
+          <div hero class="grid_outer" fit>
+            <paper-fab  icon="done" class="green" title="done" style="z-index: 20; position: absolute;bottom: 12px; right: 20px; background: {{ page.style.accent.normal.color }}" on-tap="{{back}}"></paper-fab>
+          </div>
+
+          <div hero class="grid_outer" fit style="overflow-y: auto">
+          <!-- card header... -->
+
+          <div class="card-header" style="margin-bottom:10px;">
+
+          <div fit style="background-color: {{ page.style.primary.normal.color }};" hero-id="item-{{memberId}}" hero >
+
+            <div id="memberName" cross-fade-delayed>{{member.gsx$firstname.$t}} {{member.gsx$middlename.$t}} {{member.gsx$lastname.$t}}</div>
+
+          </div>
+
+            <div id="memberPicture" hero-id="item-{{memberId}}-img" hero style="background-image:url({{member.gsx$picture.$t}});"></div>
+
+            
+
+          </div>
+
+          <!-- card content -->
+          <div cross-fade-delayed style="color: black;">
+
+            <!-- About position -->
+            <div class="group">
+              <div class="item">
+                <core-icon icon="communication:contacts" aria-label="contacts" role="img"></core-icon>
+                <div class="double-line-1">{{member.gsx$title.$t}}</div>
+                <div class="double-line-2">Title</div>
+              </div>
+              <div class="item">
+                <div class="double-line-1">{{member.gsx$more.$t}}</div>
+                <div class="double-line-2">More</div>
+              </div>
+              <div class="item">
+                <div class="double-line-1">{{member.gsx$department.$t}}</div>
+                <div class="double-line-2">Department</div>
+              </div>
+              <div class="item">
+                <div class="double-line-1">{{member.gsx$hospital.$t}}</div>
+                <div class="double-line-2">Hospital</div>
+              </div>
+            </div>
+
+            <!-- Phone -->
+            <div class="group">
+              <div class="item">
+                <core-icon icon="communication:phone" aria-label="phone" role="img"></core-icon>
+                <div class="double-line-1">{{member.gsx$phoneoffice.$t}}</div>
+                <div class="double-line-2">Office</div>
+              </div>
+              <div class="item">
+                <div class="double-line-1">{{member.gsx$phonecell.$t}}</div>
+                <div class="double-line-2">Cell</div>
+              </div>
+            </div>
+
+            <!-- Office location -->
+            <div class="group">
+              <div class="item">
+                <core-icon icon="communication:location-on" aria-label="location-on" role="img"></core-icon>
+                <div class="double-line-1">{{member.gsx$locationstreet.$t}}</div>
+                <div class="double-line-2">Street</div>
+              </div>
+              <div class="item">
+                <div class="double-line-1">{{member.gsx$locationcity.$t}}</div>
+                <div class="double-line-2">City</div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </template>
+
+  <script>
+    Polymer('member-element', {
+      memberChanged: function(){
+      },
+      back: function(){
+        this.backV *= -1;
+      },
+      narrowChanged: function(){
+      if(this.narrow){
+        this.classList.add('narrow');
+      }
+      else{
+        this.classList.remove('narrow');
+      }
+    }
+    });
+  </script>
+</polymer-element>
