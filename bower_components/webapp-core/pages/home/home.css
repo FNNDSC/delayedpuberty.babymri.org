@@ -210,3 +210,18 @@ polyfill-next-selector { content: ':host(.narrow) .image' }
 :host(.narrow) .image {
   min-height: 310px!important;
 }
+
+/**
+
+loading page
+
+*/
+polyfill-next-selector { content: ':host .loading' }
+:host .loading {
+  text-align: center;
+}
+
+polyfill-next-selector { content: ':host paper-progress::shadow #activeProgress' }
+:host paper-progress::shadow #activeProgress {
+  background-color: #ffffff;
+}
