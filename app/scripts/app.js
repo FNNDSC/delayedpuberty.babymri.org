@@ -51,12 +51,12 @@
               {id:'home',
               label: 'Home',
               element: 'home-element',
-              key: '1ZIXvH4lmPGYzGkVxbfBvr-kc6dbIiqwbs95VcjqvzWY'
+              key: '1hKbn9PvbeRfB5iisCOp4HbKSs43YDqKpJId_xa4SdUw'
             },
             {id:'challenges',
               label: 'Challenges',
               element: 'home-element',
-              key: '1UDJ_SgF744k_xK90iISx7Gxt_-luxD7W8bvVB-f6jW8'
+              key: '1IU26ZYZ9pV77m0XyN7V4r__XB-VyBvv_JTWislhpxbw'
             }
             ]},
             {id: 'mri', label: 'Magnetic resonance imaging',
@@ -100,17 +100,17 @@
               {id:'introduction',
               label: 'Introduction',
               element: 'home-element',
-              key: '1_DbTw4bsj82m6aVLm-Q3ujKZJ5z678s0Jm6pdlp--BM'
+              key: '1RxaYrxI3V-i6r5ntmRkIDwWdAUsY07JLlC3xtCWN6QI'
             },
               {id:'members',
               label: 'Members',
               element: 'members-element',
-              key: '1SthCokDqdHWO7coUO1yT2dcT0ioOJ1RGJ9po5vbueNs'
+              key: '10oJMuqpyPOcAwc-zbuFRTsFuukeBuRqhoxs5GsfzCvI'
             },
               {id:'contact',
               label: 'Contact',
               element: 'contact-element',
-              key: '1LgZmITZQA9UkxCSPLTB4aO1iXw4pASruUuTtFRAsX0o'
+              key: '1Q5uvG71pt1-3XdX-h-9PXmVpiBhyArI3xhgXcE2AeBY'
             }
             ]},
             {id: 'meg', label: 'Magnetoencephalography',
@@ -154,17 +154,17 @@
               {id:'introduction',
               label: 'Introduction',
               element: 'home-element',
-              key: '15WlhjU0mMmQb6Ln1Bghbjn9_0BirOBwjbYSDWf2zo70'
+              key: '1zLCOyGOGQN96-pNx4v8rIO7U6TRPOm0W-xWNUrbir_Y'
             },
               {id:'members',
               label: 'Members',
               element: 'members-element',
-              key: '18wLiTBCiVIOE-ByELf4Ov0H-r1I18T_2bl5fMzBQifo'
+              key: '1JOAYCBEeKta4IjpLkjYVNkcIGa4qfOAlm9DSa1pSjl8'
             },
               {id:'contact',
               label: 'Contact',
               element: 'contact-element',
-              key: '1ZPliddJ9NietZa4IkJeQSKYGW4CS83Y_JnwMSaW3_Hk'
+              key: '1u3ug7AffDoJ3iTS4yPkgj-z1tVZ2nzwbUMmsXs-cuAE'
             }
             ]},
             {id: 'nirs', label: 'Near-infrared spectroscopy',
@@ -208,17 +208,17 @@
               {id:'introduction',
               label: 'Introduction',
               element: 'home-element',
-              key: '1TEFMDODoWJimTCHV9ZqogUwSDQkav-2eegzJmSubA_s'
+              key: '1lPFJpvI_K7KFshqrRr0VLMkC2VAZpnADYdKtcmSBmHo'
             },
               {id:'members',
               label: 'Members',
               element: 'members-element',
-              key: '1oZQ9ZP6R7o1_3WwWkirr7Gs4EXjgODRW-OMLNN3pzjg'
+              key: '1MLu-GqDLFRa57nuoL5nVipmymuUl6UcrbSxUBFjQJ-k'
             },
               {id:'contact',
               label: 'Contact',
               element: 'contact-element',
-              key: '16RIvt08KxYyJdpO9nApZhjD2LTm23uM5HktrVwsMa0Y'
+              key: '1T_DytNJsNQlwpJEC1UA7BrUr68TUW5ey0OkrG1C9f4g'
             }
             ]},
             {id: 'softwares', label: 'Softwares',
@@ -262,17 +262,17 @@
               {id:'introduction',
               label: 'Introduction',
               element: 'home-element',
-              key: '1q6BcByK7665nA9Eyn7BYGzudYfXX9knA37W8IymDUZs'
+              key: '1onuLK0M0tdLnuXECcAZkAyFNtgJ2tWMASK_XmFY4FcU'
             },
               {id:'members',
               label: 'Members',
               element: 'members-element',
-              key: '1RTgmAK-KCsXmf_a-W5CNT9oykyrMR0KbUoL6wBjZhD4'
+              key: '1HMeR8bXFmlHpJGiIm6BQR75hKepJLfMx_5aHuZ81BzM'
             },
               {id:'contact',
               label: 'Contact',
               element: 'contact-element',
-              key: '1C3ri1r_6k1Z1pZYKF2IOwuI1kRs82F1zh_zcZLOudlE'
+              key: '1vhW3JmJAcdO8Zg1O2pQLa3L732f6RlgB80GD1Z4MBlk'
             }
             ]},];
 
