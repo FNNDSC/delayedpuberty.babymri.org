@@ -6,7 +6,7 @@
   // Learn more about auto-binding templates at http://goo.gl/Dx1u2g
   var app = document.querySelector('#fnndscbabymriorg');
   app.logo = 'images/images/logo.png';
-  app.label = 'fnndsc.babymri.org';
+  app.label = 'delayedpuberty.babymri.org';
   // 500 100 700
   // 200 100 400
   app.chapters = [
