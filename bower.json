@@ -1,25 +1,16 @@
 {
-  "name": "fnndsc-babymri-org",
-  "version": "0.0.0",
+  "name": "polymer-starter-kit",
+  "private": true,
   "dependencies": {
-    "polymer": "Polymer/polymer#^0.5.4",
-    "webapp-core": "NicolasRannou/webapp-core#master"
+    "polymer": "Polymer/polymer#^1.1.0",
+    "iron-elements": "PolymerElements/iron-elements#^1.0.0",
+    "paper-elements": "PolymerElements/paper-elements#^1.0.1",
+    "platinum-elements": "PolymerElements/platinum-elements#^1.1.0",
+    "neon-elements": "PolymerElements/neon-elements#^1.0.0",
+    "page": "visionmedia/page.js#~1.6.3"
   },
-  "devDependencies": {},
-  "resolutions": {
-    "core-component-page": "^0.5",
-    "font-roboto": "^0.5",
-    "core-icons": "^0.5",
-    "paper-ripple": "^0.5",
-    "core-meta": "^0.5",
-    "core-shared-lib": "^0.5.5",
-    "core-signals": "^0.5",
-    "google-apis": "^0.4.2",
-    "core-iconset-svg": "^0.5",
-    "platform": "^0.4.0",
-    "core-icon": "^0.5",
-    "core-iconset": "^0.5",
-    "polymer": "^0.5.1",
-    "webcomponentsjs": "^0.6.0"
+  "devDependencies": {
+    "web-component-tester": "*",
+    "test-fixture": "PolymerElements/test-fixture#^1.0.0"
   }
 }

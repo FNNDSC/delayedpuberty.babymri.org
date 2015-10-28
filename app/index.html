@@ -1,58 +1,407 @@
 <!doctype html>
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+
 <html lang="">
 
 <head>
   <meta charset="utf-8">
   <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <title>Delayed Puberty Study</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Polymer Starter Kit" />
+  <title>Delayed Puberty Research</title>
+  <!-- Place favicon.ico in the `app/` directory -->
 
-  <!-- Add to homescreen meta -->
+  <!-- Chrome for Android theme color -->
+  <meta name="theme-color" content="#2E3AA1">
+
+  <!-- Web Application Manifest -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Tile color for Win8 -->
+  <meta name="msapplication-TileColor" content="#3372DF">
+
   <!-- Add to homescreen for Chrome on Android -->
   <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="PSK">
   <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
 
   <!-- Add to homescreen for Safari on iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+  <meta name="apple-mobile-web-app-title" content="Polymer Starter Kit">
+  <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
 
-  <!-- Add to homescreen for Internet Explorer -->
+  <!-- Tile icon for Win8 (144x144) -->
   <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
-  <meta name="msapplication-TileColor" content="#3F51B5">
-
-  <meta name="theme-color" content="#303F9F">
-
-  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
   <!-- build:css styles/main.css -->
   <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild-->
 
-  <!-- build:js bower_components/webcomponentsjs/webcomponents.min.js -->
-  <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+  <!-- build:js bower_components/webcomponentsjs/webcomponents-lite.min.js -->
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
   <!-- endbuild -->
 
   <!-- will be replaced with elements/elements.vulcanized.html -->
   <link rel="import" href="elements/elements.html">
   <!-- endreplace-->
+
+  <!-- For shared styles, shared-styles.html import in elements.html -->
+  <style is="custom-style" include="shared-styles"></style>
+
 </head>
 
-<body unresolved fullbleed layout vertical>
-    <template id="fnndscbabymriorg" is="auto-binding">
-    <webapp-core fullbleed vertical layout label="{{label}}" logo="{{logo}}" chapters="{{chapters}}"></webapp-core>
+<body unresolved class="fullbleed layout vertical">
+  <span id="browser-sync-binding"></span>
+  <template is="dom-bind" id="app">
+
+    <paper-drawer-panel id="paperDrawerPanel">
+      <!-- Drawer Scroll Header Panel -->
+      <paper-scroll-header-panel drawer fixed>
+
+        <!-- Drawer Toolbar -->
+        <paper-toolbar id="drawerToolbar">
+          <span class="paper-font-title">Menu</span>
+        </paper-toolbar>
+
+        <!-- Drawer Content -->
+        <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
+<!--           <a data-route="home" href="/" on-click="onDataRouteClick">
+            <iron-icon icon="home"></iron-icon>
+            <span>Home</span>
+          </a>
+
+          <a data-route="users" href="/users" on-click="onDataRouteClick">
+            <iron-icon icon="info"></iron-icon>
+            <span>Users</span>
+          </a>
+
+          <a data-route="contact" href="/contact" on-click="onDataRouteClick">
+            <iron-icon icon="mail"></iron-icon>
+            <span>Contact</span>
+          </a> -->
+
+          
+
+
+<!--           <a data-route="team" href="/team" on-click="onDataRouteClick">
+            <iron-icon icon="thumb-up"></iron-icon>
+            <span>Team</span>
+          </a> -->
+
+          <paper-submenu>
+            <paper-item class="menu-trigger">
+              <iron-icon icon="home"></iron-icon>
+              <span>Welcome</span>
+            </paper-item>
+            <paper-menu class="menu-content sublist">
+              <a data-route="welcome-home" href="/welcome-home" on-click="onDataRouteClick">
+                <paper-item>
+                  <span>Home</span>
+                </paper-item>
+              </a>
+              <a data-route="welcome-team" href="/welcome-team" on-click="onDataRouteClick">
+                <paper-item>
+                  <span>Team</span>
+                </paper-item>
+              </a>
+            </paper-menu>
+          </paper-submenu>
+
+          <paper-submenu>
+            <paper-item class="menu-trigger">
+              <iron-icon icon="done"></iron-icon>
+              <span>Adolescents</span>
+            </paper-item>
+            <paper-menu class="menu-content sublist">
+              <paper-item>Overview</paper-item>
+              <paper-item>Updates</paper-item>
+              <paper-item>Documents</paper-item>
+            </paper-menu>
+          </paper-submenu>
+
+          <paper-submenu>
+            <paper-item class="menu-trigger">
+              <iron-icon icon="done-all"></iron-icon>
+              <span>Adults</span>
+            </paper-item>
+            <paper-menu class="menu-content sublist">
+              <paper-item>Overview</paper-item>
+              <paper-item>Updates</paper-item>
+              <paper-item>Documents</paper-item>
+            </paper-menu>
+          </paper-submenu>
+
+          <paper-submenu>
+            <paper-item class="menu-trigger">
+              <iron-icon icon="settings-input-component"></iron-icon>
+              <span>Genetics</span>
+            </paper-item>
+            <paper-menu class="menu-content sublist">
+              <paper-item>Overview</paper-item>
+              <paper-item>Updates</paper-item>
+              <paper-item>Documents</paper-item>
+            </paper-menu>
+          </paper-submenu>
+
+          <paper-submenu>
+            <paper-item class="menu-trigger">
+              <iron-icon icon="book"></iron-icon>
+              <span>Kisspepin</span>
+            </paper-item>
+            <paper-menu class="menu-content sublist">
+              <paper-item>Overview</paper-item>
+              <paper-item>Updates</paper-item>
+              <paper-item>Documents</paper-item>
+            </paper-menu>
+          </paper-submenu>
+<!-- 
+          <a data-route="team" href="/team" on-click="onDataRouteClick">
+            <iron-icon icon="thumb-up"></iron-icon>
+            <span>Team</span>
+          </a> -->
+
+
+          <!-- <a data-route="projects" href="/projects" on-click="onDataRouteClick">
+            <iron-icon icon="settings"></iron-icon>
+            <span>Projects</span>
+          </a>
+
+          <a data-route="participate" href="/participate" on-click="onDataRouteClick">
+            <iron-icon icon="face"></iron-icon>
+            <span>Participate</span>
+          </a>
+
+          <a data-route="sponsors" href="/sponsors" on-click="onDataRouteClick">
+            <iron-icon icon="thumb-up"></iron-icon>
+            <span>Sponsors</span>
+          </a> -->
+        </paper-menu>
+      </paper-scroll-header-panel>
+
+      <!-- Main Area -->
+      <paper-scroll-header-panel main condenses keep-condensed-header>
+
+        <!-- Main Toolbar -->
+        <paper-toolbar id="mainToolbar" class="tall">
+          <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+          <span class="flex"></span>
+
+          <!-- Toolbar icons -->
+          <!-- <paper-icon-button icon="refresh"></paper-icon-button>
+          <paper-icon-button icon="search"></paper-icon-button> -->
+
+          <!-- Application name -->
+          <div class="middle middle-container center horizontal layout">
+            <div class="app-name">Delayed Puberty Research</div>
+          </div>
+
+          <!-- Application sub title -->
+          <div class="bottom bottom-container center horizontal layout">
+            <div class="bottom-title paper-font-subhead"> at Boston Children's Hospital (website by FNNDSC)</div>
+          </div>
+
+        </paper-toolbar>
+
+        <!-- Main Content -->
+        <div class="content">
+          <iron-pages attr-for-selected="data-route" selected="{{route}}">
+
+            <!-- <section data-route="home">
+              <paper-material elevation="1">
+                <my-greeting></my-greeting>
+
+                <p class="paper-font-subhead">You now have:</p>
+                <my-list></my-list>
+
+                <p class="paper-font-body2">Looking for more Web App layouts? Check out our <a href="https://github.com/PolymerElements/app-layout-templates">layouts</a> collection. You can also <a href="http://polymerelements.github.io/app-layout-templates/">preview</a> them live.</p>
+              </paper-material>
+              <paper-material elevation="1">
+                <p class="paper-font-body2">This is another card.</p>
+              </paper-material>
+
+              <paper-material elevation="1" class="paper-font-body2">
+                <h1 id="license">License</h1>
+                <p>Everything in this repo is BSD style license unless otherwise specified.</p>
+                <p>Copyright (c) 2015 The Polymer Authors. All rights reserved.</p>
+                <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
+                <ul>
+                <li>Redistributions of source code must retain the above copyright
+                notice, this list of conditions and the following disclaimer.</li>
+                <li>Redistributions in binary form must reproduce the above
+                copyright notice, this list of conditions and the following disclaimer
+                in the documentation and/or other materials provided with the
+                distribution.</li>
+                <li>Neither the name of Google Inc. nor the names of its
+                contributors may be used to endorse or promote products derived from
+                this software without specific prior written permission.</li>
+                </ul>
+                <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+              </paper-material>
+
+            </section>
+
+            <section data-route="users">
+              <paper-material elevation="1">
+                <h2 class="page-title">Users</h2>
+                <p>This is the users section</p>
+                <a href="/users/Rob">Rob</a>
+              </paper-material>
+            </section>
+
+            <section data-route="user-info">
+              <paper-material elevation="1">
+                <h2 class="page-title">
+                User:<span>{{params.name}}</span>
+                </h2>
+                <div>This is <span>{{params.name}}</span>'s section</div>
+              </paper-material>
+            </section> -->
+
+            <section data-route="contact">
+              <paper-material elevation="1">
+                <h2 class="page-title">Contact</h2>
+                <p>This is the contact section</p>
+              </paper-material>
+            </section>
+
+            <section data-route="welcome-home">
+              <paper-material elvation="1">
+                <h2 class="page-title">Overview</h2>
+                  <img src="images/placenta.png" width="200" style="float:right"></img>
+
+                  <p>The placenta is a unique organ that serves as an interface between a mother and a fetus. The placenta plays an important role in fetal growth and development. Placental vasculature and surrounding tissue support transport of oxygen, glucose and other nutrients from the mother to the fetus. Increasing evidence suggests that modifiable maternal factors, such as obesity, impact placental function and therefore fetal health. This motivates development of technology for in vivo, real time monitoring of placental structure and function.</p>
+
+                  <p>"Monitoring Placental Health in Real Time" is a collaborative research project to developing magnetic resonance imaging (MRI) based techniques for monitoring placental function.</p>
+
+                  </br>
+                  <hr />
+
+                  <h3>Facts about the placenta</h3>
+
+                  <p><b>Weight:</b> the term placenta typically weighs about <b>500g</b> (about 1 pound).</p>
+
+                  <p><b>Size:</b> the human placenta has an average thickness of between <b>2.0-2.5cm</b>, and diameter of <b>22cm</b>. It is just about the size of the human face.</p>
+
+                  <p>The <b>placenta</b> can be thought of as the interface between the maternal and fetal blood systems. The surface area of the placental membrane that acts as this interface has a surface area of about 13 m<sup>2</sup> (about the size of an average parking spot).
+
+                  The placenta is much more than a passive conduct between the mother and the fetus. It provides nutrition to the baby, and functions as its lungs, kidneys and immune system.</p>
+
+                  <p>The National Institute of Child Health and Human Development has recently launched <a href="https://www.nichd.nih.gov/research/HPP/Pages/default.aspx">the Human Placenta Project</a>. The placenta and its relationship to fetal and maternal wellbeing will be much better understood as the project goes.</p>
+              </paper-material>
+            </section>
+
+            <section data-route="welcome-team">
+              <paper-material elevation="1">
+                <h2 class="page-title">Projects</h2>
+                <h3>Fetal Motion during typical MRI Scan</h3>
+
+                <p class="p1">Motion due to the mother's breathing, uterus contraction, and fetal movements is one of the main challanges during fetal and placental MRI.</p>
+
+                <div class="mediaContainer"><iframe allowfullscreen="" frameborder="0" src="http://www.youtube.com/embed/RTNtcqH9Y6A?rel=0&amp;autoplay=1"></iframe></div>
+                </br>
+                <hr />
+                
+                <h3>OxyMRI of Placenta</h3>
+
+                <p>MRI can be used to visualize the oxygen transport in placenta in realtime. Here, the maternal oxygen supply was alternated from normal, ambient air (21% O<sub>2</sub>) to a pure oxygen mixture (100% O<sub>2</sub>) and back again to ambient.</p>
+
+                <div class="mediaContainer"><iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/kLjHlX7txK8?rel=0&amp;autoplay=1" ></iframe></div>
+                </br>
+                <hr />
+
+                <h3>Assessment of Twin Placentas</h3>
+
+                <p>Selective intrauterine growth restriction (sIUGR) in monochorionic twins is associated with a substantial increase in perinatal mortality and morbidity for both twins. Assessment of placental insufficiency, primary cause of sIUGR, currently relies on indirect measures of umbilical artery (UA) Doppler. We hope novel MRI methods will improve the prenatal evaluation of placental function.</p>
+
+		            <p><i>Please note that in the following images anatomy is artifically colored and computer generated.</i></p>
+                
+                <div class="mediaContainer">
+                  <img alt="" height="200" src="https://lh6.googleusercontent.com/-2bJUi__ckCQ/ViAhsXfB8KI/AAAAAAAAAa4/_r9szmyi2uw/w482-h512-no/visual_all4%2Bcrop.png" />
+                  <p>Twin fetuses (one computer generated in red, and one generated in cyan) that share one placenta, and an umbilical cord that runs from the belly of the &quot;red&quot; fetus to the placenta.</p>
+                </div>
+
+                <div class="mediaContainer">
+                  <img alt="" height="200" src="https://lh3.googleusercontent.com/-INIrDZFPPJg/ViAhrzWni7I/AAAAAAAAAa4/5NiSOUReY6U/w486-h506-no/visual_placenta%2Band%2Bcord1%2Bcrop.png"/>
+                 <p>Monochorionic placenta, with two cord insersions. Highlighted regions in the placenta belong&nbsp;to each twin.</p>
+                </div>
+                </br>
+                <hr />
+                
+                <h3>Effect of obesity to the placental transport</h3>
+                
+                <p>Maternal obesity increases risks of maternal complications, prematurity, macrosomia, and more than doubles the rate of stillbirths. Therefore, obesity is in epidemic proportions with a clear negative impact on fetal development. Ultrasound, the current frontline assessment tool, is severely limited in obese mothers. Methods to safely and noninvasively monitor placental health would allow early detection and insight into mechanisms of placental dysfunction in obesity.</p>
+                
+                <p>Our focus in this project will be to improve MRI technology and test its ability to detect differences in placental structure and function in the second trimester in a population of healthy pregnant women and a matched population of obese women.</p>
+                </br>
+                <hr />
+
+                <h3>Novel MRI Methods Development</h3>
+
+                <p>MRI has become a powerful tool to noninvasively assess structure and function in many organ systems, particularly at 3T. However, to date, MRI has not made a significant impact on placental assessment due to major obstacles, primarily complex non-rigid placental motion and magnetic field (B0) inhomogeneities (significant in the abdomen at 3T). To overcome these major obstacles, we propose to improve all components in MRI hardware, MRI acquisition and post-processing methods.</p>
+              </paper-material>
+            </section>
+
+            <section data-route="participate">
+              <paper-material elevation="1">
+                <h2 class="page-title">Participate</h2>
+                <p>Recruitment process will start soon for each branch of the project.</p>
+              </paper-material>
+            </section>
+
+            <section data-route="sponsors">
+              <paper-material elevation="1">
+                <h2 class="page-title">Sponsors</h2>
+                <p>Our studies are supported by:</p>
+                <ul>
+                  <li>NIH U01 HD087211</li>
+                  <li>NIH R01 EB017337</li>
+                  <li><a href="http://mvisionconsortium.org/">Madrid-MIT M+Vision Consortium</a></li>
+                </ul>
+
+                <p><u>Related links:</u></p>
+
+                <ul>
+                  <li><a href="https://www.nichd.nih.gov/research/HPP/Pages/default.aspx">The Human Placenta Project</a></li>
+                </ul>
+
+              </paper-material>
+            </section>
+
+          </iron-pages>
+        </div>
+      </paper-scroll-header-panel>
+    </paper-drawer-panel>
+
+    <!-- Uncomment next block to enable Service Worker support (1/2) -->
+    <!--
+    <paper-toast id="caching-complete"
+                 duration="6000"
+                 text="Caching complete! This app will work offline.">
+    </paper-toast>
+
+    <platinum-sw-register auto-register
+                          clients-claim
+                          skip-waiting
+                          on-service-worker-installed="displayInstalledToast">
+      <platinum-sw-cache default-cache-strategy="fastest"
+                         cache-config-file="cache-config.json">
+      </platinum-sw-cache>
+    </platinum-sw-register>
+    -->
+
   </template>
 
   <!-- build:js scripts/app.js -->
   <script src="scripts/app.js"></script>
-  <script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-64498905-1', 'auto');
-  ga('send', 'pageview');
-  </script>
   <!-- endbuild-->
 </body>
 

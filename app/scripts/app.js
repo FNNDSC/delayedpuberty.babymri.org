@@ -1,287 +1,74 @@
-(function (document) {
+/*
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+*/
+
+(function(document) {
   'use strict';
 
   // Grab a reference to our auto-binding template
   // and give it some initial binding values
   // Learn more about auto-binding templates at http://goo.gl/Dx1u2g
-  var app = document.querySelector('#fnndscbabymriorg');
-  app.logo = 'images/images/logo.png';
-  app.label = 'delayedpuberty.babymri.org';
-  // 500 100 700
-  // 200 100 400
-  app.chapters = [
-            {id: 'welcome', label: 'Welcome',
-            style: {
-              primary: {
-                normal : {
-                  color: '#3F51B5',
-                  font: '#ffffff'},
-                light : {
-                  color: '#C5CAE9',
-                  font: '#ffffff'},
-                dark : {
-                  color: '#303F9F',
-                  font: '#ffffff'},
-                bw : {
-                  color: '#212121',
-                  font: '#f9f9f9'},
-                wb : {
-                  color: '#f9f9f9',
-                  font: '#212121'}
-                },
-              accent: {
-                normal : {
-                  color: '#E91E63',
-                  font: '#ffffff'},
-                light : {
-                  color: '#F8BBD0',
-                  font: '#000000'},
-                dark : {
-                  color: '#C2185B',
-                  font: '#ffffff'},
-                bw : {
-                  color: '#212121',
-                  font: '#f9f9f9'},
-                wb : {
-                  color: '#f9f9f9',
-                  font: '#212121'}
-                }
-              },
-            pages: [
-              {id:'home',
-              label: 'Home',
-              element: 'home-element',
-              key: '1hKbn9PvbeRfB5iisCOp4HbKSs43YDqKpJId_xa4SdUw'
-            },
-            {id:'challenges',
-              label: 'Challenges',
-              element: 'home-element',
-              key: '1IU26ZYZ9pV77m0XyN7V4r__XB-VyBvv_JTWislhpxbw'
-            }
-            ]},
-            {id: 'mri', label: 'Magnetic resonance imaging',
-            style: {
-              primary: {
-                normal : {
-                  color: '#E91E63',
-                  font: '#ffffff'},
-                light : {
-                  color: '#F8BBD0',
-                  font: '#000000'},
-                dark : {
-                  color: '#C2185B',
-                  font: '#ffffff'},
-                bw : {
-                  color: '#212121',
-                  font: '#f9f9f9'},
-                wb : {
-                  color: '#f9f9f9',
-                  font: '#212121'}
-                },
-              accent: {
-                normal : {
-                  color: '#69F0AE',
-                  font: '#000000'},
-                light : {
-                  color: '#B9F6CA',
-                  font: '#000000'},
-                dark: {
-                  color: '#00E676',
-                  font: '#ffffff'},
-                bw : {
-                  color: '#212121',
-                  font: '#f9f9f9'},
-                wb : {
-                  color: '#f9f9f9',
-                  font: '#212121'}
-                }
-              },
-            pages: [
-              {id:'introduction',
-              label: 'Introduction',
-              element: 'home-element',
-              key: '1RxaYrxI3V-i6r5ntmRkIDwWdAUsY07JLlC3xtCWN6QI'
-            },
-              {id:'members',
-              label: 'Members',
-              element: 'members-element',
-              key: '10oJMuqpyPOcAwc-zbuFRTsFuukeBuRqhoxs5GsfzCvI'
-            },
-              {id:'contact',
-              label: 'Contact',
-              element: 'contact-element',
-              key: '1Q5uvG71pt1-3XdX-h-9PXmVpiBhyArI3xhgXcE2AeBY'
-            }
-            ]},
-            {id: 'meg', label: 'Magnetoencephalography',
-            style: {
-              primary: {
-                normal : {
-                  color: '#8BC34A',
-                  font: '#ffffff'},
-                light : {
-                  color: '#DCEDC8',
-                  font: '#000000'},
-                dark : {
-                  color: '#689F38',
-                  font: '#000000'},
-                bw : {
-                  color: '#212121',
-                  font: '#f9f9f9'},
-                wb : {
-                  color: '#f9f9f9',
-                  font: '#212121'}
-                },
-              accent: {
-                normal : {
-                  color: '#E040FB',
-                  font: '#ffffff'},
-                light : {
-                  color: '#EA80FC',
-                  font: '#ffffff'},
-                dark : {
-                  color: '#D500F9',
-                  font: '#ffffff'},
-                bw : {
-                  color: '#212121',
-                  font: '#f9f9f9'},
-                wb : {
-                  color: '#f9f9f9',
-                  font: '#212121'}
-                }
-              },
-            pages: [
-              {id:'introduction',
-              label: 'Introduction',
-              element: 'home-element',
-              key: '1zLCOyGOGQN96-pNx4v8rIO7U6TRPOm0W-xWNUrbir_Y'
-            },
-              {id:'members',
-              label: 'Members',
-              element: 'members-element',
-              key: '1JOAYCBEeKta4IjpLkjYVNkcIGa4qfOAlm9DSa1pSjl8'
-            },
-              {id:'contact',
-              label: 'Contact',
-              element: 'contact-element',
-              key: '1u3ug7AffDoJ3iTS4yPkgj-z1tVZ2nzwbUMmsXs-cuAE'
-            }
-            ]},
-            {id: 'nirs', label: 'Near-infrared spectroscopy',
-            style: {
-              primary: {
-                normal : {
-                  color: '#673AB7',
-                  font: '#ffffff'},
-                light : {
-                  color: '#D1C4E9',
-                  font: '#000000'},
-                dark : {
-                  color: '#512DA8',
-                  font: '#000000'},
-                bw : {
-                  color: '#212121',
-                  font: '#f9f9f9'},
-                wb : {
-                  color: '#f9f9f9',
-                  font: '#212121'}
-                },
-              accent: {
-                normal : {
-                  color: '#FF6E40',
-                  font: '#000000'},
-                light : {
-                  color: '#FF9E80',
-                  font: '#000000'},
-                dark : {
-                  color: '#FF3D00',
-                  font: '#ffffff'},
-                bw : {
-                  color: '#212121',
-                  font: '#f9f9f9'},
-                wb : {
-                  color: '#f9f9f9',
-                  font: '#212121'}
-                }
-              },
-            pages: [
-              {id:'introduction',
-              label: 'Introduction',
-              element: 'home-element',
-              key: '1lPFJpvI_K7KFshqrRr0VLMkC2VAZpnADYdKtcmSBmHo'
-            },
-              {id:'members',
-              label: 'Members',
-              element: 'members-element',
-              key: '1MLu-GqDLFRa57nuoL5nVipmymuUl6UcrbSxUBFjQJ-k'
-            },
-              {id:'contact',
-              label: 'Contact',
-              element: 'contact-element',
-              key: '1T_DytNJsNQlwpJEC1UA7BrUr68TUW5ey0OkrG1C9f4g'
-            }
-            ]},
-            {id: 'softwares', label: 'Softwares',
-            style: {
-              primary: {
-                normal : {
-                  color: '#607D8B',
-                  font: '#ffffff'},
-                light : {
-                  color: '#CFD8DC',
-                  font: '#000000'},
-                dark : {
-                  color: '#455A64',
-                  font: '#000000'},
-                bw : {
-                  color: '#212121',
-                  font: '#f9f9f9'},
-                wb : {
-                  color: '#f9f9f9',
-                  font: '#212121'}
-                },
-              accent: {
-                normal : {
-                  color: '#64FFDA',
-                  font: '#000000'},
-                light : {
-                  color: '#A7FFEB',
-                  font: '#000000'},
-                dark : {
-                  color: '#1DE9B6',
-                  font: '#ffffff'},
-                bw : {
-                  color: '#212121',
-                  font: '#f9f9f9'},
-                wb : {
-                  color: '#f9f9f9',
-                  font: '#212121'}
-                }
-              },
-            pages:[
-              {id:'introduction',
-              label: 'Introduction',
-              element: 'home-element',
-              key: '1onuLK0M0tdLnuXECcAZkAyFNtgJ2tWMASK_XmFY4FcU'
-            },
-              {id:'members',
-              label: 'Members',
-              element: 'members-element',
-              key: '1HMeR8bXFmlHpJGiIm6BQR75hKepJLfMx_5aHuZ81BzM'
-            },
-              {id:'contact',
-              label: 'Contact',
-              element: 'contact-element',
-              key: '1vhW3JmJAcdO8Zg1O2pQLa3L732f6RlgB80GD1Z4MBlk'
-            }
-            ]},];
+  var app = document.querySelector('#app');
+
+  app.displayInstalledToast = function() {
+    // Check to make sure caching is actually enabled—it won't be in the dev environment.
+    if (!document.querySelector('platinum-sw-cache').disabled) {
+      document.querySelector('#caching-complete').show();
+    }
+  };
 
   // Listen for template bound event to know when bindings
   // have resolved and content has been stamped to the page
-  // app.addEventListener('template-bound', function() {
-  //   console.log('Our app is ready to rock!');
-  // });
+  app.addEventListener('dom-change', function() {
+    console.log('Our app is ready to rock!');
+  });
 
-// wrap document so it plays nice with other libraries
-// http://www.polymer-project.org/platform/shadow-dom.html#wrappers
-})(wrap(document));
+  // See https://github.com/Polymer/polymer/issues/1381
+  window.addEventListener('WebComponentsReady', function() {
+    // imports are loaded and elements have been registered
+  });
+
+  // Main area's paper-scroll-header-panel custom condensing transformation of
+  // the appName in the middle-container and the bottom title in the bottom-container.
+  // The appName is moved to top and shrunk on condensing. The bottom sub title
+  // is shrunk to nothing on condensing.
+  addEventListener('paper-header-transform', function(e) {
+    var appName = document.querySelector('#mainToolbar .app-name');
+    var middleContainer = document.querySelector('#mainToolbar .middle-container');
+    var bottomContainer = document.querySelector('#mainToolbar .bottom-container');
+    var detail = e.detail;
+    var heightDiff = detail.height - detail.condensedHeight;
+    var yRatio = Math.min(1, detail.y / heightDiff);
+    var maxMiddleScale = 0.50;  // appName max size when condensed. The smaller the number the smaller the condensed size.
+    var scaleMiddle = Math.max(maxMiddleScale, (heightDiff - detail.y) / (heightDiff / (1-maxMiddleScale))  + maxMiddleScale);
+    var scaleBottom = 1 - yRatio;
+
+    // Move/translate middleContainer
+    Polymer.Base.transform('translate3d(0,' + yRatio * 100 + '%,0)', middleContainer);
+
+    // Scale bottomContainer and bottom sub title to nothing and back
+    Polymer.Base.transform('scale(' + scaleBottom + ') translateZ(0)', bottomContainer);
+
+    // Scale middleContainer appName
+    Polymer.Base.transform('scale(' + scaleMiddle + ') translateZ(0)', appName);
+  });
+
+  // Close drawer after menu item is selected if drawerPanel is narrow
+  app.onDataRouteClick = function() {
+    var drawerPanel = document.querySelector('#paperDrawerPanel');
+    if (drawerPanel.narrow) {
+      drawerPanel.closeDrawer();
+    }
+  };
+
+  // Scroll page to top and expand header
+  app.scrollPageToTop = function() {
+    document.getElementById('mainContainer').scrollTop = 0;
+  };
+
+})(document);

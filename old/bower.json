@@ -1,0 +1,25 @@
+{
+  "name": "fnndsc-babymri-org",
+  "version": "0.0.0",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^0.5.4",
+    "webapp-core": "NicolasRannou/webapp-core#master"
+  },
+  "devDependencies": {},
+  "resolutions": {
+    "core-component-page": "^0.5",
+    "font-roboto": "^0.5",
+    "core-icons": "^0.5",
+    "paper-ripple": "^0.5",
+    "core-meta": "^0.5",
+    "core-shared-lib": "^0.5.5",
+    "core-signals": "^0.5",
+    "google-apis": "^0.4.2",
+    "core-iconset-svg": "^0.5",
+    "platform": "^0.4.0",
+    "core-icon": "^0.5",
+    "core-iconset": "^0.5",
+    "polymer": "^0.5.1",
+    "webcomponentsjs": "^0.6.0"
+  }
+}
