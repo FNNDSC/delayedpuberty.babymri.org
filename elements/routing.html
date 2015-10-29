@@ -23,6 +23,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
 
     // Routes
+    // shouldn't be necessary
+    page('/delayedpuberty.babymri.org', scrollToTop, function() {
+      app.route = 'welcome-home';
+    });
     page('/', scrollToTop, function() {
       app.route = 'welcome-home';
     });

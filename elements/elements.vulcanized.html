@@ -12346,6 +12346,10 @@ module.exports = Array.isArray || function (arr) {
     }
 
     // Routes
+    // shouldn't be necessary
+    page('/delayedpuberty.babymri.org', scrollToTop, function() {
+      app.route = 'welcome-home';
+    });
     page('/', scrollToTop, function() {
       app.route = 'welcome-home';
     });
