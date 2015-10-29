@@ -1,0 +1,138 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="welcome-team">
+  <template>
+    <style include="shared-styles"></style>
+    <style>
+      :host {
+        display: block;
+      }
+
+    #cards {
+      @apply(--layout-horizontal);
+      @apply(--layout-around-justified);
+      @apply(--layout-wrap);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    paper-card {
+      width: 100%;
+      max-width: 400px;
+      margin-bottom: 16px;
+    }
+    .avatar {
+      display: inline-block;
+      height: 64px;
+      width: 64px;
+      border-radius: 50%;
+      background: var(--paper-pink-500);
+      color: white;
+      line-height: 64px;
+      font-size: 30px;
+      text-align: center;
+    }
+    .fancy .title {
+      position: absolute;
+      top: 30px;
+      left: 100px;
+      color: var(--paper-indigo-500);
+    }
+    .fancy img {
+      width: 100%;
+    }
+    .fancy .big {
+      font-size: 22px;
+      padding: 8px 0 16px;
+      color: var(--google-grey-500);
+    }
+    .fancy .medium {
+      font-size: 16px;
+      padding-bottom: 8px;
+    }
+    .pink {
+      --paper-card-header-color: var(--paper-pink-500);
+    }
+    </style>
+    
+    <h2 class="page-title">Research Team</h2>
+
+    <div id="cards">
+
+    <paper-card class='fancy'>
+      <div class="card-content">
+        <div class="avatar">
+          <iron-icon icon="face"></iron-icon>
+        </div>
+        <div class="title">
+          <div class="medium">Yee-Ming Chan MD, PhD</div>
+          <div class="small">Principal Investigator</div>
+        </div>
+      </div>
+
+      <div class="card-content">
+        <div class="big">Principal Investigator</div>
+        <div class="medium">Attending Physician in Endocrinology, Boston Children's Hospital</div>
+        <div class="medium">Assistant Professor of Pediatrics, Harvard Medical School</div>
+      </div>
+    </paper-card>
+
+    <paper-card class='fancy'>
+      <div class="card-content">
+        <div class="avatar">
+          <iron-icon icon="face"></iron-icon>
+        </div>
+        <div class="title">
+          <div class="medium">Ryan Ciarlo, BS</div>
+          <div class="small">Clinical Research Coordinator</div>
+        </div>
+      </div>
+
+      <div class="card-content">
+        <div class="big">Clinical Research Coordinator</div>
+        <div class="medium">Clinical Research Coordinator, Division of Endocrinology, Boston Children's Hospital</div>
+      </div>
+    </paper-card>
+
+    <paper-card class='fancy'>
+      <div class="card-content">
+        <div class="avatar">
+          <iron-icon icon="face"></iron-icon>
+        </div>
+        <div class="title">
+          <div class="medium">Elfa Jonsdottir-Lewis, BS</div>
+          <div class="small">Research Study Assistant</div>
+        </div>
+      </div>
+
+      <div class="card-content">
+        <div class="big">Research Study Assistant</div>
+        <div class="medium">Research Study Assistant, Division of Endocrinology, Boston Children's Hospital</div>
+      </div>
+    </paper-card>
+
+    </div>
+
+
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+      
+      Polymer({
+        is: 'welcome-team'
+      });
+    })();
+  </script>
+
+</dom-module>

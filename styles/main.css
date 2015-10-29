@@ -1,1 +1,1 @@
-html{font-size:17px}
+.mediaContainer.cover{-webkit-background-size:cover;-moz-background-size:cover;-o-background-size:cover}body{background:#fafafa;font-family:Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;color:#333}.mediaContainer{background:#000;text-align:center;margin:auto;max-width:800px}iframe{height:300px;max-height:300px;width:100%}.mediaContainer.cover{max-width:100%;background:center center no-repeat fixed;background-size:cover}.mediaContainer>p{background:#353535;color:#fff;font-weight:lighter;padding:5px}
