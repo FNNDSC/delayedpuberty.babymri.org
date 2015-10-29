@@ -1,4 +1,4 @@
-# Placenta website
+# delayedpuberty.babymri.org website
 
 ## Overview
 
@@ -30,10 +30,8 @@ Then push the content of the "dist" directory to gh-pages or to wherever you wan
 
 ### Steps in detail
 
-    $> git clone https://github.com/FNNDSC/placenta.git
-    $> cd placenta
-    $> git fetch
-    $> git checkout polymerwsk
+    $> git clone https://github.com/FNNDSC/delayedpuberty.babymri.org.git
+    $> cd delayedpuberty.babymri.org
     $> npm install
     $> bower install
     $> gulp serve (to run local server)
