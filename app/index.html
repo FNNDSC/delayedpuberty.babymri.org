@@ -74,29 +74,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Drawer Content -->
         <paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
-<!--           <a data-route="home" href="/" on-click="onDataRouteClick">
-            <iron-icon icon="home"></iron-icon>
-            <span>Home</span>
-          </a>
-
-          <a data-route="users" href="/users" on-click="onDataRouteClick">
-            <iron-icon icon="info"></iron-icon>
-            <span>Users</span>
-          </a>
-
-          <a data-route="contact" href="/contact" on-click="onDataRouteClick">
-            <iron-icon icon="mail"></iron-icon>
-            <span>Contact</span>
-          </a> -->
-
-          
-
-
-<!--           <a data-route="team" href="/team" on-click="onDataRouteClick">
-            <iron-icon icon="thumb-up"></iron-icon>
-            <span>Team</span>
-          </a> -->
-
           <paper-submenu>
             <paper-item class="menu-trigger">
               <iron-icon icon="home"></iron-icon>
@@ -104,14 +81,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </paper-item>
             <paper-menu class="menu-content sublist">
               <a data-route="welcome-home" href="/welcome-home" on-click="onDataRouteClick">
-                <paper-item>
-                  <span>Home</span>
-                </paper-item>
+                <paper-item>Home</paper-item>
               </a>
               <a data-route="welcome-team" href="/welcome-team" on-click="onDataRouteClick">
-                <paper-item>
-                  <span>Team</span>
-                </paper-item>
+                <paper-item>Team</paper-item>
               </a>
             </paper-menu>
           </paper-submenu>
@@ -122,9 +95,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <span>Adolescents</span>
             </paper-item>
             <paper-menu class="menu-content sublist">
-              <paper-item>Overview</paper-item>
-              <paper-item>Updates</paper-item>
-              <paper-item>Documents</paper-item>
+              <a data-route="adolescents-overview" href="/adolescents-overview" on-click="onDataRouteClick">
+                <paper-item>Overview</paper-item>
+              </a>
+              <a data-route="adolescents-updates" href="/adolescents-updates" on-click="onDataRouteClick">
+                <paper-item>Updates</paper-item>
+              </a>
+              <a data-route="adolescents-documents" href="/adolescents-documents" on-click="onDataRouteClick">
+                <paper-item>Documents</paper-item>
+              </a>
             </paper-menu>
           </paper-submenu>
 
@@ -134,9 +113,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <span>Adults</span>
             </paper-item>
             <paper-menu class="menu-content sublist">
-              <paper-item>Overview</paper-item>
-              <paper-item>Updates</paper-item>
-              <paper-item>Documents</paper-item>
+              <a data-route="adults-overview" href="/adults-overview" on-click="onDataRouteClick">
+                <paper-item>Overview</paper-item>
+              </a>
+              <a data-route="adults-updates" href="/adults-updates" on-click="onDataRouteClick">
+                <paper-item>Updates</paper-item>
+              </a>
+              <a data-route="adults-documents" href="/adults-documents" on-click="onDataRouteClick">
+                <paper-item>Documents</paper-item>
+              </a>
             </paper-menu>
           </paper-submenu>
 
@@ -146,44 +131,35 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               <span>Genetics</span>
             </paper-item>
             <paper-menu class="menu-content sublist">
-              <paper-item>Overview</paper-item>
-              <paper-item>Updates</paper-item>
-              <paper-item>Documents</paper-item>
+              <a data-route="genetics-overview" href="/genetics-overview" on-click="onDataRouteClick">
+                <paper-item>Overview</paper-item>
+              </a>
+              <a data-route="genetics-updates" href="/genetics-updates" on-click="onDataRouteClick">
+                <paper-item>Updates</paper-item>
+              </a>
+              <a data-route="genetics-documents" href="/genetics-documents" on-click="onDataRouteClick">
+                <paper-item>Documents</paper-item>
+              </a>
             </paper-menu>
           </paper-submenu>
 
           <paper-submenu>
             <paper-item class="menu-trigger">
               <iron-icon icon="book"></iron-icon>
-              <span>Kisspepin</span>
+              <span>Kisspeptin</span>
             </paper-item>
             <paper-menu class="menu-content sublist">
-              <paper-item>Overview</paper-item>
-              <paper-item>Updates</paper-item>
-              <paper-item>Documents</paper-item>
+              <a data-route="kisspeptin-overview" href="/kisspeptin-overview" on-click="onDataRouteClick">
+                <paper-item>Overview</paper-item>
+              </a>
+              <a data-route="kisspeptin-updates" href="/kisspeptin-updates" on-click="onDataRouteClick">
+                <paper-item>Updates</paper-item>
+              </a>
+              <a data-route="kisspeptin-documents" href="/kisspeptin-documents" on-click="onDataRouteClick">
+                <paper-item>Documents</paper-item>
+              </a>
             </paper-menu>
           </paper-submenu>
-<!-- 
-          <a data-route="team" href="/team" on-click="onDataRouteClick">
-            <iron-icon icon="thumb-up"></iron-icon>
-            <span>Team</span>
-          </a> -->
-
-
-          <!-- <a data-route="projects" href="/projects" on-click="onDataRouteClick">
-            <iron-icon icon="settings"></iron-icon>
-            <span>Projects</span>
-          </a>
-
-          <a data-route="participate" href="/participate" on-click="onDataRouteClick">
-            <iron-icon icon="face"></iron-icon>
-            <span>Participate</span>
-          </a>
-
-          <a data-route="sponsors" href="/sponsors" on-click="onDataRouteClick">
-            <iron-icon icon="thumb-up"></iron-icon>
-            <span>Sponsors</span>
-          </a> -->
         </paper-menu>
       </paper-scroll-header-panel>
 
@@ -195,10 +171,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
           <paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
           <span class="flex"></span>
 
-          <!-- Toolbar icons -->
-          <!-- <paper-icon-button icon="refresh"></paper-icon-button>
-          <paper-icon-button icon="search"></paper-icon-button> -->
-
           <!-- Application name -->
           <div class="middle middle-container center horizontal layout">
             <div class="app-name">Delayed Puberty Research</div>
@@ -206,7 +178,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <!-- Application sub title -->
           <div class="bottom bottom-container center horizontal layout">
-            <div class="bottom-title paper-font-subhead"> at Boston Children's Hospital (website by FNNDSC)</div>
+            <div class="bottom-title paper-font-subhead">by FNNDSC</div>
           </div>
 
         </paper-toolbar>
@@ -215,57 +187,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <div class="content">
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
 
-            <!-- <section data-route="home">
-              <paper-material elevation="1">
-                <my-greeting></my-greeting>
-
-                <p class="paper-font-subhead">You now have:</p>
-                <my-list></my-list>
-
-                <p class="paper-font-body2">Looking for more Web App layouts? Check out our <a href="https://github.com/PolymerElements/app-layout-templates">layouts</a> collection. You can also <a href="http://polymerelements.github.io/app-layout-templates/">preview</a> them live.</p>
-              </paper-material>
-              <paper-material elevation="1">
-                <p class="paper-font-body2">This is another card.</p>
-              </paper-material>
-
-              <paper-material elevation="1" class="paper-font-body2">
-                <h1 id="license">License</h1>
-                <p>Everything in this repo is BSD style license unless otherwise specified.</p>
-                <p>Copyright (c) 2015 The Polymer Authors. All rights reserved.</p>
-                <p>Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:</p>
-                <ul>
-                <li>Redistributions of source code must retain the above copyright
-                notice, this list of conditions and the following disclaimer.</li>
-                <li>Redistributions in binary form must reproduce the above
-                copyright notice, this list of conditions and the following disclaimer
-                in the documentation and/or other materials provided with the
-                distribution.</li>
-                <li>Neither the name of Google Inc. nor the names of its
-                contributors may be used to endorse or promote products derived from
-                this software without specific prior written permission.</li>
-                </ul>
-                <p>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
-              </paper-material>
-
-            </section>
-
-            <section data-route="users">
-              <paper-material elevation="1">
-                <h2 class="page-title">Users</h2>
-                <p>This is the users section</p>
-                <a href="/users/Rob">Rob</a>
-              </paper-material>
-            </section>
-
-            <section data-route="user-info">
-              <paper-material elevation="1">
-                <h2 class="page-title">
-                User:<span>{{params.name}}</span>
-                </h2>
-                <div>This is <span>{{params.name}}</span>'s section</div>
-              </paper-material>
-            </section> -->
-
             <section data-route="contact">
               <paper-material elevation="1">
                 <h2 class="page-title">Contact</h2>
@@ -273,106 +194,84 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
               </paper-material>
             </section>
 
+            <!-- Welcome pages -->
+
             <section data-route="welcome-home">
-              <paper-material elvation="1">
-                <h2 class="page-title">Overview</h2>
-                  <img src="images/placenta.png" width="200" style="float:right"></img>
-
-                  <p>The placenta is a unique organ that serves as an interface between a mother and a fetus. The placenta plays an important role in fetal growth and development. Placental vasculature and surrounding tissue support transport of oxygen, glucose and other nutrients from the mother to the fetus. Increasing evidence suggests that modifiable maternal factors, such as obesity, impact placental function and therefore fetal health. This motivates development of technology for in vivo, real time monitoring of placental structure and function.</p>
-
-                  <p>"Monitoring Placental Health in Real Time" is a collaborative research project to developing magnetic resonance imaging (MRI) based techniques for monitoring placental function.</p>
-
-                  </br>
-                  <hr />
-
-                  <h3>Facts about the placenta</h3>
-
-                  <p><b>Weight:</b> the term placenta typically weighs about <b>500g</b> (about 1 pound).</p>
-
-                  <p><b>Size:</b> the human placenta has an average thickness of between <b>2.0-2.5cm</b>, and diameter of <b>22cm</b>. It is just about the size of the human face.</p>
-
-                  <p>The <b>placenta</b> can be thought of as the interface between the maternal and fetal blood systems. The surface area of the placental membrane that acts as this interface has a surface area of about 13 m<sup>2</sup> (about the size of an average parking spot).
-
-                  The placenta is much more than a passive conduct between the mother and the fetus. It provides nutrition to the baby, and functions as its lungs, kidneys and immune system.</p>
-
-                  <p>The National Institute of Child Health and Human Development has recently launched <a href="https://www.nichd.nih.gov/research/HPP/Pages/default.aspx">the Human Placenta Project</a>. The placenta and its relationship to fetal and maternal wellbeing will be much better understood as the project goes.</p>
+              <paper-material elevation="1">
+                <welcome-home></welcome-home>
               </paper-material>
             </section>
-
             <section data-route="welcome-team">
               <paper-material elevation="1">
-                <h2 class="page-title">Projects</h2>
-                <h3>Fetal Motion during typical MRI Scan</h3>
-
-                <p class="p1">Motion due to the mother's breathing, uterus contraction, and fetal movements is one of the main challanges during fetal and placental MRI.</p>
-
-                <div class="mediaContainer"><iframe allowfullscreen="" frameborder="0" src="http://www.youtube.com/embed/RTNtcqH9Y6A?rel=0&amp;autoplay=1"></iframe></div>
-                </br>
-                <hr />
-                
-                <h3>OxyMRI of Placenta</h3>
-
-                <p>MRI can be used to visualize the oxygen transport in placenta in realtime. Here, the maternal oxygen supply was alternated from normal, ambient air (21% O<sub>2</sub>) to a pure oxygen mixture (100% O<sub>2</sub>) and back again to ambient.</p>
-
-                <div class="mediaContainer"><iframe allowfullscreen="" frameborder="0" src="https://www.youtube.com/embed/kLjHlX7txK8?rel=0&amp;autoplay=1" ></iframe></div>
-                </br>
-                <hr />
-
-                <h3>Assessment of Twin Placentas</h3>
-
-                <p>Selective intrauterine growth restriction (sIUGR) in monochorionic twins is associated with a substantial increase in perinatal mortality and morbidity for both twins. Assessment of placental insufficiency, primary cause of sIUGR, currently relies on indirect measures of umbilical artery (UA) Doppler. We hope novel MRI methods will improve the prenatal evaluation of placental function.</p>
-
-		            <p><i>Please note that in the following images anatomy is artifically colored and computer generated.</i></p>
-                
-                <div class="mediaContainer">
-                  <img alt="" height="200" src="https://lh6.googleusercontent.com/-2bJUi__ckCQ/ViAhsXfB8KI/AAAAAAAAAa4/_r9szmyi2uw/w482-h512-no/visual_all4%2Bcrop.png" />
-                  <p>Twin fetuses (one computer generated in red, and one generated in cyan) that share one placenta, and an umbilical cord that runs from the belly of the &quot;red&quot; fetus to the placenta.</p>
-                </div>
-
-                <div class="mediaContainer">
-                  <img alt="" height="200" src="https://lh3.googleusercontent.com/-INIrDZFPPJg/ViAhrzWni7I/AAAAAAAAAa4/5NiSOUReY6U/w486-h506-no/visual_placenta%2Band%2Bcord1%2Bcrop.png"/>
-                 <p>Monochorionic placenta, with two cord insersions. Highlighted regions in the placenta belong&nbsp;to each twin.</p>
-                </div>
-                </br>
-                <hr />
-                
-                <h3>Effect of obesity to the placental transport</h3>
-                
-                <p>Maternal obesity increases risks of maternal complications, prematurity, macrosomia, and more than doubles the rate of stillbirths. Therefore, obesity is in epidemic proportions with a clear negative impact on fetal development. Ultrasound, the current frontline assessment tool, is severely limited in obese mothers. Methods to safely and noninvasively monitor placental health would allow early detection and insight into mechanisms of placental dysfunction in obesity.</p>
-                
-                <p>Our focus in this project will be to improve MRI technology and test its ability to detect differences in placental structure and function in the second trimester in a population of healthy pregnant women and a matched population of obese women.</p>
-                </br>
-                <hr />
-
-                <h3>Novel MRI Methods Development</h3>
-
-                <p>MRI has become a powerful tool to noninvasively assess structure and function in many organ systems, particularly at 3T. However, to date, MRI has not made a significant impact on placental assessment due to major obstacles, primarily complex non-rigid placental motion and magnetic field (B0) inhomogeneities (significant in the abdomen at 3T). To overcome these major obstacles, we propose to improve all components in MRI hardware, MRI acquisition and post-processing methods.</p>
+                <welcome-team></welcome-team>
               </paper-material>
             </section>
 
-            <section data-route="participate">
+            <!-- Adolescents pages -->
+            <section data-route="adolescents-overview">
               <paper-material elevation="1">
-                <h2 class="page-title">Participate</h2>
-                <p>Recruitment process will start soon for each branch of the project.</p>
+                <adolescents-overview></adolescents-overview>
+              </paper-material>
+            </section>
+            <section data-route="adolescents-updates">
+              <paper-material elevation="1">
+                <adolescents-updates></adolescents-updates>
+              </paper-material>
+            </section>
+            <section data-route="adolescents-documents">
+              <paper-material elevation="1">
+                <adolescents-documents></adolescents-documents>
               </paper-material>
             </section>
 
-            <section data-route="sponsors">
+            <!-- adults pages -->
+            <section data-route="adults-overview">
               <paper-material elevation="1">
-                <h2 class="page-title">Sponsors</h2>
-                <p>Our studies are supported by:</p>
-                <ul>
-                  <li>NIH U01 HD087211</li>
-                  <li>NIH R01 EB017337</li>
-                  <li><a href="http://mvisionconsortium.org/">Madrid-MIT M+Vision Consortium</a></li>
-                </ul>
+                <adults-overview></adults-overview>
+              </paper-material>
+            </section>
+            <section data-route="adults-updates">
+              <paper-material elevation="1">
+                <adults-updates></adults-updates>
+              </paper-material>
+            </section>
+            <section data-route="adults-documents">
+              <paper-material elevation="1">
+                <adults-documents></adults-documents>
+              </paper-material>
+            </section>
 
-                <p><u>Related links:</u></p>
+            <!-- genetics pages -->
+            <section data-route="genetics-overview">
+              <paper-material elevation="1">
+                <genetics-overview></genetics-overview>
+              </paper-material>
+            </section>
+            <section data-route="genetics-updates">
+              <paper-material elevation="1">
+                <genetics-updates></genetics-updates>
+              </paper-material>
+            </section>
+            <section data-route="genetics-documents">
+              <paper-material elevation="1">
+                <genetics-documents></genetics-documents>
+              </paper-material>
+            </section>
 
-                <ul>
-                  <li><a href="https://www.nichd.nih.gov/research/HPP/Pages/default.aspx">The Human Placenta Project</a></li>
-                </ul>
-
+            <!-- kisspeptin pages -->
+            <section data-route="kisspeptin-overview">
+              <paper-material elevation="1">
+                <kisspeptin-overview></kisspeptin-overview>
+              </paper-material>
+            </section>
+            <section data-route="kisspeptin-updates">
+              <paper-material elevation="1">
+                <kisspeptin-updates></kisspeptin-updates>
+              </paper-material>
+            </section>
+            <section data-route="kisspeptin-documents">
+              <paper-material elevation="1">
+                <kisspeptin-documents></kisspeptin-documents>
               </paper-material>
             </section>
 

@@ -9,7 +9,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<dom-module id="my-greeting">
+<dom-module id="genetics-documents">
   <template>
     <style include="shared-styles"></style>
     <style>
@@ -17,10 +17,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         display: block;
       }
     </style>
-    <h2 class="page-title"><span>{{greeting}}</span></h2>
-    <span class="paper-font-body2">Update text to change the greeting.</span>
-    <!-- Listens for "input" event and sets greeting to <input>.value -->
-    <input class="paper-font-body2" value="{{greeting::input}}">
+    
+    <h2 class="page-title">Genetics Documents</h2>
+
   </template>
 
   <script>
@@ -28,15 +27,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       'use strict';
       
       Polymer({
-        is: 'my-greeting',
-
-        properties: {
-          greeting: {
-            type: String,
-            value: 'Welcome!',
-            notify: true
-          }
-        }
+        is: 'genetics-documents'
       });
     })();
   </script>

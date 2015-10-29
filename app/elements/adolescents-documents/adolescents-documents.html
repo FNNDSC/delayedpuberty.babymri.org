@@ -9,42 +9,25 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 -->
 <link rel="import" href="../../bower_components/polymer/polymer.html">
 
-<dom-module id="my-list">
+<dom-module id="adolescents-documents">
   <template>
+    <style include="shared-styles"></style>
     <style>
       :host {
         display: block;
       }
     </style>
-    <ul>
-      <template is="dom-repeat" items="{{items}}">
-        <li><span class="paper-font-body1">{{item}}</span></li>
-      </template>
-    </ul>
+    
+    <h2 class="page-title">Adolescents Documents</h2>
+
   </template>
 
   <script>
-    (function () {
+    (function() {
       'use strict';
-
+      
       Polymer({
-        is: 'my-list',
-        properties: {
-          items: {
-            type: Array,
-            notify: true,
-          }
-        },
-        ready: function() {
-          this.items = [
-            'Responsive Web App boilerplate',
-            'Iron Elements and Paper Elements',
-            'End-to-end Build Tooling (including Vulcanize)',
-            'Unit testing with Web Component Tester',
-            'Routing with Page.js',
-            'Offline support with the Platinum Service Worker Elements'
-          ];
-        }
+        is: 'adolescents-documents'
       });
     })();
   </script>

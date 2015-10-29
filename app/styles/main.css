@@ -26,6 +26,15 @@ iframe {
   width: 100%;
 }
 
+.mediaContainer.cover {
+  max-width: 100%;
+  background: no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .mediaContainer > p {
   background: #353535;
   color: #fff;
