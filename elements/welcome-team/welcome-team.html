@@ -32,19 +32,20 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
     .avatar {
       display: inline-block;
-      height: 64px;
-      width: 64px;
+      height: 96px;
+      width: 96px;
       border-radius: 50%;
-      background: var(--paper-pink-500);
       color: white;
-      line-height: 64px;
-      font-size: 30px;
-      text-align: center;
+      line-height: 96px;
+      -webkit-background-size: cover!important;
+      -moz-background-size: cover!important;
+      -o-background-size: cover!important;
+      background-size: cover!important;
     }
     .fancy .title {
       position: absolute;
       top: 30px;
-      left: 100px;
+      left: 120px;
       color: var(--paper-indigo-500);
     }
     .fancy img {
@@ -59,8 +60,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       font-size: 16px;
       padding-bottom: 8px;
     }
-    .pink {
-      --paper-card-header-color: var(--paper-pink-500);
+
+    .card-content.pi{
+      /*background-color: var(--paper-indigo-400);*/
+      /*color: var(--paper-indigo-500);*/
+    }
+    .card-content.rc{
+      /*background-color: var(--paper-blue-400);*/
+      /*color:var(--paper-green-500);*/
+    }
+    .card-content.ra{
+      /*background-color: var(--paper-light-blue-400);*/
+      /*color:var(--paper-amber-500);*/
     }
     </style>
     
@@ -69,9 +80,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <div id="cards">
 
     <paper-card class='fancy'>
-      <div class="card-content">
-        <div class="avatar">
-          <iron-icon icon="face"></iron-icon>
+      <div class="card-content pi">
+        <div class="avatar" style="background: url(../../images/snapshots/256x256/Chan_YeeMing.jpg);">
         </div>
         <div class="title">
           <div class="medium">Yee-Ming Chan MD, PhD</div>
@@ -87,9 +97,26 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </paper-card>
 
     <paper-card class='fancy'>
+      <div class="card-content pi">
+        <div class="avatar" style="background: url(../../images/snapshots/256x256/Chan_YeeMing.jpg);">
+        </div>
+        <div class="title">
+          <div class="medium">Erica Denhoff MA, PhD</div>
+          <div class="small">Project Manager</div>
+        </div>
+      </div>
+
       <div class="card-content">
-        <div class="avatar">
-          <iron-icon icon="face"></iron-icon>
+        <div class="big">Project Manager</div>
+        <div class="medium">&lt;SOME CONTENT&gt;</div>
+        <div class="medium">&lt;SOME CONTENT&gt;</div>
+      </div>
+    </paper-card>
+
+    <paper-card class='fancy'>
+      <div class="card-content rc">
+        <div class="avatar" style="background: url(../../images/snapshots/256x256/Ciarlo_Ryan.jpg);">
+
         </div>
         <div class="title">
           <div class="medium">Ryan Ciarlo, BS</div>
@@ -104,19 +131,67 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </paper-card>
 
     <paper-card class='fancy'>
-      <div class="card-content">
-        <div class="avatar">
-          <iron-icon icon="face"></iron-icon>
+      <div class="card-content rc">
+        <div class="avatar" style="background: url(../../images/snapshots/256x256/Christensen_Sinead.jpg);">
+
         </div>
         <div class="title">
-          <div class="medium">Elfa Jonsdottir-Lewis, BS</div>
-          <div class="small">Research Study Assistant</div>
+          <div class="medium">Sinead Christensen BS, MPH</div>
+          <div class="small">Clinical Research Coordinator</div>
         </div>
       </div>
 
       <div class="card-content">
-        <div class="big">Research Study Assistant</div>
-        <div class="medium">Research Study Assistant, Division of Endocrinology, Boston Children's Hospital</div>
+        <div class="big">Clinical Research Coordinator</div>
+        <div class="medium">Clinical Research Coordinator, Division of Endocrinology, Boston Children's Hospital</div>
+      </div>
+    </paper-card>
+
+    <paper-card class='fancy'>
+      <div class="card-content ra">
+        <div class="avatar" style="background: url(../../images/snapshots/256x256/Jonsdottir-Lewis_Elfa.jpg);">
+        </div>
+        <div class="title">
+          <div class="medium">Elfa Jonsdottir-Lewis, BS</div>
+          <div class="small">Research Assistant</div>
+        </div>
+      </div>
+
+      <div class="card-content">
+        <div class="big">Research Assistant</div>
+        <div class="medium">Research Assistant, Division of Endocrinology, Boston Children's Hospital</div>
+      </div>
+    </paper-card>
+
+    <paper-card class='fancy'>
+      <div class="card-content ra">
+        <div class="avatar" style="background: url(../../images/snapshots/256x256/Morampalli_Bhargava.jpg);">
+        </div>
+        <div class="title">
+          <div class="medium">Bhargava Reddy Morampalli BS, MS</div>
+          <div class="small">Research Assistant</div>
+        </div>
+      </div>
+
+      <div class="card-content">
+        <div class="big">Research Assistant</div>
+        <div class="medium">Research Assistant, Division of Endocrinology, Boston Children's Hospital</div>
+      </div>
+    </paper-card>
+
+    <paper-card class='fancy'>
+      <div class="card-content ra">
+        <div class="avatar" style="background: url(../../images/snapshots/256x256/McLaughlin_Kara.jpg);">
+        </div>
+        <div class="title">
+          <div class="medium">Kara McLaughlin BS</div>
+          <div class="small">Research Assistant</div>
+        </div>
+      </div>
+
+      <div class="card-content">
+        <div class="big">Research Assistant</div>
+        <div class="medium">Research Assistant, Division of Endocrinology, Boston Children's Hospital</div>
       </div>
     </paper-card>
 
