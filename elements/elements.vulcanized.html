@@ -19318,30 +19318,101 @@ module.exports = Array.isArray || function (arr) {
       :host {
         display: block;
       }
+
+      .big {
+        font-size: 22px;
+        padding: 8px 0 16px;
+      }
+
+      .note{
+        width: 100%;
+        /*max-width: 400px;*/
+        margin-bottom: 16px;
+        margin-top: 16px;
+        padding: 10px;
+      }
+
+      .mediaContainerMax{
+        max-width: 400px!important;
+        margin:0;
+      }
+
+      .fact{
+        max-width: 400px!important;
+        color: var(--paper-indigo-500);
+        /*background-color: var(--paper-pink-500);*/
+      }
+
+      .help{
+        font-size: 20px;
+        color: var(--paper-grey-800);
+        background-color: var(--paper-amber-500);
+      }
+
+      .layout {
+        @apply(--layout-horizontal);
+        @apply(--layout-around-justified);
+        @apply(--layout-wrap);
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .comment{
+        font-size: 18px;
+        color: var(--google-grey-700);
+      }
     </style>
     
-    <h2 class="page-title">Delayed Puberty Research at Boston Children's Hospital</h2>
+    <div class="big">Welcome to the website for Boston Children’s Hospital’s research studies on delayed puberty!</div>
 
+    <p>
+      <iron-icon icon="icons:chevron-right"></iron-icon>
+      We are delighted that you are interested in learning more about our research studies.
+    </p>
 
-    <p>Welcome to the website for Boston Children’s Hospital’s research studies on delayed puberty! We are delighted that you are interested in learning more about our research studies. We want to find out more about how and why children may experience puberty differently – and we need your help!</p>
+    <p>
+      <iron-icon icon="icons:chevron-right"></iron-icon>
+      We want to find out more about how and why children may experience puberty differently <b>– and we need your help!</b>
+    </p>
+    <br>
+    <br>
 
+    <div class="layout">
+      <div class="mediaContainer mediaContainerMax" style="background-color:#FFF">
+        <img alt="" height="200" src="http://googledrive.com/host/0B0vuhr-TAt-MflgzckhyWUNvRmhnSHRUSmhsY25uX090U2NRWkhLenoxcmpOZS1CYTZiRzA/razor.jpg">
+      </div>
 
+      <paper-material elevation="1" class="note fact">
+        <div>
+          <iron-icon icon="icons:help-outline" style="float:right"></iron-icon>
+          Did you know?
+        </div>
+        <br>
 
-    <br><hr>
+        <div>Delayed puberty is a common problem that affects approximately 2% of adolescents.</div>
+        <br>
 
-    <p>Delayed puberty is a common problem that affects approximately 2% of adolescents. Even though delayed puberty is such a common issue, we don’t know why it happens or if it can lead to long-term problems.</p>
+        <div>Even though delayed puberty is such a common issue, we don’t know why it happens or if it can lead to long-term problems.</div>
+      </paper-material>
 
-    <div class="mediaContainer" style="background-color:#FFF">
-      <img alt="" height="200" src="http://googledrive.com/host/0B0vuhr-TAt-MflgzckhyWUNvRmhnSHRUSmhsY25uX090U2NRWkhLenoxcmpOZS1CYTZiRzA/razor.jpg">
     </div>
 
-    <p>We want to hear from people of all ages who are either currently experiencing delayed puberty or have a history of puberty that started later than normal.</p>
+    <div class="layout">
+      <paper-material elevation="1" class="note help">
+        <div>
+          <iron-icon icon="icons:favorite-border" style="float:right"></iron-icon>
+          We need your help!
+        </div>
+        <br>
 
-    <p>This website will help you learn more about our research studies. For information about each of our studies, click the name of the study on the left side of the page. To learn more about who we are, click on "Research Team" on the left side of the page.</p>
+        <div>We want to hear from people of all ages who are either currently experiencing delayed puberty or have a history of puberty that started later than normal.</div>
+        <br>
 
-    <br><hr>
-
-    <p>It is important for you to know that it is entirely up to you to decide if you want to take part our research studies. You may choose to take part in all of them, some of them, or none of them. Choosing to take part or not will not affect how you are treated at Boston Children’s Hospital or Massachusetts General Hospital in any way.</p>
+        <div>
+          <i class="comment">It is important for you to know that it is entirely up to you to decide if you want to take part our research studies. You may choose to take part in all of them, some of them, or none of them. Choosing to take part or not will not affect how you are treated at Boston Children’s Hospital or Massachusetts General Hospital in any way.</i>
+        </div>
+      </paper-material>
+    </div>
 
     <div class="mediaContainer cover" style="background: url(&quot;http://googledrive.com/host/0B0vuhr-TAt-MflgzckhyWUNvRmhnSHRUSmhsY25uX090U2NRWkhLenoxcmpOZS1CYTZiRzA/pituitaryhistology.jpg&quot;);">
       <img height="400">
@@ -19483,6 +19554,38 @@ module.exports = Array.isArray || function (arr) {
     </paper-card>
 
     <paper-card class="fancy">
+      <div class="card-content ra">
+        <div class="avatar" style="background: url(&quot;../images/snapshots/256x256/Jonsdottir-Lewis_Elfa.jpg&quot;);">
+        </div>
+        <div class="title">
+          <div class="medium">Elfa Jonsdottir-Lewis, BS</div>
+          <div class="small">Research Assistant</div>
+        </div>
+      </div>
+
+      <div class="card-content">
+        <div class="big">Research Assistant</div>
+        <div class="medium">Research Assistant, Division of Endocrinology, Boston Children's Hospital</div>
+      </div>
+    </paper-card>
+
+    <paper-card class="fancy">
+      <div class="card-content ra">
+        <div class="avatar" style="background: url(&quot;../images/snapshots/256x256/McLaughlin_Kara.jpg&quot;);">
+        </div>
+        <div class="title">
+          <div class="medium">Kara McLaughlin BS</div>
+          <div class="small">Research Assistant</div>
+        </div>
+      </div>
+
+      <div class="card-content">
+        <div class="big">Research Assistant</div>
+        <div class="medium">Research Assistant, Division of Endocrinology, Boston Children's Hospital</div>
+      </div>
+    </paper-card>
+
+    <paper-card class="fancy">
       <div class="card-content rc">
         <div class="avatar" style="background: url(&quot;../images/snapshots/256x256/Christensen_Sinead.jpg&quot;);">
 
@@ -19501,42 +19604,10 @@ module.exports = Array.isArray || function (arr) {
 
     <paper-card class="fancy">
       <div class="card-content ra">
-        <div class="avatar" style="background: url(&quot;../images/snapshots/256x256/Jonsdottir-Lewis_Elfa.jpg&quot;);">
-        </div>
-        <div class="title">
-          <div class="medium">Elfa Jonsdottir-Lewis, BS</div>
-          <div class="small">Research Assistant</div>
-        </div>
-      </div>
-
-      <div class="card-content">
-        <div class="big">Research Assistant</div>
-        <div class="medium">Research Assistant, Division of Endocrinology, Boston Children's Hospital</div>
-      </div>
-    </paper-card>
-
-    <paper-card class="fancy">
-      <div class="card-content ra">
         <div class="avatar" style="background: url(&quot;../images/snapshots/256x256/Morampalli_Bhargava.jpg&quot;);">
         </div>
         <div class="title">
           <div class="medium">Bhargava Reddy Morampalli BS, MS</div>
-          <div class="small">Research Assistant</div>
-        </div>
-      </div>
-
-      <div class="card-content">
-        <div class="big">Research Assistant</div>
-        <div class="medium">Research Assistant, Division of Endocrinology, Boston Children's Hospital</div>
-      </div>
-    </paper-card>
-
-    <paper-card class="fancy">
-      <div class="card-content ra">
-        <div class="avatar" style="background: url(&quot;../images/snapshots/256x256/McLaughlin_Kara.jpg&quot;);">
-        </div>
-        <div class="title">
-          <div class="medium">Kara McLaughlin BS</div>
           <div class="small">Research Assistant</div>
         </div>
       </div>
@@ -19653,31 +19724,31 @@ module.exports = Array.isArray || function (arr) {
     <h3>What is the purpose of this research study?</h3>
     <p>The purpose of this research is to study the physical and emotional effects that delayed puberty can have on adolescents.</p>
 
-    <br><hr>
+    <br>
 
     <h3>Who can take part in this study?</h3>
     <p>We are looking for boys between the ages of 13 ½ and 18 years and girls between the ages of 12 and 18 years whose puberty has not started yet.</p>
 
-    <br><hr>
+    <br>
 
     <h3>What would I have to do to be part of this study?</h3>
     <p>You will come to Boston Children’s Hospital for study visits every 6 months until you turn 18. At each of these visits, a doctor will examine your body, ask you and your parents some questions that ask about your physical and mental health, and perform some blood tests.</p>
     <p>At every other visit (once a year), we will take 3 types of X-ray pictures of your body.</p>
     <p>When you turn 18, you will be invited to continue with the adult version of this study. More information on the adult study can be found by clicking “Effects of Delayed Puberty – Adults” on the left side of this page.</p>
 
-    <br><hr>
+    <br>
 
     <h3>What are some of the risks of being part of this research study? </h3>
     <p>You may feel uncomfortable or embarrassed when the doctor performs the physical exam or asks you questions about your health.</p>
     <p>Your participation in this research study includes the use of scans that use radiation. The amount of radiation used for the scans is well below the levels that are thought to cause harm.</p>
     <p>There are also some risks that come with the blood draws that we do in this research study. You might experience some minor discomfort or bruising when we draw blood. Some people faint when they get blood drawn. There is also a small chance that the blood draw site may get infected.</p>
 
-    <br><hr>
+    <br>
 
     <h3>Are there any benefits for me if I take part in this study?</h3>
     <p>Being in this research may not help you right now.  We hope that the research will teach us more about delayed puberty.  This may help other children with delayed puberty in the future.</p>
 
-    <br><hr>
+    <br>
 
     <h3>Will I get paid for taking part in this study?</h3>
     <p>You will be paid $100 for every study visit that you complete. While you are at the hospital for your study visits, you and one parent will receive a meal voucher for the hospital cafeteria. Parents will receive a $20 token of appreciation after each study visit and will be reimbursed for travel and parking costs.</p>
@@ -19785,8 +19856,6 @@ module.exports = Array.isArray || function (arr) {
       }
 
     </style>
-    
-    <h2 class="page-title">Documents</h2>
 
     <div class="forms">
       <div class="header row" style="background-color: #ffffff;">
@@ -19794,33 +19863,13 @@ module.exports = Array.isArray || function (arr) {
         <div class="description">Description</div>
       </div>
 
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
+      <a class="link row" href="http://googledrive.com/host/0B0vuhr-TAt-McXpaeW5oSlMzMlk/Adolescent Consent Form_DelayedPuberty.pdf" download="">
+        <div class="name">Research Consent Form</div>
         <div class="description">some more information</div>
       </a>
 
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
-        <div class="description">some more information</div>
-      </a>
-
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
-        <div class="description">some more information</div>
-      </a>
-
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
-        <div class="description">some more information</div>
-      </a>
-
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
-        <div class="description">some more information</div>
-      </a>
-
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
+      <a class="link row" href="http://googledrive.com/host/0B0vuhr-TAt-McXpaeW5oSlMzMlk/Adolescent_Information Sheet for Parents_DelayedPuberty.pdf" download="">
+        <div class="name">Information for parents</div>
         <div class="description">some more information</div>
       </a>
 
@@ -19853,30 +19902,30 @@ module.exports = Array.isArray || function (arr) {
     <h3>What is the purpose of this research study?</h3>
     <p>The purpose of this research is to study the physical and emotional effects that delayed puberty can have on adolescents.</p>
 
-    <br><hr>
+    <br>
 
     <h3>Who can take part in this study?</h3>
     <p>We are looking for men and women over the age of 18 years whose puberty started later than average. For men, this means that puberty must have started after age 13 ½ years. For women, this means that puberty must have started after age 12 years.</p>
 
-    <br><hr>
+    <br>
 
     <h3>What would I have to do to be part of this study?</h3>
     <p>This study involves two parts. Part 1 is an online survey that you can complete at home that takes approximately 1 hour. To access this survey, please contact one of our research coordinators, Elfa or Ryan, by clicking on “Research Team” under the “Welcome” tab on the left side of this page.</p>
     <p>At the end of the survey, you will be invited to participate in Part 2. Part 2 involves one in-person study visit at Boston Children’s Hospital. At this visit, a doctor will examine your body, ask you about your physical and mental health, and perform some blood tests. We will take 3 types of X-ray pictures of your body. Additionally, men who participate in Part 2 of the study may also choose to give a semen sample.</p>
 
-    <br><hr>
+    <br>
 
     <h3>What are some of the risks of being part of this research study? </h3>
     <p>You may feel uncomfortable or embarrassed when the doctor performs the physical exam or asks you questions about your health.</p>
     <p>Your participation in this research study includes the use of scans that use radiation. The amount of radiation used for the scans is well below the levels that are thought to cause harm.</p>
     <p>There are also some risks that come with the blood draws that we do in this research study. You might experience some minor discomfort or bruising when we draw blood. Some people faint when they get blood drawn. There is also a small chance that the blood draw site may get infected.</p>
 
-    <br><hr>
+    <br>
 
     <h3>Are there any benefits for me if I take part in this study?</h3>
     <p>Being in this research may not help you right now.  We hope that the research will teach us more about delayed puberty.  This may help other children with delayed puberty in the future.</p>
 
-    <br><hr>
+    <br>
 
     <h3>Will I get paid for taking part in this study?</h3>
     <p>You will be paid $100 for every study visit that you complete. You will also receive a meal voucher for the hospital cafeteria, and you will be reimbursed for travel and parking costs. Men who choose to give a semen sample will be compensated with an additional $100.</p>
@@ -19985,41 +20034,14 @@ module.exports = Array.isArray || function (arr) {
 
     </style>
     
-    <h2 class="page-title">Documents</h2>
-
     <div class="forms">
       <div class="header row" style="background-color: #ffffff;">
         <div class="name">Name</div>
         <div class="description">Description</div>
       </div>
 
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
-        <div class="description">some more information</div>
-      </a>
-
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
-        <div class="description">some more information</div>
-      </a>
-
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
-        <div class="description">some more information</div>
-      </a>
-
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
-        <div class="description">some more information</div>
-      </a>
-
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
-        <div class="description">some more information</div>
-      </a>
-
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
+      <a class="link row" href="http://googledrive.com/host/0B0vuhr-TAt-MV1N0ZmJvRUhETkk/Adult Consent Form_DelayedPuberty.pdf" download="">
+        <div class="name">Research Consent form</div>
         <div class="description">some more information</div>
       </a>
 
@@ -20052,28 +20074,28 @@ module.exports = Array.isArray || function (arr) {
     <h3>What is the purpose of this research study?</h3>
     <p>The purpose of this research is to find the causes of delayed puberty.</p>
 
-    <br><hr>
+    <br>
 
     <h3>Who can take part in this study?</h3>
     <p>We are looking for men and boys over the age of 13 ½ years and women and girls over the age of 12 years whose puberty started later than average. For boys, this means that puberty must have started after age 13 ½ years. For girls, this means that puberty must have started after age 12 years.</p>
 
-    <br><hr>
+    <br>
 
     <h3>What would I have to do to be part of this study?</h3>
     <p>This research study involves one in-person study visit at Boston Children’s Hospital. At this visit, we will ask you about your physical and mental health, draw a small amount of blood, and give you a scratch-and-sniff smell test.</p>
 
-    <br><hr>
+    <br>
 
     <h3>What are some of the risks of being part of this research study? </h3>
     <p>You may feel uncomfortable or embarrassed when the doctor performs the physical exam or asks you questions about your health.</p>
     <p>There are also some risks that come with the blood draws that we do in this research study. You might experience some minor discomfort or bruising when we draw blood. Some people faint when they get blood drawn. There is also a small chance that the blood draw site may get infected.</p>
 
-    <br><hr>
+    <br>
 
     <h3>Are there any benefits for me if I take part in this study?</h3>
     <p>Being in this research may not help you right now.  We hope that the research will teach us more about delayed puberty.  This may help other people with delayed puberty in the future.  </p>
 
-    <br><hr>
+    <br>
 
     <h3>Will I get paid for taking part in this study?</h3>
     <p>If you drive to your study visit, we will give you a voucher to cover the cost of parking. If you take public transportation to your study visit, we will reimburse you for the cost of public transportation.</p>
@@ -20182,41 +20204,19 @@ module.exports = Array.isArray || function (arr) {
 
     </style>
     
-    <h2 class="page-title">Documents</h2>
-
     <div class="forms">
       <div class="header row" style="background-color: #ffffff;">
         <div class="name">Name</div>
         <div class="description">Description</div>
       </div>
 
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
+      <a class="link row" href="http://googledrive.com/host/0B0vuhr-TAt-MZ3ZkX3dfMk9jdk0/Genetics_Consent Form_DelayedPuberty.pdf" download="">
+        <div class="name">Research Consent Form</div>
         <div class="description">some more information</div>
       </a>
 
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
-        <div class="description">some more information</div>
-      </a>
-
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
-        <div class="description">some more information</div>
-      </a>
-
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
-        <div class="description">some more information</div>
-      </a>
-
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
-        <div class="description">some more information</div>
-      </a>
-
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
+      <a class="link row" href="http://googledrive.com/host/0B0vuhr-TAt-MZ3ZkX3dfMk9jdk0/Genetics_Assent Form_DelayedPuberty.pdf" download="">
+        <div class="name">Research Assent Form</div>
         <div class="description">some more information</div>
       </a>
 
@@ -20255,12 +20255,12 @@ module.exports = Array.isArray || function (arr) {
     <p>The purpose of this research is to develop a new test to help doctors tell whether a person will eventually enter puberty even if they haven’t started puberty yet. This test uses kisspeptin, a recently discovered hormone (a chemical naturally produced by the body).</p>
     <p>Right now, doctors cannot tell if someone who has not started puberty yet will eventually start puberty in the future. In this research study, we are testing a new blood test that may allow doctors to test children with delayed puberty to see whether they will eventually start puberty or not. Kisspeptin tells the body to make other puberty hormones, so by giving kisspeptin to children with delayed puberty, we hope to find out if the body is able to make these puberty hormones.</p>
 
-    <br><hr>
+    <br>
 
     <h3>Who can take part in this study?</h3>
     <p>We are looking for boys between the ages of 13 ½ and 18 and girls between the ages of 12 and 18 who have not started puberty yet.</p>
 
-    <br><hr>
+    <br>
 
     <h3>What would I have to do to be part of this study?</h3>
     <p>If you take part in this study, you will come for four visits at Massachusetts General Hospital in Boston, MA. One of the visits is an overnight stay, and at two of the visits we will give you two hormones (kisspeptin and GnRH) to see how your body responds to these hormones. An outline of what happens at each study visit is below. More details on these visits can be found in the consent form located in the “Documents” section on the left side of this page.</p>
@@ -20272,7 +20272,7 @@ module.exports = Array.isArray || function (arr) {
     <p><b>Follow-up Visits:</b> After these first four visits, you will return for follow-up visits every six months until you turn 18 years old to see how your puberty is progressing. </p>
     <p>If your family lives in New England, all of the study visits will take place at Massachusetts General Hospital. We will pay for all your parking costs for the study visits.  If your family lives outside New England, we will plan Visits 1 and 4 and follow-up visits to be done closer to home. Visits 2 and 3 must be done at Massachusetts General Hospital. We can help to pay for travel and lodging expenses for families coming to Massachusetts General Hospital from outside New England.</p>
 
-    <br><hr>
+    <br>
 
     <h3>What are some of the risks of being part of this research study? </h3>
     <p>Some of the potential risks of the study come from the hormones we give: kisspeptin and GnRH. </p>
@@ -20280,12 +20280,12 @@ module.exports = Array.isArray || function (arr) {
     <p>GnRH is also naturally made by the body. The GnRH we give is also made in a lab and is not taken from humans or other animals. GnRH has been given to thousands of adults and children for over 30 years without any complications.</p>
     <p>There are also some risks that come with the blood draws that we do in this research study. You might experience some minor discomfort or bruising when we draw blood. Some people faint when they get blood drawn. There is also a small chance that the blood draw site may get infected. Some people feel tired the day after taking part in the study.</p>
 
-    <br><hr>
+    <br>
 
     <h3>Are there any benefits for me if I take part in this study?</h3>
     <p>The blood tests in this research study may show that you are actually in very early puberty even though it may you look like you haven’t entered puberty yet. We will share the information we get from our testing with you and your doctors to help make decisions about your care. </p>
 
-    <br><hr>
+    <br>
 
     <h3>Will I get paid for taking part in this study?</h3>
     <p>People who complete the entire study will receive $600 for their time.</p>
@@ -20394,41 +20394,24 @@ module.exports = Array.isArray || function (arr) {
 
     </style>
     
-    <h2 class="page-title">Documents</h2>
-
     <div class="forms">
       <div class="header row" style="background-color: #ffffff;">
         <div class="name">Name</div>
         <div class="description">Description</div>
       </div>
 
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
+      <a class="link row" href="http://googledrive.com/host/0B0vuhr-TAt-MSTNWTThySUJaWTQ/Patient brochure (trifold) CLEAN 2014 10 30.doc" download="">
+        <div class="name">Patient Brochure</div>
         <div class="description">some more information</div>
       </a>
 
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
+      <a class="link row" href="http://googledrive.com/host/0B0vuhr-TAt-MSTNWTThySUJaWTQ/Consent Form CLEAN 2014 12 06.doc" download="">
+        <div class="name">Research Constent Form</div>
         <div class="description">some more information</div>
       </a>
 
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
-        <div class="description">some more information</div>
-      </a>
-
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
-        <div class="description">some more information</div>
-      </a>
-
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
-        <div class="description">some more information</div>
-      </a>
-
-      <a class="link row" href="http://googledrive.com/host/0B8u7h0aKnydhcEt2VVVneEtuZ2M/test1.jpg" download="">
-        <div class="name">test doc</div>
+      <a class="link row" href="http://googledrive.com/host/0B0vuhr-TAt-MSTNWTThySUJaWTQ/Assent Form CLEAN 2014 10 30.doc" download="">
+        <div class="name">Research Assent Form</div>
         <div class="description">some more information</div>
       </a>
 
