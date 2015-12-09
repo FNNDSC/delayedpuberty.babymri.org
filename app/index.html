@@ -94,12 +94,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <paper-submenu>
             <paper-item class="menu-trigger">
-              <iron-icon icon="done"></iron-icon>
+              <iron-icon icon="icons:android"></iron-icon>
               <span>Adolescents</span>
             </paper-item>
             <paper-menu class="menu-content sublist">
               <a data-route="adolescents-overview" href="/adolescents-overview" on-click="onDataRouteClick">
-                <paper-item>Overview</paper-item>
+                <paper-item>About this study</paper-item>
               </a>
               <a data-route="adolescents-updates" href="/adolescents-updates" on-click="onDataRouteClick">
                 <paper-item>Updates</paper-item>
@@ -112,12 +112,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <paper-submenu>
             <paper-item class="menu-trigger">
-              <iron-icon icon="done-all"></iron-icon>
+              <iron-icon icon="icons:face"></iron-icon>
               <span>Adults</span>
             </paper-item>
             <paper-menu class="menu-content sublist">
               <a data-route="adults-overview" href="/adults-overview" on-click="onDataRouteClick">
-                <paper-item>Overview</paper-item>
+                <paper-item>About this study</paper-item>
               </a>
               <a data-route="adults-updates" href="/adults-updates" on-click="onDataRouteClick">
                 <paper-item>Updates</paper-item>
@@ -135,7 +135,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             </paper-item>
             <paper-menu class="menu-content sublist">
               <a data-route="genetics-overview" href="/genetics-overview" on-click="onDataRouteClick">
-                <paper-item>Overview</paper-item>
+                <paper-item>About this study</paper-item>
               </a>
               <a data-route="genetics-updates" href="/genetics-updates" on-click="onDataRouteClick">
                 <paper-item>Updates</paper-item>
@@ -148,12 +148,12 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <paper-submenu>
             <paper-item class="menu-trigger">
-              <iron-icon icon="book"></iron-icon>
+              <iron-icon icon="icons:gesture"></iron-icon>
               <span>Kisspeptin</span>
             </paper-item>
             <paper-menu class="menu-content sublist">
               <a data-route="kisspeptin-overview" href="/kisspeptin-overview" on-click="onDataRouteClick">
-                <paper-item>Overview</paper-item>
+                <paper-item>About this study</paper-item>
               </a>
               <a data-route="kisspeptin-updates" href="/kisspeptin-updates" on-click="onDataRouteClick">
                 <paper-item>Updates</paper-item>
@@ -181,7 +181,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <!-- Application sub title -->
           <div class="bottom bottom-container center horizontal layout">
-            <div class="bottom-title paper-font-subhead">by FNNDSC</div>
+            <div class="bottom-title paper-font-subhead">at Boston Children's Hospital</div>
           </div>
 
         </paper-toolbar>
@@ -200,87 +200,57 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             <!-- Welcome pages -->
 
             <section data-route="welcome-home">
-              <paper-material elevation="1">
-                <welcome-home></welcome-home>
-              </paper-material>
+              <welcome-home></welcome-home>
             </section>
             <section data-route="welcome-team">
-              <paper-material elevation="1">
-                <welcome-team></welcome-team>
-              </paper-material>
+              <welcome-team></welcome-team>
             </section>
             <section data-route="welcome-contact">
-              <paper-material elevation="1">
-                <welcome-contact></welcome-contact>
-              </paper-material>
+              <welcome-contact></welcome-contact>
             </section>
 
             <!-- Adolescents pages -->
             <section data-route="adolescents-overview">
-              <paper-material elevation="1">
-                <adolescents-overview></adolescents-overview>
-              </paper-material>
+              <adolescents-overview></adolescents-overview>
             </section>
             <section data-route="adolescents-updates">
-              <paper-material elevation="1">
-                <adolescents-updates></adolescents-updates>
-              </paper-material>
+              <adolescents-updates></adolescents-updates>
             </section>
             <section data-route="adolescents-documents">
-              <paper-material elevation="1">
-                <adolescents-documents></adolescents-documents>
-              </paper-material>
+              <adolescents-documents></adolescents-documents>
             </section>
 
             <!-- adults pages -->
             <section data-route="adults-overview">
-              <paper-material elevation="1">
-                <adults-overview></adults-overview>
-              </paper-material>
+              <adults-overview></adults-overview>
             </section>
             <section data-route="adults-updates">
-              <paper-material elevation="1">
-                <adults-updates></adults-updates>
-              </paper-material>
+              <adults-updates></adults-updates>
             </section>
             <section data-route="adults-documents">
-              <paper-material elevation="1">
-                <adults-documents></adults-documents>
-              </paper-material>
+              <adults-documents></adults-documents>
             </section>
 
             <!-- genetics pages -->
             <section data-route="genetics-overview">
-              <paper-material elevation="1">
-                <genetics-overview></genetics-overview>
-              </paper-material>
+              <genetics-overview></genetics-overview>
             </section>
             <section data-route="genetics-updates">
-              <paper-material elevation="1">
-                <genetics-updates></genetics-updates>
-              </paper-material>
+              <genetics-updates></genetics-updates>
             </section>
             <section data-route="genetics-documents">
-              <paper-material elevation="1">
-                <genetics-documents></genetics-documents>
-              </paper-material>
+              <genetics-documents></genetics-documents>
             </section>
 
             <!-- kisspeptin pages -->
             <section data-route="kisspeptin-overview">
-              <paper-material elevation="1">
-                <kisspeptin-overview></kisspeptin-overview>
-              </paper-material>
+              <kisspeptin-overview></kisspeptin-overview>
             </section>
             <section data-route="kisspeptin-updates">
-              <paper-material elevation="1">
-                <kisspeptin-updates></kisspeptin-updates>
-              </paper-material>
+              <kisspeptin-updates></kisspeptin-updates>
             </section>
             <section data-route="kisspeptin-documents">
-              <paper-material elevation="1">
-                <kisspeptin-documents></kisspeptin-documents>
-              </paper-material>
+              <kisspeptin-documents></kisspeptin-documents>
             </section>
 
           </iron-pages>

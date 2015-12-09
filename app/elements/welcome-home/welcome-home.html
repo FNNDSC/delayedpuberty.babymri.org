@@ -16,30 +16,101 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       :host {
         display: block;
       }
+
+      .big {
+        font-size: 22px;
+        padding: 8px 0 16px;
+      }
+
+      .note{
+        width: 100%;
+        /*max-width: 400px;*/
+        margin-bottom: 16px;
+        margin-top: 16px;
+        padding: 10px;
+      }
+
+      .mediaContainerMax{
+        max-width: 400px!important;
+        margin:0;
+      }
+
+      .fact{
+        max-width: 400px!important;
+        color: var(--paper-indigo-500);
+        /*background-color: var(--paper-pink-500);*/
+      }
+
+      .help{
+        font-size: 20px;
+        color: var(--paper-grey-800);
+        background-color: var(--paper-amber-500);
+      }
+
+      .layout {
+        @apply(--layout-horizontal);
+        @apply(--layout-around-justified);
+        @apply(--layout-wrap);
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .comment{
+        font-size: 18px;
+        color: var(--google-grey-700);
+      }
     </style>
     
-    <h2 class="page-title">Delayed Puberty Research at Boston Children's Hospital</h2>
-<!--     <img src="http://googledrive.com/host/0B0vuhr-TAt-MflgzckhyWUNvRmhnSHRUSmhsY25uX090U2NRWkhLenoxcmpOZS1CYTZiRzA/razor.jpg" style="float:right; margin: 10px; width: 100%; max-width: 300px;"></img> -->
+    <div class="big">Welcome to the website for Boston Children’s Hospital’s research studies on delayed puberty!</div>
 
-    <p>Welcome to the website for Boston Children’s Hospital’s research studies on delayed puberty! We are delighted that you are interested in learning more about our research studies. We want to find out more about how and why children may experience puberty differently – and we need your help!</p>
+    <p>
+      <iron-icon icon="icons:chevron-right"></iron-icon>
+      We are delighted that you are interested in learning more about our research studies.
+    </p>
 
+    <p>
+      <iron-icon icon="icons:chevron-right"></iron-icon>
+      We want to find out more about how and why children may experience puberty differently <b>– and we need your help!</b>
+    </p>
+    <br/>
+    <br/>
 
+    <div class="layout">
+      <div class="mediaContainer mediaContainerMax" style="background-color:#FFF">
+        <img alt="" height="200" src="http://googledrive.com/host/0B0vuhr-TAt-MflgzckhyWUNvRmhnSHRUSmhsY25uX090U2NRWkhLenoxcmpOZS1CYTZiRzA/razor.jpg"/>
+      </div>
 
-    </br><hr/>
+      <paper-material elevation="1" class="note fact">
+        <div>
+          <iron-icon icon="icons:help-outline" style="float:right"></iron-icon>
+          Did you know?
+        </div>
+        <br/>
 
-    <p>Delayed puberty is a common problem that affects approximately 2% of adolescents. Even though delayed puberty is such a common issue, we don’t know why it happens or if it can lead to long-term problems.</p>
+        <div>Delayed puberty is a common problem that affects approximately 2% of adolescents.</div>
+        <br/>
 
-    <div class="mediaContainer" style="background-color:#FFF">
-      <img alt="" height="200" src="http://googledrive.com/host/0B0vuhr-TAt-MflgzckhyWUNvRmhnSHRUSmhsY25uX090U2NRWkhLenoxcmpOZS1CYTZiRzA/razor.jpg"/>
+        <div>Even though delayed puberty is such a common issue, we don’t know why it happens or if it can lead to long-term problems.</div>
+      </paper-material>
+
     </div>
 
-    <p>We want to hear from people of all ages who are either currently experiencing delayed puberty or have a history of puberty that started later than normal.</p>
+    <div class="layout">
+      <paper-material elevation="1" class="note help">
+        <div>
+          <iron-icon icon="icons:favorite-border" style="float:right"></iron-icon>
+          We need your help!
+        </div>
+        <br/>
 
-    <p>This website will help you learn more about our research studies. For information about each of our studies, click the name of the study on the left side of the page. To learn more about who we are, click on "Research Team" on the left side of the page.</p>
+        <div>We want to hear from people of all ages who are either currently experiencing delayed puberty or have a history of puberty that started later than normal.</div>
+        </br>
 
-    </br><hr/>
-
-    <p>It is important for you to know that it is entirely up to you to decide if you want to take part our research studies. You may choose to take part in all of them, some of them, or none of them. Choosing to take part or not will not affect how you are treated at Boston Children’s Hospital or Massachusetts General Hospital in any way.</p>
+        <div>
+          <i class="comment">It is important for you to know that it is entirely up to you to decide if you want to take part our research studies. You may choose to take part in all of them, some of them, or none of them. Choosing to take part or not will not affect how you are treated at Boston Children’s Hospital or Massachusetts General Hospital in any way.</i>
+        </div>
+      </paper-material>
+    </div>
 
     <div class="mediaContainer cover" style="background: url(http://googledrive.com/host/0B0vuhr-TAt-MflgzckhyWUNvRmhnSHRUSmhsY25uX090U2NRWkhLenoxcmpOZS1CYTZiRzA/pituitaryhistology.jpg);">
       <img height="400"></img>
